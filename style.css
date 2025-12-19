@@ -127,45 +127,45 @@ body {
 .fleet-card p { margin: 0 0 0.75rem; color: var(--text-light); }
 
 /* ===== HEADER ===== */
-.navbar {
+#header .navbar {
   background-color: var(--navy);
   color: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 2rem;   /* bigger header spacing */
+  padding: 1.5rem 2rem;   /* bigger header spacing */
 }
 
-.navbar .logo img {
-  height: 48px;  /* bigger logo */
+#header .logo img {
+  height: 60px;  /* bigger logo */
 }
 
 /* ===== FOOTER ===== */
-footer {
+#footer footer {
   background-color: var(--navy);
   color: var(--white);
   text-align: center;
-  padding: 0.75rem 1rem;   /* reduced footer spacing */
+  padding: 0.5rem 1rem;   /* reduced footer spacing */
   font-size: 0.85rem;
 }
 
-.social-links {
-  margin-top: 0.5rem;
+#footer .social-links {
+  margin-top: 0.25rem;
 }
 
-.social-links a {
+#footer .social-links a {
   display: inline-block;
   margin: 0 0.5rem;
 }
 
-.social-links img {
-  height: 28px;   /* compact icons */
-  width: 28px;
+#footer .social-links img {
+  height: 24px;   /* smaller icons */
+  width: 24px;
   object-fit: contain;
   transition: transform 0.2s ease;
 }
 
-.social-links img:hover {
+#footer .social-links img:hover {
   transform: scale(1.2);
 }
 /* Responsive tweak */
@@ -173,3 +173,4 @@ footer {
   .nav-links { gap: 0.75rem; }
   .hero h1 { font-size: 2rem; }
 }
+
