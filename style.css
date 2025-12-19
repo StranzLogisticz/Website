@@ -142,14 +142,6 @@ footer {
   display: inline-block;
   margin: 0 0.5rem;
 }
-
-.social-links img {
-  height: 32px;      /* slightly larger */
-  width: 32px;
-  object-fit: contain; /* ensures full image shows */
-  transition: transform 0.2s ease;
-}
-
 .social-links img:hover {
   transform: scale(1.2);
 }
@@ -160,3 +152,9 @@ footer {
   .hero h1 { font-size: 2rem; }
 }
 
+.social-links img {
+  height: 40px;   /* increase size */
+  width: 40px;
+  object-fit: contain; /* ensures full image shows */
+  transition: transform 0.2s ease;
+}
