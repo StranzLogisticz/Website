@@ -1,0 +1,50 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #002244;
+  color: #fff;
+}
+.nav-links li {
+  display: inline;
+  margin: 0 1rem;
+}
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: url('assets/img/hero.jpg') center/cover no-repeat;
+  color: #fff;
+}
+.btn-primary {
+  background: #e63946;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  margin: 0.5rem;
+}
+.btn-secondary {
+  border: 2px solid #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  margin: 0.5rem;
+}
+.content {
+  padding: 2rem;
+}
+.service-card {
+  background: #f4f4f4;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #002244;
+  color: #fff;
+}
