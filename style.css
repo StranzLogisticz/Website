@@ -143,6 +143,7 @@ footer {
 }
 .social-links {
   margin-top: 0.5rem;
+  text-align: center;
 }
 
 .social-links a {
@@ -153,11 +154,11 @@ footer {
 .social-links img {
   height: 28px;
   width: 28px;
-  filter: brightness(0) invert(1); /* makes icons white on navy background */
+  filter: brightness(0) invert(1); /* white on navy footer */
   transition: transform 0.2s ease;
 }
 
 .social-links img:hover {
   transform: scale(1.2);
-  filter: none; /* show original color on hover */
+  filter: none; /* show original color */
 }
