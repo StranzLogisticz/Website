@@ -47,7 +47,7 @@ body {
   color: var(--orange);
 }
 
-/* Hero section */
+/* Hero section - now white background */
 .hero {
   background-color: var(--white);
   text-align: center;
