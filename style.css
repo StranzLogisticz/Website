@@ -16,12 +16,12 @@ body {
 
 /* ===== HEADER ===== */
 .navbar {
-  background-color: var(--navy);
-  color: var(--white);
+  background-color: var(--white);   /* header ribbon is white */
+  color: var(--navy);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;   /* increased header spacing */
+  padding: 1.5rem 2rem;   /* bigger header spacing */
 }
 
 .navbar .logo img {
@@ -37,20 +37,20 @@ body {
 }
 
 .nav-links a {
-  color: var(--white);
+  color: var(--navy);
   text-decoration: none;
   font-weight: 500;
 }
 
 .nav-links a.active {
-  border-bottom: 2px solid var(--white);
+  border-bottom: 2px solid var(--navy);
 }
 
 /* ===== HERO SECTION ===== */
 .hero {
   text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(to right, var(--navy), #123b6d);
+  background: var(--navy);   /* solid navy hero background */
   color: var(--white);
 }
 
@@ -95,7 +95,6 @@ footer {
   text-align: center;
   padding: 0.5rem 1rem;   /* reduced footer spacing */
   font-size: 0.85rem;
-  border-top: 1px solid rgba(255,255,255,0.2); /* subtle separator line */
 }
 
 .social-links {
