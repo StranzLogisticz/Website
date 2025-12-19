@@ -126,24 +126,16 @@ body {
 .fleet-card h3 { margin: 0.75rem 0 0.25rem; color: var(--navy); }
 .fleet-card p { margin: 0 0 0.75rem; color: var(--text-light); }
 
-/* Footer */
 footer {
   background-color: var(--navy);
   color: var(--white);
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;   /* increased padding */
   font-size: 0.9rem;
-  margin-top: 2rem;
 }
 
-/* Responsive tweak */
-@media (max-width: 768px) {
-  .nav-links { gap: 0.75rem; }
-  .hero h1 { font-size: 2rem; }
-}
 .social-links {
-  margin-top: 0.5rem;
-  text-align: center;
+  margin-top: 0.75rem;
 }
 
 .social-links a {
@@ -152,14 +144,19 @@ footer {
 }
 
 .social-links img {
-  height: 28px;
-  width: 28px;
-  filter: brightness(0) invert(1); /* white on navy footer */
+  height: 32px;      /* slightly larger */
+  width: 32px;
+  object-fit: contain; /* ensures full image shows */
   transition: transform 0.2s ease;
 }
 
 .social-links img:hover {
   transform: scale(1.2);
-  filter: none; /* show original color */
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .nav-links { gap: 0.75rem; }
+  .hero h1 { font-size: 2rem; }
 }
 
