@@ -126,35 +126,50 @@ body {
 .fleet-card h3 { margin: 0.75rem 0 0.25rem; color: var(--navy); }
 .fleet-card p { margin: 0 0 0.75rem; color: var(--text-light); }
 
+/* ===== HEADER ===== */
+.navbar {
+  background-color: var(--navy);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;   /* bigger header spacing */
+}
+
+.navbar .logo img {
+  height: 48px;  /* bigger logo */
+}
+
+/* ===== FOOTER ===== */
 footer {
   background-color: var(--navy);
   color: var(--white);
   text-align: center;
-  padding: 1.5rem;   /* increased padding */
-  font-size: 0.9rem;
+  padding: 0.75rem 1rem;   /* reduced footer spacing */
+  font-size: 0.85rem;
 }
 
 .social-links {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .social-links a {
   display: inline-block;
   margin: 0 0.5rem;
 }
+
+.social-links img {
+  height: 28px;   /* compact icons */
+  width: 28px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
 .social-links img:hover {
   transform: scale(1.2);
 }
-
 /* Responsive tweak */
 @media (max-width: 768px) {
   .nav-links { gap: 0.75rem; }
   .hero h1 { font-size: 2rem; }
-}
-
-.social-links img {
-  height: 40px;   /* increase size */
-  width: 40px;
-  object-fit: contain; /* ensures full image shows */
-  transition: transform 0.2s ease;
 }
