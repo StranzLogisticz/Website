@@ -48,7 +48,7 @@ body {
 
 /* ===== HERO SECTION ===== */
 .hero {
-  background: url('assets/img/hero-bg.jpg') no-repeat center center;
+  background: url('assets/img/hero-bg.png') no-repeat center center;
   background-size: cover;   /* scales to fill screen */
   color: var(--white);
   text-align: center;
@@ -118,4 +118,5 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
