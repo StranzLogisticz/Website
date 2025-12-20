@@ -106,7 +106,7 @@ body {
 }
 /* Default hero for non-home pages */
 .hero.image-hero {
-  background: url('assets/img/hero-bg.jpg') no-repeat center center;
+  background: url('assets/img/hero-bg.png') no-repeat center center;
   background-size: cover;
   color: var(--white);
   text-align: center;
@@ -141,6 +141,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
