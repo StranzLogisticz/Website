@@ -104,6 +104,15 @@ body {
   background-color: var(--secondary);
   color: var(--white);
 }
+/* Default hero for non-home pages */
+.hero.image-hero {
+  background: url('assets/img/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
 /* ===== FOOTER ===== */
 footer {
   background-color: var(--navy);
@@ -132,6 +141,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
