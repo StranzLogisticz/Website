@@ -129,6 +129,21 @@ body {
 .hero.image-hero .hero-content p {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
 }
+/* Orange button style (like uploaded image) */
+.btn-row a {
+  background-color: #f57c00; /* orange */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-row a:hover {
+  background-color: #e65100; /* darker orange */
+}
 /* ===== FOOTER ===== */
 footer {
   background-color: var(--navy);
@@ -157,6 +172,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
