@@ -14,16 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
       buttons.forEach(btn => {
         const [label, link] = btn.split(":");
         if (label && link) {
-          const a = document.createElement("a");
+          const a = document.createElement("button");
           a.textContent = label.trim();
+          a.className = "btn-primary"; // orange style
 
-          const href = link.trim();
-          a.href = href; // ✅ absolute link preserved
-          a.target = "_blank"; 
-          a.rel = "noopener noreferrer";
-          a.className = "btn-primary"; // style all as orange buttons
-
-          console.log("Generated button link:", a.href); // debug
+          // ✅ Force external link open
+          a.addEventListener("click", () => {
+            window.open(link.trim(), "_blank", "noopener,noreferrer");
+          });
 
           btnRow.appendChild(a);
         }
