@@ -308,22 +308,25 @@ body {
   color: var(--navy);
   margin: 0;
 }
-/* ===== SERVICES TABS ===== */
+
+/* Center the whole tabs section */
 .services-tabs {
   max-width: 1000px;
-  margin: 3rem auto;   /* centers the whole section */
+  margin: 3rem auto;   /* centers horizontally */
   padding: 1rem;
-  text-align: center;  /* ensures inner elements align center */
+  text-align: center;  /* centers inline content */
 }
 
+/* Center the tab buttons */
 .tabs {
   display: flex;
+  justify-content: center; /* centers the row */
   flex-wrap: wrap;
-  justify-content: center; /* centers the tab buttons */
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
+/* Make tabs consistent size */
 .tab {
   background-color: var(--navy);
   color: var(--white);
@@ -332,38 +335,27 @@ body {
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  min-width: 160px;       /* ensures tabs have consistent width */
+  min-width: 160px;       /* ensures equal width */
   text-align: center;
-}
-
-.tab:hover {
-  background-color: #f57c00;
 }
 
 .tab.active {
   background-color: #f57c00;
-  color: var(--white);
 }
 
-/* ===== TAB CONTENT ===== */
+/* Center the tab content card */
 .tab-content {
-  display: none; /* hide all by default */
+  display: none;
+  max-width: 700px;       /* limit width */
+  margin: 0 auto;         /* center horizontally */
   background-color: var(--gray);
   padding: 2rem;
   border-radius: 8px;
-  max-width: 700px;       /* limit width */
-  margin: 0 auto;         /* center horizontally */
   text-align: center;
 }
 
 .tab-content.active {
-  display: block; /* show only active one */
-}
-
-.tab-content h3 {
-  color: #f57c00;
-  margin-bottom: 1rem;
+  display: block;
 }
 /* ===== CONTACT HERO ===== */
 .contact-hero {
@@ -618,6 +610,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
