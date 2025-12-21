@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
           a.target = "_blank"; // open in new tab
           a.rel = "noopener noreferrer";
           a.className = "btn-primary"; // style all as orange buttons
+          console.log("Generated button link:", a.href);
           btnRow.appendChild(a);
           a.setAttribute("href", link.trim());
 a.setAttribute("target", "_blank"); // open in new tab
@@ -38,4 +39,5 @@ a.setAttribute("rel", "noopener noreferrer");
     }
   }
 });
+
 
