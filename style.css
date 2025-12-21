@@ -567,6 +567,38 @@ body {
 .social-link:hover {
   color: var(--navy);
 }
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 3rem auto;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: var(--orange);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+.timeline-item {
+  padding: 1rem 2rem;
+  position: relative;
+  width: 45%; /* narrower so text doesn’t overlap line */
+}
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 55%; text-align: left; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--orange);
+  top: 15px;
+}
+.timeline-item.left::before { right: -10px; }
+.timeline-item.right::before { left: -10px; }
 /* ===== FOOTER ===== */
 footer {
   background-color: var(--navy);
@@ -595,6 +627,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
