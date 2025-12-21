@@ -308,6 +308,57 @@ body {
   color: var(--navy);
   margin: 0;
 }
+/* ===== SERVICES TABS ===== */
+.services-tabs {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  background-color: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+  background-color: #f57c00; /* orange */
+}
+
+.tab.active {
+  background-color: #f57c00;
+  color: var(--white);
+}
+
+.tab-content {
+  display: none;
+  text-align: center;
+  background-color: var(--gray);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h3 {
+  color: #f57c00;
+  margin-bottom: 1rem;
+}
 /* ===== CONTACT HERO ===== */
 .contact-hero {
   background-color: var(--navy);
@@ -561,6 +612,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
