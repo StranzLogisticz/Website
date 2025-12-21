@@ -50,21 +50,6 @@
     .tab-content .icon { font-size: 3rem; margin-bottom: 1rem; }
     .tab-content h3 { font-size: 1.5rem; font-weight: 700; color: #f57c00; margin-bottom: 1rem; }
     .tab-content p { font-size: 1rem; color: var(--navy); line-height: 1.6; }
-
-    .services-grid {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 2rem; padding: 3rem 1rem; max-width: 1200px; margin: 0 auto;
-    }
-    .service-card {
-      background-color: var(--white); border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex: 1 1 260px; max-width: 300px; text-align: center;
-      padding: 1.5rem; transition: transform 0.3s ease;
-    }
-    .service-card:hover { transform: translateY(-5px); }
-    .service-card .icon { font-size: 3rem; margin-bottom: 1rem; }
-    .service-card h3 { font-size: 1.3rem; font-weight: 700; color: #f57c00; margin-bottom: 0.75rem; }
-    .service-card p { font-size: 0.95rem; color: var(--navy); margin: 0; }
   </style>
 </head>
 <body>
@@ -79,7 +64,7 @@
     <p>Delivering safety, speed, and reliability across India</p>
   </section>
 
-  <!-- Services Tabs -->
+  <!-- Services Tabs ONLY -->
   <section class="services-tabs">
     <div class="tabs">
       <button class="tab active" data-tab="contract">Contract Logistics</button>
@@ -102,18 +87,6 @@
     <div class="tab-content" id="air"><div class="icon">✈️</div><h3>Air Cargo</h3><p>Fast, reliable, and secure shipping for urgent or high‑value goods, with global airport connectivity.</p></div>
   </section>
 
-  <!-- Service Cards Grid -->
-  <section class="services-grid">
-    <div class="service-card"><div class="icon">📑</div><h3>Contract Logistics</h3><p>End‑to‑end supply chain management with optimized solutions, tailored contracts, and reliable execution.</p></div>
-    <div class="service-card"><div class="icon">🚚</div><h3>Fully Closed Trucks</h3><p>Maximum protection for cargo, shielding from weather, dust, and damage.</p></div>
-    <div class="service-card"><div class="icon">📦</div><h3>Full Load Services (FTL)</h3><p>Cost‑effective full truck load solutions with exclusive truck use and real‑time tracking.</p></div>
-    <div class="service-card"><div class="icon">🏭</div><h3>Warehousing</h3><p>Secure storage, inventory management, and order fulfillment for smooth operations.</p></div>
-    <div class="service-card"><div class="icon">📡</div><h3>GPS Tracking</h3><p>Real‑time visibility of vehicles and assets to boost efficiency and safety.</p></div>
-    <div class="service-card"><div class="icon">🚢</div><h3>Container Cargo</h3><p>Flexible, secure, and reliable cargo shipping locally or globally.</p></div>
-    <div class="service-card"><div class="icon">⚓</div><h3>Seaway Container Cargo</h3><p>Efficient global shipping solutions via sea routes, ensuring safe and timely delivery.</p></div>
-    <div class="service-card"><div class="icon">✈️</div><h3>Air Cargo</h3><p>Fast, reliable, and secure shipping for urgent or high‑value goods.</p></div>
-  </section>
-
   <!-- Footer -->
   <div id="footer"></div>
   <script src="footer.js"></script>
@@ -123,4 +96,15 @@
   document.addEventListener("DOMContentLoaded", () => {
     const tabs = document.querySelectorAll(".tab");
     const contents = document.querySelectorAll(".tab-content");
-    tabs.forEach(tab =>
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+      });
+    });
+  });
+  </script>
+</body>
+</html>
