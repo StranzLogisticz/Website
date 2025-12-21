@@ -201,7 +201,8 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #f57c00;
-  .network-coverage {
+  /* ===== Network Coverage Section ===== */
+ .network-coverage {
   background-color: var(--white);
   padding: 3rem 1rem;
 }
@@ -216,11 +217,19 @@ body {
   margin: 0 auto;
 }
 
+.map-placeholder {
+  flex: 1 1 500px;
+  text-align: center;
+}
+
 .map-placeholder img {
-  max-width: 500px;
-  width: 100%;
+  max-width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.city-list {
+  flex: 1 1 300px;
 }
 
 .city-list ul {
@@ -234,6 +243,14 @@ body {
   margin-bottom: 0.75rem;
   color: var(--navy);
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.city-list li::before {
+  content: "📍";
+  font-size: 1.2rem;
 }
 }
 /* ===== FOOTER ===== */
@@ -264,3 +281,4 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
