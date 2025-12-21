@@ -16,14 +16,22 @@ document.addEventListener("DOMContentLoaded", function() {
         if (label && link) {
           const a = document.createElement("a");
           a.textContent = label.trim();
-          a.href = link.trim();
-a.target = "_blank"; // open in new tab
-a.rel = "noopener noreferrer"; // security best practice
-          a.className = label.toLowerCase() === "quote" ? "btn-primary" : "btn-secondary";
+          
+          // ✅ Ensure absolute external link
+          const href = link.trim();
+          if (href.startsWith("http") || href.startsWith("mailto:")) {
+            a.href = href;
+          } else {
+            // fallback: treat as relative page link
+            a.href = "/" + href;
+          }
+
+          a.target = "_blank"; // open in new tab
+          a.rel = "noopener noreferrer";
+          a.className = "btn-primary"; // style all as orange buttons
           btnRow.appendChild(a);
         }
       });
     }
   }
-
 });
