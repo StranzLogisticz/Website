@@ -311,14 +311,15 @@ body {
 /* ===== SERVICES TABS ===== */
 .services-tabs {
   max-width: 1000px;
-  margin: 3rem auto;
+  margin: 3rem auto;   /* centers the whole section */
   padding: 1rem;
+  text-align: center;  /* ensures inner elements align center */
 }
 
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* centers the tab buttons */
   gap: 1rem;
   margin-bottom: 2rem;
 }
@@ -332,7 +333,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  flex: 1 1 180px;
+  min-width: 160px;       /* ensures tabs have consistent width */
   text-align: center;
 }
 
@@ -345,32 +346,19 @@ body {
   color: var(--white);
 }
 
-/* ===== TAB TRANSITION ANIMATION ===== */
-@keyframes fadeSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* ===== TAB CONTENT ===== */
 .tab-content {
   display: none; /* hide all by default */
-  text-align: center;
   background-color: var(--gray);
   padding: 2rem;
   border-radius: 8px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  max-width: 700px;       /* limit width */
+  margin: 0 auto;         /* center horizontally */
+  text-align: center;
 }
 
 .tab-content.active {
   display: block; /* show only active one */
-  animation: fadeSlideUp 0.4s ease forwards;
 }
 
 .tab-content h3 {
@@ -630,6 +618,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
