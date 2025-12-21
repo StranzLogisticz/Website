@@ -2,46 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>About - Stranz Logistics</title>
+  <title>About Us - Stranz Logistics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --navy: #0a1f44;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --orange: #f57c00;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--gray);
+      color: var(--navy);
+    }
+    .about-hero {
+      background-color: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .about-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .about-hero p { font-size: 1.2rem; color: var(--orange); }
+
+    .about-section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .about-section h2 {
+      text-align: center;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+    .about-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .about-item .icon {
+      font-size: 2rem;
+      color: var(--orange);
+    }
+    .about-item h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: var(--navy);
+    }
+    .about-item p {
+      margin: 0.25rem 0 0;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+    .roadmap {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: var(--gray);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .roadmap h3 { color: var(--orange); margin-bottom: 1rem; }
+  </style>
 </head>
-<script src="assets/js/main.js"></script>
 <body>
 
-<!-- Header placeholder -->
-<div id="header"></div>
-<script src="header.js"></script>
+  <!-- Header -->
+  <div id="header"></div>
+  <script src="header.js"></script>
 
-<section class="hero image-hero"
-         data-title="About Stranz"
-         data-subtitle="Trusted logistics partner with nationwide reach"
-         data-buttons="Quote:/contact.html,Fleet:/fleet.html">
-  <div class="hero-content">
-    <h1></h1>
-    <p></p>
-    <div class="btn-row"></div>
-  </div>
-</section>
+  <!-- Hero Banner -->
+  <section class="about-hero">
+    <h1>About Us</h1>
+    <p>Building trust, reliability, and innovation in logistics since 2018</p>
+  </section>
 
-<div class="content">
-  <div class="card">
-    <p>S TRANZ is a leading transport service provider based in Chennai, established in 2018. 
-      We have earned a strong reputation for reliable and efficient transportation of goods and parcels locally, backed by our professional approach, competitive pricing, and extensive network coverage. 
-      Our end-to-end logistics solutions are designed to support businesses in thriving within today’s dynamic market. We specialize in handling all cargo requirements for both export and import operations.</p>
-  </div>
-</div>
+  <!-- Vision -->
+  <section class="about-section">
+    <h2>Vision</h2>
+    <div class="about-item">
+      <div class="icon">👁️</div>
+      <div>
+        <h3>Our Vision</h3>
+        <p>To provide reliable, efficient, and high-quality logistics services at fair, competitive prices, empowering customers through exceptional service and timely delivery.</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  &copy; 2025 Stranz Logistics | info@stranz.in
-</footer>
+  <!-- Mission -->
+  <section class="about-section">
+    <h2>Mission</h2>
+    <div class="about-item">
+      <div class="icon">🎯</div>
+      <div>
+        <h3>Our Mission</h3>
+        <p>To be recognized as one of India's most trusted and respected transport companies, known nationwide for our commitment to excellence on every route.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Commitments -->
+  <section class="about-section">
+    <h2>Core Commitments</h2>
+    <div class="about-item">
+      <div class="icon">🤝</div>
+      <div>
+        <h3>Commitment to Clients</h3>
+        <p>Delivering reliable, efficient, and timely logistics solutions with tailored services, cutting-edge technology, and a focus on sustainability and safety.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="about-section">
+    <h2>Values</h2>
+    <div class="about-item"><div class="icon">👨‍👩‍👧‍👦</div><div><h3>Customer Focus</h3><p>We prioritize customer needs and build lasting partnerships.</p></div></div>
+    <div class="about-item"><div class="icon">⚖️</div><div><h3>Integrity & Transparency</h3><p>We operate with honesty and openness in every interaction.</p></div></div>
+    <div class="about-item"><div class="icon">💡</div><div><h3>Innovation</h3><p>We embrace new ideas and technologies to improve logistics.</p></div></div>
+    <div class="about-item"><div class="icon">🛡️</div><div><h3>Safety</h3><p>We ensure the highest standards of safety across operations.</p></div></div>
+    <div class="about-item"><div class="icon">🌱</div><div><h3>Sustainability</h3><p>We are committed to eco-friendly practices and long-term growth.</p></div></div>
+  </section>
+
+  <!-- Roadmap Placeholder -->
+  <section class="roadmap">
+    <h3>Our Journey</h3>
+    <p>Company was started in 2018. Initially, we operated with a single truck and contract. Over time, we expanded our fleet, vendors, and customers. Today, we are ramping up and digitalizing our company, offering closed trucks and advanced logistics solutions. (Future roadmap story will be added here.)</p>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+  <script src="footer.js"></script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
