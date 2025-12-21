@@ -6,6 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
+  <script>
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      // remove active from all
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("active"));
+
+      // add active to clicked tab + matching content
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.tab).classList.add("active");
+    });
+  });
+</script>
 <body>
 
   <!-- Header -->
@@ -47,18 +63,41 @@
     </div>
   </section>
 
-  <!-- Follow Us Ribbon -->
-  <section class="social-ribbon">
-    <div class="ribbon-content">
-      <h2>Follow us on</h2>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/stranz" target="_blank" class="social-link">🔗 LinkedIn</a>
-        <a href="https://www.facebook.com/stranz" target="_blank" class="social-link">📘 Facebook</a>
-        <a href="https://www.instagram.com/stranz" target="_blank" class="social-link">📸 Instagram</a>
-        <a href="https://twitter.com/stranz" target="_blank" class="social-link">🐦 X</a>
-      </div>
-    </div>
-  </section>
+<!-- Services Tabs -->
+<section class="services-tabs">
+  <div class="tabs">
+    <button class="tab active" data-tab="logistics">Contract Logistics</button>
+    <button class="tab" data-tab="freight">Global Freight Forwarding</button>
+    <button class="tab" data-tab="transport">Transportation</button>
+    <button class="tab" data-tab="warehousing">Warehousing</button>
+    <button class="tab" data-tab="cold">Cold Storage</button>
+  </div>
+
+  <div class="tab-content active" id="logistics">
+    <h3>Contract Logistics</h3>
+    <p>We provide end-to-end supply chain management, ensuring reliable and optimized solutions for complex requirements.</p>
+  </div>
+
+  <div class="tab-content" id="freight">
+    <h3>Global Freight Forwarding</h3>
+    <p>International freight solutions with speed, compliance, and transparency across borders.</p>
+  </div>
+
+  <div class="tab-content" id="transport">
+    <h3>Transportation</h3>
+    <p>Reliable movement across regional and national routes with safety and efficiency.</p>
+  </div>
+
+  <div class="tab-content" id="warehousing">
+    <h3>Warehousing</h3>
+    <p>Secure storage and distribution facilities with SOPs and real-time tracking.</p>
+  </div>
+
+  <div class="tab-content" id="cold">
+    <h3>Cold Storage</h3>
+    <p>Temperature-controlled warehousing for sensitive goods, ensuring quality and compliance.</p>
+  </div>
+</section>
 
   <!-- Footer -->
   <div id="footer"></div>
@@ -66,3 +105,4 @@
 
 </body>
 </html>
+
