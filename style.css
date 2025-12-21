@@ -345,22 +345,6 @@ body {
   color: var(--white);
 }
 
-.tab-content {
-  display: none;
-  text-align: center;
-  background-color: var(--gray);
-  padding: 2rem;
-  border-radius: 8px;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-.tab-content h3 {
-  color: #f57c00;
-  margin-bottom: 1rem;
-}
 /* ===== TAB TRANSITION ANIMATION ===== */
 @keyframes fadeSlideUp {
   0% {
@@ -374,7 +358,7 @@ body {
 }
 
 .tab-content {
-  display: none;
+  display: none; /* hide all by default */
   text-align: center;
   background-color: var(--gray);
   padding: 2rem;
@@ -385,8 +369,13 @@ body {
 }
 
 .tab-content.active {
-  display: block;
+  display: block; /* show only active one */
   animation: fadeSlideUp 0.4s ease forwards;
+}
+
+.tab-content h3 {
+  color: #f57c00;
+  margin-bottom: 1rem;
 }
 /* ===== CONTACT HERO ===== */
 .contact-hero {
@@ -641,6 +630,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
