@@ -124,7 +124,25 @@ body {
 .btn-row a:hover {
   background-color: #e65100;
 }
+/* HERO CONTENT SHRINK */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 2rem;
+  max-height: 40vh;        /* shrink content height */
+}
 
+.hero h1 {
+  font-size: 2rem;         /* smaller heading */
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  font-size: 1rem;         /* smaller subtitle */
+  margin-bottom: 1.5rem;
+}
 /* ===== STATS BAR ===== */
 .stats-bar {
   display: flex;
@@ -162,40 +180,43 @@ body {
   color: var(--navy);
   margin: 0;
 }
-
-/* ===== NETWORK COVERAGE ===== */
+/* NETWORK COVERAGE COMPACT TWO-COLUMN */
 .network-coverage {
   background-color: var(--white);
-  padding: 2.5rem 1rem;
+  padding: 2rem 1rem;
+  max-height: 50vh;        /* cap section height */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .map-box {
+  flex: 1 1 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 1rem;
-  max-width: 720px;
 }
 
 .map-box img {
   width: 100%;
   height: auto;
-  max-width: 520px;
+  max-height: 250px;       /* shrink image height */
   object-fit: contain;
 }
 
 .city-list {
+  flex: 1 1 50%;
   list-style: none;
   padding: 0;
-  margin: 0 auto;
-  max-width: 520px;
+  margin: 0;
 }
 
 .city-list li {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--navy);
   margin: 0.4rem 0;
@@ -203,10 +224,19 @@ body {
 
 .city-list li::before {
   content: "📍";
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1;
 }
 
+@media (max-width: 768px) {
+  .network-coverage {
+    flex-direction: column;
+    max-height: none; /* allow stacking on mobile */
+  }
+  .map-box img {
+    max-height: 200px;
+  }
+}
 /* ===== FOOTER ===== */
 footer {
   background-color: var(--navy);
@@ -235,3 +265,4 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
