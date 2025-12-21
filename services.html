@@ -5,6 +5,106 @@
   <title>Our Services - Stranz Logistics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional styles for services page */
+    .services-hero {
+      background-color: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .services-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .services-hero p {
+      font-size: 1.2rem;
+      color: #f57c00;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 1rem;
+      background-color: var(--gray);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-grid .service-card {
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex: 1 1 260px;
+      max-width: 300px;
+      text-align: center;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .services-grid .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .services-grid .service-card .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .services-grid .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f57c00;
+      margin-bottom: 0.75rem;
+    }
+
+    .services-grid .service-card p {
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin: 0;
+    }
+
+    /* Fixed tabs layout */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tab.active {
+      background-color: #f57c00;
+    }
+
+    .tab:hover {
+      background-color: #e65100;
+    }
+
+    .tab-card {
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .tab-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f57c00;
+      margin-bottom: 1rem;
+    }
+
+    .tab-card p {
+      font-size: 1rem;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
