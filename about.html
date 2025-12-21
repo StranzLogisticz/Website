@@ -25,231 +25,130 @@
     .about-item h3 { margin:0; font-size:1.3rem; color:var(--navy); }
     .about-item p { margin:.25rem 0 0; line-height:1.6; }
 
-    /* LOGISTICS-THEMED TIMELINE */
-    .timeline { 
-      position: relative; 
+    /* SIMPLE WORKING TIMELINE */
+    .timeline-wrapper { 
       max-width: 900px; 
       margin: 2rem auto; 
       padding: 2rem 0;
+      position: relative;
     }
     
-    /* Center vertical line - styled like a road/route */
-    .timeline::before { 
-      content: ''; 
+    /* Center line */
+    .center-line { 
       position: absolute; 
-      width: 4px; 
-      background: linear-gradient(180deg, 
-        var(--orange) 0%, 
-        var(--navy) 25%,
-        var(--orange) 50%,
-        var(--navy) 75%,
-        var(--orange) 100%
-      );
+      width: 3px; 
+      background: var(--orange);
       top: 0; 
       bottom: 0; 
       left: 50%; 
-      margin-left: -2px;
-      box-shadow: 0 0 15px rgba(245, 124, 0, 0.4);
+      margin-left: -1.5px;
     }
     
-    /* Timeline item container */
-    .timeline-item { 
-      position: relative;
-      margin-bottom: 50px;
+    /* Row container */
+    .timeline-row { 
+      display: table;
       width: 100%;
-      clear: both;
-    }
-    
-    /* Content boxes - styled like shipping containers */
-    .timeline-content {
-      background: linear-gradient(135deg, var(--white) 0%, #fafafa 100%);
-      padding: 22px 28px;
-      border-radius: 10px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-      width: 40%;
+      margin-bottom: 40px;
       position: relative;
-      border-left: 5px solid var(--orange);
-      transition: all 0.3s ease;
     }
     
-    /* Corner accent - like container corners */
-    .timeline-content::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: -1px;
-      width: 20px;
-      height: 20px;
-      border-top: 3px solid var(--navy);
-      border-left: 3px solid var(--navy);
-      border-radius: 2px 0 0 0;
+    /* Content box */
+    .timeline-box {
+      display: table-cell;
+      width: 45%;
+      background: var(--white);
+      padding: 20px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      vertical-align: top;
+      border-left: 4px solid var(--orange);
     }
     
-    .timeline-content::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      right: -1px;
-      width: 20px;
-      height: 20px;
-      border-bottom: 3px solid var(--navy);
-      border-right: 3px solid var(--navy);
-      border-radius: 0 0 2px 0;
+    /* Spacer for alignment */
+    .timeline-spacer {
+      display: table-cell;
+      width: 10%;
     }
     
-    /* Left side items */
-    .timeline-item.left .timeline-content {
-      margin-left: 0;
-      margin-right: auto;
-      float: left;
-      clear: both;
-    }
-    
-    /* Right side items */
-    .timeline-item.right .timeline-content {
-      margin-right: 0;
-      margin-left: auto;
-      float: right;
-      clear: both;
+    /* Right aligned boxes */
+    .timeline-row.right .timeline-box {
       border-left: none;
-      border-right: 5px solid var(--orange);
+      border-right: 4px solid var(--orange);
     }
     
-    /* Year badges - styled like shipping labels */
-    .year-badge {
+    /* Dot */
+    .timeline-marker {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--orange);
+      border: 4px solid var(--white);
+      border-radius: 50%;
+      top: 25px;
+      left: 50%;
+      margin-left: -10px;
+      z-index: 10;
+      box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.3);
+    }
+    
+    /* Year badge */
+    .year-tag {
       display: inline-block;
-      background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 100%);
+      background: var(--navy);
       color: var(--white);
-      padding: 6px 16px;
-      border-radius: 4px;
+      padding: 5px 15px;
+      border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 700;
       margin-bottom: 10px;
-      box-shadow: 0 3px 10px rgba(10, 31, 68, 0.3);
-      border: 2px solid var(--orange);
-      letter-spacing: 0.5px;
-      position: relative;
     }
     
-    .year-badge::before {
-      content: '📦';
-      margin-right: 6px;
-      font-size: 0.9rem;
-    }
-    
-    /* Timeline content headings - logistics icons */
-    .timeline-content h3 { 
+    .timeline-box h3 { 
       color: var(--orange); 
       margin: 10px 0;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
     
-    /* Add logistics icons to headings */
-    .timeline-item:nth-child(1) .timeline-content h3::before { content: '🚚'; }
-    .timeline-item:nth-child(2) .timeline-content h3::before { content: '📈'; }
-    .timeline-item:nth-child(3) .timeline-content h3::before { content: '🏭'; }
-    .timeline-item:nth-child(4) .timeline-content h3::before { content: '💻'; }
-    .timeline-item:nth-child(5) .timeline-content h3::before { content: '🚀'; }
-    
-    /* Timeline content paragraphs */
-    .timeline-content p { 
+    .timeline-box p { 
       color: var(--navy); 
-      line-height: 1.7;
+      line-height: 1.6;
       margin: 0;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
     }
     
-    /* Center dots - styled like GPS location pins */
-    .timeline-dot {
-      position: absolute;
-      width: 22px;
-      height: 22px;
-      background: linear-gradient(135deg, var(--orange) 0%, #ff9800 100%);
-      border: 5px solid var(--white);
-      border-radius: 50%;
-      top: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      box-shadow: 0 0 0 4px rgba(245, 124, 0, 0.25),
-                  0 4px 12px rgba(0,0,0,0.2);
+    /* Hover */
+    .timeline-box:hover {
+      box-shadow: 0 6px 20px rgba(245, 124, 0, 0.2);
+      transform: translateY(-3px);
       transition: all 0.3s ease;
-    }
-    
-    .timeline-dot::after {
-      content: '📍';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 10px;
-    }
-    
-    /* Hover effects - lift like cargo */
-    .timeline-content:hover {
-      box-shadow: 0 8px 25px rgba(245, 124, 0, 0.3);
-      transform: translateY(-5px);
-    }
-    
-    .timeline-item:hover .timeline-dot {
-      width: 28px;
-      height: 28px;
-      box-shadow: 0 0 0 6px rgba(245, 124, 0, 0.35),
-                  0 6px 18px rgba(0,0,0,0.25);
-    }
-    
-    /* Connection lines from dot to content - like routes */
-    .timeline-item.left::after {
-      content: '';
-      position: absolute;
-      top: 40px;
-      left: calc(40% + 28px);
-      right: 50%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, var(--orange) 100%);
-      z-index: 1;
-    }
-    
-    .timeline-item.right::after {
-      content: '';
-      position: absolute;
-      top: 40px;
-      left: 50%;
-      right: calc(40% + 28px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--orange) 0%, transparent 100%);
-      z-index: 1;
     }
 
     /* Mobile */
     @media screen and (max-width: 768px) {
-      .timeline::before {
-        left: 25px;
-      }
-
-      .timeline-content {
-        width: calc(100% - 70px) !important;
-        margin-left: 60px !important;
-        float: none !important;
-        border-left: 5px solid var(--orange) !important;
-        border-right: none !important;
-      }
-
-      .timeline-dot {
-        left: 25px;
-        transform: translateX(0);
+      .center-line {
+        left: 30px;
       }
       
-      .timeline-item.left::after,
-      .timeline-item.right::after {
-        left: 25px;
-        right: auto;
-        width: 35px;
-        background: linear-gradient(90deg, var(--orange) 0%, transparent 100%);
+      .timeline-row {
+        display: block;
+      }
+      
+      .timeline-box {
+        display: block;
+        width: calc(100% - 70px);
+        margin-left: 60px;
+        border-left: 4px solid var(--orange) !important;
+        border-right: none !important;
+      }
+      
+      .timeline-spacer {
+        display: none;
+      }
+      
+      .timeline-marker {
+        left: 30px;
+        margin-left: 0;
       }
     }
   </style>
@@ -299,54 +198,67 @@
     <div class="about-item"><div class="icon">🌱</div><div><h3>Sustainability</h3><p>We commit to eco‑friendly practices and responsible growth.</p></div></div>
   </section>
 
-  <!-- Roadmap Timeline -->
+  <!-- Roadmap Timeline - NEW STRUCTURE -->
   <section class="about-section">
     <h2>Our Journey</h2>
-    <div class="timeline">
-      <div class="timeline-item left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="year-badge">2018</span>
+    <div class="timeline-wrapper">
+      <div class="center-line"></div>
+      
+      <!-- 2018 - LEFT -->
+      <div class="timeline-row left">
+        <div class="timeline-marker"></div>
+        <div class="timeline-box">
+          <span class="year-tag">🚚 2018</span>
           <h3>Foundation Year</h3>
           <p>Stranz Logistics was founded with a single truck and contract service, driven by a vision to simplify logistics across India.</p>
         </div>
+        <div class="timeline-spacer"></div>
       </div>
-
-      <div class="timeline-item right">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="year-badge">2019–2020</span>
+      
+      <!-- 2019-2020 - RIGHT -->
+      <div class="timeline-row right">
+        <div class="timeline-marker"></div>
+        <div class="timeline-spacer"></div>
+        <div class="timeline-box">
+          <span class="year-tag">📈 2019–2020</span>
           <h3>Growth & Expansion</h3>
           <p>Expanded fleet size and onboarded new vendors, steadily building customer trust and establishing regional presence.</p>
         </div>
       </div>
-
-      <div class="timeline-item left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="year-badge">2021–2022</span>
+      
+      <!-- 2021-2022 - LEFT -->
+      <div class="timeline-row left">
+        <div class="timeline-marker"></div>
+        <div class="timeline-box">
+          <span class="year-tag">🏭 2021–2022</span>
           <h3>Infrastructure Advancement</h3>
           <p>Introduced fully closed trucks and advanced warehousing solutions, ensuring safety, compliance, and quality service.</p>
         </div>
+        <div class="timeline-spacer"></div>
       </div>
-
-      <div class="timeline-item right">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="year-badge">2023–2024</span>
+      
+      <!-- 2023-2024 - RIGHT -->
+      <div class="timeline-row right">
+        <div class="timeline-marker"></div>
+        <div class="timeline-spacer"></div>
+        <div class="timeline-box">
+          <span class="year-tag">💻 2023–2024</span>
           <h3>Digital Transformation</h3>
           <p>Strengthened GPS tracking and digital platforms, enhancing transparency, real-time updates, and operational efficiency.</p>
         </div>
       </div>
-
-      <div class="timeline-item left">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="year-badge">2025</span>
+      
+      <!-- 2025 - LEFT -->
+      <div class="timeline-row left">
+        <div class="timeline-marker"></div>
+        <div class="timeline-box">
+          <span class="year-tag">🚀 2025</span>
           <h3>Future Vision</h3>
           <p>Ramping up digitalization, preparing for nationwide expansion, and scaling vendor and customer networks strategically.</p>
         </div>
+        <div class="timeline-spacer"></div>
       </div>
+      
     </div>
   </section>
 
@@ -355,4 +267,3 @@
   <script src="footer.js"></script>
 
 </body>
-</html>
