@@ -45,7 +45,24 @@ body {
 .nav-links a.active {
   border-bottom: 2px solid var(--navy);
 }
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 3rem 0 2rem;
+  color: var(--navy);
+  position: relative;
+}
 
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #f57c00; /* orange accent */
+  margin: 0.5rem auto 0;
+}
 /* ===== HERO SECTION ===== */
 .hero {
   position: relative;
@@ -172,6 +189,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
