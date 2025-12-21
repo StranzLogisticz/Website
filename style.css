@@ -161,43 +161,93 @@ body {
 .btn-row a:hover {
   background-color: #e65100; /* darker orange */
 }
-/* ===== Statue & Network ===== */
-<section class="stats-network">
-  <div class="stats-column">
-    <h2 class="section-title">Our Impact</h2>
-    <div class="stats-bar">
-      <div class="stat">
-        <h3>500+</h3>
-        <p>Shipments / Month</p>
-      </div>
-      <div class="stat">
-        <h3>12,000 km</h3>
-        <p>Covered Weekly</p>
-      </div>
-      <div class="stat">
-        <h3>25,000 sq ft</h3>
-        <p>Warehouse Capacity</p>
-      </div>
-      <div class="stat">
-        <h3>120+</h3>
-        <p>Clients Served</p>
-      </div>
-    </div>
-  </div>
-  <div class="network-column">
-    <h2 class="section-title">Our Network</h2>
-    <div class="map-box">
-      <img src="assets/img/india-map.png" alt="India map showing Stranz coverage" />
-    </div>
-    <ul class="city-list">
-      <li>📍Chennai (HQ)</li>
-      <li>📍Bengaluru</li>
-      <li>📍Coimbatore</li>
-      <li>📍Pondicherry</li>
-      <li>📍Hyderabad</li>
-    </ul>
-  </div>
-</section>
+/* ===== STATS BAR ===== */
+.stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  background-color: var(--gray);
+  padding: 3rem 1rem;
+}
+
+.stat-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex: 1 1 220px;
+  max-width: 260px;
+  text-align: center;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f57c00; /* orange highlight */
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: var(--navy);
+  margin: 0;
+}
+/* ===== NETWORK COVERAGE ===== */
+.network-coverage {
+  background-color: var(--white);
+  padding: 2.5rem 1rem;
+}
+
+.map-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem;
+  max-width: 720px;       /* cap the overall map area */
+}
+
+.map-box img {
+  width: 100%;
+  height: auto;
+  max-width: 520px;       /* controls how big the image can get */
+  aspect-ratio: 4 / 3;    /* keeps shape consistent */
+  object-fit: contain;    /* no cropping, no distortion */
+}
+
+.city-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 520px;       /* aligns list width with the map */
+}
+
+.city-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0.4rem 0;
+}
+
+.city-list li::before {
+  content: "📍";
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .map-box { max-width: 100%; }
+  .map-box img { max-width: 360px; }  /* mobile cap */
+  .city-list { max-width: 360px; }
+}
 /* ===== FOOTER ===== */
 footer {
   background-color: var(--navy);
@@ -226,6 +276,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
