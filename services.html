@@ -6,104 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Additional styles for services page */
+    :root {
+      --navy: #0a1f44;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--gray);
+      color: var(--navy);
+    }
     .services-hero {
       background-color: var(--navy);
       color: var(--white);
       text-align: center;
       padding: 4rem 2rem;
     }
-
-    .services-hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .services-hero p {
-      font-size: 1.2rem;
-      color: #f57c00;
-    }
+    .services-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .services-hero p { font-size: 1.2rem; color: #f57c00; }
 
     .services-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      padding: 3rem 1rem;
-      background-color: var(--gray);
-      max-width: 1200px;
-      margin: 0 auto;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 2rem; padding: 3rem 1rem; max-width: 1200px; margin: 0 auto;
     }
-
-    .services-grid .service-card {
-      background-color: var(--white);
-      border-radius: 8px;
+    .service-card {
+      background-color: var(--white); border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex: 1 1 260px;
-      max-width: 300px;
-      text-align: center;
-      padding: 1.5rem;
-      transition: transform 0.3s ease;
+      flex: 1 1 260px; max-width: 300px; text-align: center;
+      padding: 1.5rem; transition: transform 0.3s ease;
     }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-card .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.3rem; font-weight: 700; color: #f57c00; margin-bottom: 0.75rem; }
+    .service-card p { font-size: 0.95rem; color: var(--navy); margin: 0; }
 
-    .services-grid .service-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .services-grid .service-card .icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .services-grid .service-card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #f57c00;
-      margin-bottom: 0.75rem;
-    }
-
-    .services-grid .service-card p {
-      font-size: 0.95rem;
-      color: var(--navy);
-      margin: 0;
-    }
-
-    /* Fixed tabs layout */
+    .services-tabs { max-width: 1000px; margin: 3rem auto; padding: 1rem; text-align: center; }
     .tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 1rem;
+      margin-bottom: 2rem; flex-wrap: wrap;
     }
+    .tab {
+      background-color: var(--navy); color: var(--white);
+      border: none; padding: 0.75rem 1.5rem; border-radius: 30px;
+      font-weight: bold; cursor: pointer; min-width: 160px;
+      transition: background-color 0.3s ease;
+    }
+    .tab.active { background-color: #f57c00; }
+    .tab:hover { background-color: #e65100; }
 
-    .tab.active {
-      background-color: #f57c00;
+    .tab-content {
+      display: none; max-width: 700px; margin: 0 auto;
+      background-color: var(--white); padding: 2rem;
+      border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
     }
-
-    .tab:hover {
-      background-color: #e65100;
-    }
-
-    .tab-card {
-      background-color: var(--white);
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .tab-card h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #f57c00;
-      margin-bottom: 1rem;
-    }
-
-    .tab-card p {
-      font-size: 1rem;
-      color: var(--navy);
-      line-height: 1.6;
-    }
+    .tab-content.active { display: block; }
+    .tab-content .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .tab-content h3 { font-size: 1.5rem; font-weight: 700; color: #f57c00; margin-bottom: 1rem; }
+    .tab-content p { font-size: 1rem; color: var(--navy); line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -120,77 +81,34 @@
 
   <!-- Service Cards -->
   <section class="services-grid">
-    <div class="service-card">
-      <div class="icon">🚚</div>
-      <h3>Contract Logistics</h3>
-      <p>End-to-end supply chain management with optimized solutions.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🌍</div>
-      <h3>Global Freight Forwarding</h3>
-      <p>International freight solutions with speed and compliance.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🚛</div>
-      <h3>Transportation</h3>
-      <p>Reliable movement across regional and national routes.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🏭</div>
-      <h3>Warehousing</h3>
-      <p>Secure storage and distribution facilities with SOPs.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">❄️</div>
-      <h3>Cold Storage</h3>
-      <p>Temperature-controlled warehousing for sensitive goods.</p>
-    </div>
+    <div class="service-card"><div class="icon">🚚</div><h3>Fully Closed Trucks</h3><p>Maximum protection for cargo, shielding from weather, dust, and damage.</p></div>
+    <div class="service-card"><div class="icon">📦</div><h3>Full Load Services (FTL)</h3><p>Cost‑effective full truck load solutions with exclusive truck use and real‑time tracking.</p></div>
+    <div class="service-card"><div class="icon">🏭</div><h3>Warehousing</h3><p>Secure storage, inventory management, and order fulfillment for smooth operations.</p></div>
+    <div class="service-card"><div class="icon">📡</div><h3>GPS Tracking</h3><p>Real‑time visibility of vehicles and assets to boost efficiency and safety.</p></div>
+    <div class="service-card"><div class="icon">🚢</div><h3>Container Cargo</h3><p>Flexible, secure, and reliable cargo shipping locally or globally.</p></div>
+    <div class="service-card"><div class="icon">⚓</div><h3>Seaway Container Cargo</h3><p>Efficient global shipping solutions via sea routes, ensuring safe and timely delivery.</p></div>
+    <div class="service-card"><div class="icon">✈️</div><h3>Air Cargo</h3><p>Fast, reliable, and secure shipping for urgent or high‑value goods.</p></div>
   </section>
 
   <!-- Services Tabs -->
   <section class="services-tabs">
     <div class="tabs">
-      <button class="tab active" data-tab="logistics">Contract Logistics</button>
-      <button class="tab" data-tab="freight">Global Freight Forwarding</button>
-      <button class="tab" data-tab="transport">Transportation</button>
+      <button class="tab active" data-tab="closed">Fully Closed Trucks</button>
+      <button class="tab" data-tab="ftl">Full Load Services</button>
       <button class="tab" data-tab="warehousing">Warehousing</button>
-      <button class="tab" data-tab="cold">Cold Storage</button>
+      <button class="tab" data-tab="gps">GPS Tracking</button>
+      <button class="tab" data-tab="container">Container Cargo</button>
+      <button class="tab" data-tab="seaway">Seaway Cargo</button>
+      <button class="tab" data-tab="air">Air Cargo</button>
     </div>
 
-    <div class="tab-content active" id="logistics">
-      <div class="tab-card">
-        <h3>Contract Logistics</h3>
-        <p>We provide end-to-end supply chain management, ensuring reliable and optimized solutions for complex requirements.</p>
-      </div>
-    </div>
-
-    <div class="tab-content" id="freight">
-      <div class="tab-card">
-        <h3>Global Freight Forwarding</h3>
-        <p>International freight solutions with speed, compliance, and transparency across borders.</p>
-      </div>
-    </div>
-
-    <div class="tab-content" id="transport">
-      <div class="tab-card">
-        <h3>Transportation</h3>
-        <p>Reliable movement across regional and national routes with safety and efficiency.</p>
-      </div>
-    </div>
-
-    <div class="tab-content" id="warehousing">
-      <div class="tab-card">
-        <h3>Warehousing</h3>
-        <p>Secure storage and distribution facilities with SOPs and real-time tracking.</p>
-      </div>
-    </div>
-
-    <div class="tab-content" id="cold">
-      <div class="tab-card">
-        <h3>Cold Storage</h3>
-        <p>Temperature-controlled warehousing for sensitive goods, ensuring quality and compliance.</p>
-      </div>
-    </div>
+    <div class="tab-content active" id="closed"><div class="icon">🚚</div><h3>Fully Closed Trucks</h3><p>Maximum protection for your valuable cargo, shielding it from weather, dust, and damage.</p></div>
+    <div class="tab-content" id="ftl"><div class="icon">📦</div><h3>Full Load Services (FTL)</h3><p>Exclusive truck use for large shipments, with real‑time tracking and attentive support.</p></div>
+    <div class="tab-content" id="warehousing"><div class="icon">🏭</div><h3>Warehousing</h3><p>Secure storage, inventory management, and order fulfillment designed to protect products.</p></div>
+    <div class="tab-content" id="gps"><div class="icon">📡</div><h3>GPS Tracking</h3><p>Real‑time visibility of vehicles, assets, or workforce to enhance safety and reduce risks.</p></div>
+    <div class="tab-content" id="container"><div class="icon">🚢</div><h3>Container Cargo</h3><p>Flexible, secure, and reliable cargo shipping locally or globally, with tracking.</p></div>
+    <div class="tab-content" id="seaway"><div class="icon">⚓</div><h3>Seaway Container Cargo</h3><p>Efficient global shipping solutions via sea routes, ensuring safe and timely delivery.</p></div>
+    <div class="tab-content" id="air"><div class="icon">✈️</div><h3>Air Cargo</h3><p>Fast, reliable, and secure shipping for urgent or high‑value goods, with global airport connectivity.</p></div>
   </section>
 
   <!-- Footer -->
@@ -202,14 +120,10 @@
   document.addEventListener("DOMContentLoaded", () => {
     const tabs = document.querySelectorAll(".tab");
     const contents = document.querySelectorAll(".tab-content");
-
     tabs.forEach(tab => {
       tab.addEventListener("click", () => {
-        // remove active from all
         tabs.forEach(t => t.classList.remove("active"));
         contents.forEach(c => c.classList.remove("active"));
-
-        // add active to clicked tab + matching content
         tab.classList.add("active");
         document.getElementById(tab.dataset.tab).classList.add("active");
       });
@@ -217,4 +131,4 @@
   });
   </script>
 </body>
-</html>
+</
