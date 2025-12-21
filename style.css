@@ -201,6 +201,40 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #f57c00;
+  .network-coverage {
+  background-color: var(--white);
+  padding: 3rem 1rem;
+}
+
+.network-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.map-placeholder img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.city-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.city-list li {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+  font-weight: 600;
+}
 }
 /* ===== FOOTER ===== */
 footer {
@@ -230,17 +264,3 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
