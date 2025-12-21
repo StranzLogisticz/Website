@@ -323,7 +323,7 @@ body {
 
 .contact-hero p {
   font-size: 1.2rem;
-  color: #f57c00; /* orange accent */
+  color: #f57c00;
 }
 
 /* ===== CONTACT INFO ===== */
@@ -416,6 +416,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
