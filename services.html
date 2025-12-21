@@ -26,21 +26,6 @@
     .services-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .services-hero p { font-size: 1.2rem; color: #f57c00; }
 
-    .services-grid {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 2rem; padding: 3rem 1rem; max-width: 1200px; margin: 0 auto;
-    }
-    .service-card {
-      background-color: var(--white); border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex: 1 1 260px; max-width: 300px; text-align: center;
-      padding: 1.5rem; transition: transform 0.3s ease;
-    }
-    .service-card:hover { transform: translateY(-5px); }
-    .service-card .icon { font-size: 3rem; margin-bottom: 1rem; }
-    .service-card h3 { font-size: 1.3rem; font-weight: 700; color: #f57c00; margin-bottom: 0.75rem; }
-    .service-card p { font-size: 0.95rem; color: var(--navy); margin: 0; }
-
     .services-tabs { max-width: 1000px; margin: 3rem auto; padding: 1rem; text-align: center; }
     .tabs {
       display: flex; justify-content: center; gap: 1rem;
@@ -65,6 +50,21 @@
     .tab-content .icon { font-size: 3rem; margin-bottom: 1rem; }
     .tab-content h3 { font-size: 1.5rem; font-weight: 700; color: #f57c00; margin-bottom: 1rem; }
     .tab-content p { font-size: 1rem; color: var(--navy); line-height: 1.6; }
+
+    .services-grid {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 2rem; padding: 3rem 1rem; max-width: 1200px; margin: 0 auto;
+    }
+    .service-card {
+      background-color: var(--white); border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex: 1 1 260px; max-width: 300px; text-align: center;
+      padding: 1.5rem; transition: transform 0.3s ease;
+    }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-card .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.3rem; font-weight: 700; color: #f57c00; margin-bottom: 0.75rem; }
+    .service-card p { font-size: 0.95rem; color: var(--navy); margin: 0; }
   </style>
 </head>
 <body>
@@ -79,18 +79,7 @@
     <p>Delivering safety, speed, and reliability across India</p>
   </section>
 
-  <!-- Service Cards -->
-  <section class="services-grid">
-    <div class="service-card"><div class="icon">🚚</div><h3>Fully Closed Trucks</h3><p>Maximum protection for cargo, shielding from weather, dust, and damage.</p></div>
-    <div class="service-card"><div class="icon">📦</div><h3>Full Load Services (FTL)</h3><p>Cost‑effective full truck load solutions with exclusive truck use and real‑time tracking.</p></div>
-    <div class="service-card"><div class="icon">🏭</div><h3>Warehousing</h3><p>Secure storage, inventory management, and order fulfillment for smooth operations.</p></div>
-    <div class="service-card"><div class="icon">📡</div><h3>GPS Tracking</h3><p>Real‑time visibility of vehicles and assets to boost efficiency and safety.</p></div>
-    <div class="service-card"><div class="icon">🚢</div><h3>Container Cargo</h3><p>Flexible, secure, and reliable cargo shipping locally or globally.</p></div>
-    <div class="service-card"><div class="icon">⚓</div><h3>Seaway Container Cargo</h3><p>Efficient global shipping solutions via sea routes, ensuring safe and timely delivery.</p></div>
-    <div class="service-card"><div class="icon">✈️</div><h3>Air Cargo</h3><p>Fast, reliable, and secure shipping for urgent or high‑value goods.</p></div>
-  </section>
-
-  <!-- Services Tabs -->
+  <!-- Services Tabs (moved up) -->
   <section class="services-tabs">
     <div class="tabs">
       <button class="tab active" data-tab="closed">Fully Closed Trucks</button>
@@ -109,6 +98,17 @@
     <div class="tab-content" id="container"><div class="icon">🚢</div><h3>Container Cargo</h3><p>Flexible, secure, and reliable cargo shipping locally or globally, with tracking.</p></div>
     <div class="tab-content" id="seaway"><div class="icon">⚓</div><h3>Seaway Container Cargo</h3><p>Efficient global shipping solutions via sea routes, ensuring safe and timely delivery.</p></div>
     <div class="tab-content" id="air"><div class="icon">✈️</div><h3>Air Cargo</h3><p>Fast, reliable, and secure shipping for urgent or high‑value goods, with global airport connectivity.</p></div>
+  </section>
+
+  <!-- Service Cards Grid (moved down) -->
+  <section class="services-grid">
+    <div class="service-card"><div class="icon">🚚</div><h3>Fully Closed Trucks</h3><p>Maximum protection for cargo, shielding from weather, dust, and damage.</p></div>
+    <div class="service-card"><div class="icon">📦</div><h3>Full Load Services (FTL)</h3><p>Cost‑effective full truck load solutions with exclusive truck use and real‑time tracking.</p></div>
+    <div class="service-card"><div class="icon">🏭</div><h3>Warehousing</h3><p>Secure storage, inventory management, and order fulfillment for smooth operations.</p></div>
+    <div class="service-card"><div class="icon">📡</div><h3>GPS Tracking</h3><p>Real‑time visibility of vehicles and assets to boost efficiency and safety.</p></div>
+    <div class="service-card"><div class="icon">🚢</div><h3>Container Cargo</h3><p>Flexible, secure, and reliable cargo shipping locally or globally.</p></div>
+    <div class="service-card"><div class="icon">⚓</div><h3>Seaway Container Cargo</h3><p>Efficient global shipping solutions via sea routes, ensuring safe and timely delivery.</p></div>
+    <div class="service-card"><div class="icon">✈️</div><h3>Air Cargo</h3><p>Fast, reliable, and secure shipping for urgent or high‑value goods.</p></div>
   </section>
 
   <!-- Footer -->
@@ -131,4 +131,4 @@
   });
   </script>
 </body>
-</
+</html>
