@@ -25,131 +25,26 @@
     .about-item h3 { margin:0; font-size:1.3rem; color:var(--navy); }
     .about-item p { margin:.25rem 0 0; line-height:1.6; }
 
-    /* SIMPLE WORKING TIMELINE */
-    .timeline-wrapper { 
-      max-width: 900px; 
-      margin: 2rem auto; 
-      padding: 2rem 0;
-      position: relative;
-    }
-    
-    /* Center line */
-    .center-line { 
-      position: absolute; 
-      width: 3px; 
-      background: var(--orange);
-      top: 0; 
-      bottom: 0; 
-      left: 50%; 
-      margin-left: -1.5px;
-    }
-    
-    /* Row container */
-    .timeline-row { 
-      display: table;
-      width: 100%;
-      margin-bottom: 40px;
-      position: relative;
-    }
-    
-    /* Content box */
-    .timeline-box {
-      display: table-cell;
-      width: 45%;
-      background: var(--white);
-      padding: 20px 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      vertical-align: top;
-      border-left: 4px solid var(--orange);
-    }
-    
-    /* Spacer for alignment */
-    .timeline-spacer {
-      display: table-cell;
-      width: 10%;
-    }
-    
-    /* Right aligned boxes */
-    .timeline-row.right .timeline-box {
-      border-left: none;
-      border-right: 4px solid var(--orange);
-    }
-    
-    /* Dot */
-    .timeline-marker {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: var(--orange);
-      border: 4px solid var(--white);
-      border-radius: 50%;
-      top: 25px;
-      left: 50%;
-      margin-left: -10px;
-      z-index: 10;
-      box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.3);
-    }
-    
-    /* Year badge */
-    .year-tag {
-      display: inline-block;
-      background: var(--navy);
-      color: var(--white);
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    
-    .timeline-box h3 { 
-      color: var(--orange); 
-      margin: 10px 0;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    
-    .timeline-box p { 
-      color: var(--navy); 
-      line-height: 1.6;
-      margin: 0;
-      font-size: 0.95rem;
-    }
-    
-    /* Hover */
-    .timeline-box:hover {
-      box-shadow: 0 6px 20px rgba(245, 124, 0, 0.2);
-      transform: translateY(-3px);
-      transition: all 0.3s ease;
-    }
+    /* TIMELINE STRUCTURE */
+    .timeline-wrapper { max-width: 900px; margin: 2rem auto; padding: 2rem 0; position: relative; }
+    .center-line { position: absolute; width: 3px; background: var(--orange); top: 0; bottom: 0; left: 50%; margin-left: -1.5px; }
+    .timeline-row { display: table; width: 100%; margin-bottom: 40px; position: relative; }
+    .timeline-box { display: table-cell; width: 45%; background: var(--white); padding: 20px 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); vertical-align: top; border-left: 4px solid var(--orange); }
+    .timeline-spacer { display: table-cell; width: 10%; }
+    .timeline-row.right .timeline-box { border-left: none; border-right: 4px solid var(--orange); }
+    .timeline-marker { position: absolute; width: 20px; height: 20px; background: var(--orange); border: 4px solid var(--white); border-radius: 50%; top: 25px; left: 50%; margin-left: -10px; z-index: 10; box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.3); }
+    .year-tag { display: inline-block; background: var(--navy); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; }
+    .timeline-box h3 { color: var(--orange); margin: 10px 0; font-size: 1.3rem; font-weight: 700; }
+    .timeline-box p { color: var(--navy); line-height: 1.6; margin: 0; font-size: 0.95rem; }
+    .timeline-box:hover { box-shadow: 0 6px 20px rgba(245, 124, 0, 0.2); transform: translateY(-3px); transition: all 0.3s ease; }
 
     /* Mobile */
     @media screen and (max-width: 768px) {
-      .center-line {
-        left: 30px;
-      }
-      
-      .timeline-row {
-        display: block;
-      }
-      
-      .timeline-box {
-        display: block;
-        width: calc(100% - 70px);
-        margin-left: 60px;
-        border-left: 4px solid var(--orange) !important;
-        border-right: none !important;
-      }
-      
-      .timeline-spacer {
-        display: none;
-      }
-      
-      .timeline-marker {
-        left: 30px;
-        margin-left: 0;
-      }
+      .center-line { left: 30px; }
+      .timeline-row { display: block; }
+      .timeline-box { display: block; width: calc(100% - 70px); margin-left: 60px; border-left: 4px solid var(--orange) !important; border-right: none !important; }
+      .timeline-spacer { display: none; }
+      .timeline-marker { left: 30px; margin-left: 0; }
     }
   </style>
 </head>
@@ -184,7 +79,13 @@
       <div class="icon">🎯</div>
       <div>
         <h3>Our Mission</h3>
-        <p>To empower businesses with reliable transport and warehousing, ensuring every shipment is handled with precision, transparency, and care.</p>
+        <ul>
+          <li>Deliveries You Can Trust – Fast, affordable, and reliable logistics ensuring every shipment arrives safely and on time.</li>
+          <li>Specialized Transport Leadership – India’s preferred partner for heavy and specialized cargo with integrated solutions.</li>
+          <li>Customer‑First Approach – Building long‑term partnerships by delivering seamless, hassle‑free experiences tailored to client needs.</li>
+          <li>Safety Above All – Upholding strict safety standards to protect employees, customers, and goods.</li>
+          <li>Sustainable Growth – Embracing eco‑friendly practices and innovative technologies to reduce environmental impact.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -198,13 +99,13 @@
     <div class="about-item"><div class="icon">🌱</div><div><h3>Sustainability</h3><p>We commit to eco‑friendly practices and responsible growth.</p></div></div>
   </section>
 
-  <!-- Roadmap Timeline - NEW STRUCTURE -->
+  <!-- Roadmap Timeline (till 2020) -->
   <section class="about-section">
     <h2>Our Journey</h2>
     <div class="timeline-wrapper">
       <div class="center-line"></div>
-      
-      <!-- 2018 - LEFT -->
+
+      <!-- 2018 -->
       <div class="timeline-row left">
         <div class="timeline-marker"></div>
         <div class="timeline-box">
@@ -214,8 +115,8 @@
         </div>
         <div class="timeline-spacer"></div>
       </div>
-      
-      <!-- 2019-2020 - RIGHT -->
+
+      <!-- 2019–2020 -->
       <div class="timeline-row right">
         <div class="timeline-marker"></div>
         <div class="timeline-spacer"></div>
@@ -225,40 +126,38 @@
           <p>Expanded fleet size and onboarded new vendors, steadily building customer trust and establishing regional presence.</p>
         </div>
       </div>
-      
-      <!-- 2021-2022 - LEFT -->
-      <div class="timeline-row left">
-        <div class="timeline-marker"></div>
-        <div class="timeline-box">
-          <span class="year-tag">🏭 2021–2022</span>
-          <h3>Infrastructure Advancement</h3>
-          <p>Introduced fully closed trucks and advanced warehousing solutions, ensuring safety, compliance, and quality service.</p>
-        </div>
-        <div class="timeline-spacer"></div>
-      </div>
-      
-      <!-- 2023-2024 - RIGHT -->
-      <div class="timeline-row right">
-        <div class="timeline-marker"></div>
-        <div class="timeline-spacer"></div>
-        <div class="timeline-box">
-          <span class="year-tag">💻 2023–2024</span>
-          <h3>Digital Transformation</h3>
-          <p>Strengthened GPS tracking and digital platforms, enhancing transparency, real-time updates, and operational efficiency.</p>
-        </div>
-      </div>
-      
-      <!-- 2025 - LEFT -->
-      <div class="timeline-row left">
-        <div class="timeline-marker"></div>
-        <div class="timeline-box">
-          <span class="year-tag">🚀 2025</span>
-          <h3>Future Vision</h3>
-          <p>Ramping up digitalization, preparing for nationwide expansion, and scaling vendor and customer networks strategically.</p>
-        </div>
-        <div class="timeline-spacer"></div>
-      </div>
-      
+<!-- 2021–2022 -->
+<div class="timeline-row left">
+  <div class="timeline-marker"></div>
+  <div class="timeline-box">
+    <span class="year-tag">🏭 2021–2022</span>
+    <h3>Infrastructure Advancement</h3>
+    <p>Introduced fully closed trucks and advanced warehousing solutions, ensuring safety, compliance, and quality service for diverse cargo needs.</p>
+  </div>
+  <div class="timeline-spacer"></div>
+</div>
+
+<!-- 2023–2024 -->
+<div class="timeline-row right">
+  <div class="timeline-marker"></div>
+  <div class="timeline-spacer"></div>
+  <div class="timeline-box">
+    <span class="year-tag">💻 2023–2024</span>
+    <h3>Digital Transformation</h3>
+    <p>Strengthened GPS tracking and digital platforms, enhancing transparency, real‑time updates, and operational efficiency across the supply chain.</p>
+  </div>
+</div>
+
+<!-- 2025 -->
+<div class="timeline-row left">
+  <div class="timeline-marker"></div>
+  <div class="timeline-box">
+    <span class="year-tag">🚀 2025</span>
+    <h3>Future Vision</h3>
+    <p>Ramping up digitalization, preparing for nationwide expansion, and scaling vendor and customer networks strategically to meet growing demand.</p>
+  </div>
+  <div class="timeline-spacer"></div>
+</div>
     </div>
   </section>
 
@@ -267,3 +166,4 @@
   <script src="footer.js"></script>
 
 </body>
+</html>
