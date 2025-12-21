@@ -16,28 +16,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (label && link) {
           const a = document.createElement("a");
           a.textContent = label.trim();
-          
-          // ✅ Ensure absolute external link
-          const href = link.trim();
-          if (href.startsWith("http") || href.startsWith("mailto:")) {
-            a.href = href;
-          } else {
-            // fallback: treat as relative page link
-            a.href = "/" + href;
-          }
 
-          a.target = "_blank"; // open in new tab
+          const href = link.trim();
+          a.href = href; // ✅ absolute link preserved
+          a.target = "_blank"; 
           a.rel = "noopener noreferrer";
           a.className = "btn-primary"; // style all as orange buttons
-          console.log("Generated button link:", a.href);
+
+          console.log("Generated button link:", a.href); // debug
+
           btnRow.appendChild(a);
-          a.setAttribute("href", link.trim());
-a.setAttribute("target", "_blank"); // open in new tab
-a.setAttribute("rel", "noopener noreferrer");
         }
       });
     }
   }
 });
-
-
