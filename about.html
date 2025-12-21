@@ -25,151 +25,231 @@
     .about-item h3 { margin:0; font-size:1.3rem; color:var(--navy); }
     .about-item p { margin:.25rem 0 0; line-height:1.6; }
 
-    /* Timeline - FIXED VERSION */
+    /* LOGISTICS-THEMED TIMELINE */
     .timeline { 
       position: relative; 
-      max-width: 1000px; 
-      margin: 3rem auto; 
-      padding: 2rem 1rem;
+      max-width: 900px; 
+      margin: 2rem auto; 
+      padding: 2rem 0;
     }
     
+    /* Center vertical line - styled like a road/route */
     .timeline::before { 
       content: ''; 
       position: absolute; 
       width: 4px; 
-      background: linear-gradient(180deg, var(--orange) 0%, #ff9800 50%, var(--orange) 100%);
+      background: linear-gradient(180deg, 
+        var(--orange) 0%, 
+        var(--navy) 25%,
+        var(--orange) 50%,
+        var(--navy) 75%,
+        var(--orange) 100%
+      );
       top: 0; 
       bottom: 0; 
       left: 50%; 
-      transform: translateX(-50%);
-      box-shadow: 0 0 10px rgba(245, 124, 0, 0.3);
+      margin-left: -2px;
+      box-shadow: 0 0 15px rgba(245, 124, 0, 0.4);
     }
     
+    /* Timeline item container */
     .timeline-item { 
       position: relative;
+      margin-bottom: 50px;
       width: 100%;
-      padding: 0;
-      margin-bottom: 3rem;
-      display: flex;
-      align-items: center;
-      min-height: 100px;
+      clear: both;
     }
     
-    .timeline-item.left { 
-      justify-content: flex-start;
-    }
-    
-    .timeline-item.right { 
-      justify-content: flex-end;
-    }
-    
+    /* Content boxes - styled like shipping containers */
     .timeline-content {
-      background: var(--white);
-      padding: 1.8rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      width: 42%;
+      background: linear-gradient(135deg, var(--white) 0%, #fafafa 100%);
+      padding: 22px 28px;
+      border-radius: 10px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+      width: 40%;
       position: relative;
+      border-left: 5px solid var(--orange);
       transition: all 0.3s ease;
-      z-index: 1;
     }
     
+    /* Corner accent - like container corners */
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 20px;
+      height: 20px;
+      border-top: 3px solid var(--navy);
+      border-left: 3px solid var(--navy);
+      border-radius: 2px 0 0 0;
+    }
+    
+    .timeline-content::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 20px;
+      height: 20px;
+      border-bottom: 3px solid var(--navy);
+      border-right: 3px solid var(--navy);
+      border-radius: 0 0 2px 0;
+    }
+    
+    /* Left side items */
     .timeline-item.left .timeline-content {
-      margin-right: auto;
       margin-left: 0;
-      border-left: 4px solid var(--orange);
-      transform: translateX(-80px);
+      margin-right: auto;
+      float: left;
+      clear: both;
     }
     
+    /* Right side items */
     .timeline-item.right .timeline-content {
-      margin-left: auto;
       margin-right: 0;
-      border-right: 4px solid var(--orange);
-      transform: translateX(80px);
+      margin-left: auto;
+      float: right;
+      clear: both;
+      border-left: none;
+      border-right: 5px solid var(--orange);
     }
     
-    .timeline-content:hover {
-      box-shadow: 0 8px 25px rgba(245, 124, 0, 0.25);
-      transform: translateX(-80px) scale(1.03);
-    }
-    
-    .timeline-item.right .timeline-content:hover {
-      transform: translateX(80px) scale(1.03);
-    }
-    
+    /* Year badges - styled like shipping labels */
     .year-badge {
       display: inline-block;
       background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 100%);
       color: var(--white);
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-size: 0.85rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
-      box-shadow: 0 3px 8px rgba(10, 31, 68, 0.3);
+      margin-bottom: 10px;
+      box-shadow: 0 3px 10px rgba(10, 31, 68, 0.3);
+      border: 2px solid var(--orange);
+      letter-spacing: 0.5px;
+      position: relative;
     }
     
+    .year-badge::before {
+      content: '📦';
+      margin-right: 6px;
+      font-size: 0.9rem;
+    }
+    
+    /* Timeline content headings - logistics icons */
     .timeline-content h3 { 
       color: var(--orange); 
-      margin: 0.5rem 0;
-      font-size: 1.4rem;
+      margin: 10px 0;
+      font-size: 1.35rem;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     
+    /* Add logistics icons to headings */
+    .timeline-item:nth-child(1) .timeline-content h3::before { content: '🚚'; }
+    .timeline-item:nth-child(2) .timeline-content h3::before { content: '📈'; }
+    .timeline-item:nth-child(3) .timeline-content h3::before { content: '🏭'; }
+    .timeline-item:nth-child(4) .timeline-content h3::before { content: '💻'; }
+    .timeline-item:nth-child(5) .timeline-content h3::before { content: '🚀'; }
+    
+    /* Timeline content paragraphs */
     .timeline-content p { 
       color: var(--navy); 
-      line-height: 1.6;
+      line-height: 1.7;
       margin: 0;
-      font-size: 1rem;
+      font-size: 0.96rem;
     }
     
+    /* Center dots - styled like GPS location pins */
     .timeline-dot {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, var(--orange) 0%, #ff9800 100%);
+      border: 5px solid var(--white);
+      border-radius: 50%;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      box-shadow: 0 0 0 4px rgba(245, 124, 0, 0.25),
+                  0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-dot::after {
+      content: '📍';
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 20px;
-      height: 20px;
-      background: linear-gradient(135deg, var(--orange) 0%, #ff9800 100%);
-      border: 4px solid var(--white);
-      border-radius: 50%;
-      z-index: 2;
-      box-shadow: 0 0 0 4px rgba(245, 124, 0, 0.2);
-      transition: all 0.3s ease;
+      font-size: 10px;
+    }
+    
+    /* Hover effects - lift like cargo */
+    .timeline-content:hover {
+      box-shadow: 0 8px 25px rgba(245, 124, 0, 0.3);
+      transform: translateY(-5px);
     }
     
     .timeline-item:hover .timeline-dot {
-      width: 26px;
-      height: 26px;
-      box-shadow: 0 0 0 6px rgba(245, 124, 0, 0.3);
+      width: 28px;
+      height: 28px;
+      box-shadow: 0 0 0 6px rgba(245, 124, 0, 0.35),
+                  0 6px 18px rgba(0,0,0,0.25);
+    }
+    
+    /* Connection lines from dot to content - like routes */
+    .timeline-item.left::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: calc(40% + 28px);
+      right: 50%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--orange) 100%);
+      z-index: 1;
+    }
+    
+    .timeline-item.right::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      right: calc(40% + 28px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange) 0%, transparent 100%);
+      z-index: 1;
     }
 
-    /* Mobile Responsive */
+    /* Mobile */
     @media screen and (max-width: 768px) {
       .timeline::before {
-        left: 30px;
-      }
-
-      .timeline-item {
-        justify-content: flex-start !important;
-        min-height: auto;
+        left: 25px;
       }
 
       .timeline-content {
-        width: calc(100% - 80px) !important;
-        margin-left: 80px !important;
-        margin-right: 0 !important;
-        transform: none !important;
-        border-left: 4px solid var(--orange) !important;
+        width: calc(100% - 70px) !important;
+        margin-left: 60px !important;
+        float: none !important;
+        border-left: 5px solid var(--orange) !important;
         border-right: none !important;
       }
 
-      .timeline-content:hover {
-        transform: scale(1.02) !important;
-      }
-
       .timeline-dot {
-        left: 30px;
+        left: 25px;
+        transform: translateX(0);
+      }
+      
+      .timeline-item.left::after,
+      .timeline-item.right::after {
+        left: 25px;
+        right: auto;
+        width: 35px;
+        background: linear-gradient(90deg, var(--orange) 0%, transparent 100%);
       }
     }
   </style>
