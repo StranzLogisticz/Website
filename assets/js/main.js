@@ -30,8 +30,12 @@ document.addEventListener("DOMContentLoaded", function() {
           a.rel = "noopener noreferrer";
           a.className = "btn-primary"; // style all as orange buttons
           btnRow.appendChild(a);
+          a.setAttribute("href", link.trim());
+a.setAttribute("target", "_blank"); // open in new tab
+a.setAttribute("rel", "noopener noreferrer");
         }
       });
     }
   }
 });
+
