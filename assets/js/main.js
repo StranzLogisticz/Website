@@ -17,10 +17,13 @@ document.addEventListener("DOMContentLoaded", function() {
           const a = document.createElement("a");
           a.textContent = label.trim();
           a.href = link.trim();
+a.target = "_blank"; // open in new tab
+a.rel = "noopener noreferrer"; // security best practice
           a.className = label.toLowerCase() === "quote" ? "btn-primary" : "btn-secondary";
           btnRow.appendChild(a);
         }
       });
     }
   }
+
 });
