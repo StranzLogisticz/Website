@@ -309,12 +309,11 @@ body {
   margin: 0;
 }
 
-/* ===== SERVICES TABS ===== */
 .services-tabs {
   max-width: 1000px;
-  margin: 3rem auto;   /* centers the whole section */
+  margin: 3rem auto;
   padding: 1rem;
-  text-align: center;  /* centers inline content */
+  text-align: center;
 }
 
 .tabs {
@@ -333,25 +332,14 @@ body {
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  min-width: 160px;       /* consistent width */
+  min-width: 160px;
   text-align: center;
 }
 
-.tab:hover {
-  background-color: #f57c00;
-}
-
-.tab.active {
-  background-color: #f57c00;
-  color: var(--white);
-}
-
-/* ===== TAB CONTENT ===== */
 .tab-content {
-  display: none;          /* hide all by default */
-  max-width: 700px;       /* limit width */
-  margin: 0 auto;         /* center horizontally */
+  display: none;
+  max-width: 700px;
+  margin: 0 auto; /* centers horizontally */
   background-color: var(--gray);
   padding: 2rem;
   border-radius: 8px;
@@ -359,13 +347,7 @@ body {
 }
 
 .tab-content.active {
-  display: block;         /* show only active one */
-}
-
-.tab-content h3 {
-  color: #f57c00;
-  margin-bottom: 1rem;
-}
+  display: block;
 }
 /* ===== CONTACT HERO ===== */
 .contact-hero {
@@ -620,6 +602,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
