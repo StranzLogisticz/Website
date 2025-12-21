@@ -161,112 +161,43 @@ body {
 .btn-row a:hover {
   background-color: #e65100; /* darker orange */
 }
-.stats-bar {
-  display: flex;
-  justify-content: space-around;
-  background-color: var(--white);
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-.stats-bar .stat h3 {
-  font-size: 2rem;
-  color: #f57c00; /* orange highlight */
-  margin-bottom: 0.5rem;
-}
-
-.stats-bar .stat p {
-  font-size: 1rem;
-  color: var(--navy);
-}
-.service-list {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 2rem auto;
-  max-width: 1200px;
-}
-
-.service-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  flex: 1 1 300px;
-  text-align: center;
-}
-
-.service-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #f57c00;
-  /* ===== Network Coverage Section ===== */
- .network-coverage {
-  background-color: var(--white);
-  padding: 3rem 1rem;
-}
-
-.network-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(280px, 1fr));
-  gap: 2rem;
-  align-items: start;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 900px) {
-  .network-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.map-box {
-  background: #fafafa;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  min-height: 280px;               /* keeps layout stable if image breaks */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.map-box img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.city-box {
-  background: var(--white);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 1.5rem;
-}
-
-.city-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.city-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.1rem;
-  color: var(--navy);
-  font-weight: 600;
-  margin: 0.5rem 0;
-}
-
-.city-list li::before {
-  content: "📍";
-  font-size: 1.1rem;
-  line-height: 1;
-}
+/* ===== Statue & Network ===== */
+<section class="stats-network">
+  <div class="stats-column">
+    <h2 class="section-title">Our Impact</h2>
+    <div class="stats-bar">
+      <div class="stat">
+        <h3>500+</h3>
+        <p>Shipments / Month</p>
+      </div>
+      <div class="stat">
+        <h3>12,000 km</h3>
+        <p>Covered Weekly</p>
+      </div>
+      <div class="stat">
+        <h3>25,000 sq ft</h3>
+        <p>Warehouse Capacity</p>
+      </div>
+      <div class="stat">
+        <h3>120+</h3>
+        <p>Clients Served</p>
+      </div>
+    </div>
+  </div>
+  <div class="network-column">
+    <h2 class="section-title">Our Network</h2>
+    <div class="map-box">
+      <img src="assets/img/india-map.png" alt="India map showing Stranz coverage" />
+    </div>
+    <ul class="city-list">
+      <li>📍Chennai (HQ)</li>
+      <li>📍Bengaluru</li>
+      <li>📍Coimbatore</li>
+      <li>📍Pondicherry</li>
+      <li>📍Hyderabad</li>
+    </ul>
+  </div>
+</section>
 /* ===== FOOTER ===== */
 footer {
   background-color: var(--navy);
@@ -295,5 +226,6 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
