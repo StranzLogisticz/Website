@@ -12,17 +12,20 @@ document.addEventListener("DOMContentLoaded", function() {
       btnRow.innerHTML = ""; // clear existing
       const buttons = hero.dataset.buttons.split(",");
       buttons.forEach(btn => {
-        const [label, link] = btn.split(":");
-        if (label && link) {
-          const a = document.createElement("button");
-          a.textContent = label.trim();
-          a.className = "btn-primary"; // orange style
+        // ✅ Split only on the first colon
+        const index = btn.indexOf(":");
+        if (index !== -1) {
+          const label = btn.substring(0, index).trim();
+          const link = btn.substring(index + 1).trim();
 
-          // ✅ Force external link open
-          a.addEventListener("click", () => {
-            window.open(link.trim(), "_blank", "noopener,noreferrer");
-          });
+          const a = document.createElement("a");
+          a.textContent = label;
+          a.href = link;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.className = "btn-primary";
 
+          console.log("Generated button link:", a.href); // debug
           btnRow.appendChild(a);
         }
       });
