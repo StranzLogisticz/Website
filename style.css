@@ -326,7 +326,7 @@ body {
   color: #f57c00;
 }
 
-/* ===== CONTACT INFO ===== */
+/* CONTACT INFO CARDS CLICKABLE */
 .contact-info {
   display: flex;
   flex-wrap: wrap;
@@ -344,11 +344,23 @@ body {
   max-width: 260px;
   text-align: center;
   padding: 1.5rem;
+  text-decoration: none;   /* remove underline */
+  color: var(--navy);      /* keep text color */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  background-color: #f57c00;
+  color: var(--white);
 }
 
 .info-card h3 {
-  color: #f57c00;
   margin-bottom: 0.5rem;
+}
+
+.info-card p {
+  margin: 0;
 }
 
 /* ===== CONTACT FORM ===== */
@@ -416,6 +428,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
