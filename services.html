@@ -47,61 +47,70 @@
     </div>
   </section>
 
-<!-- Services Tabs -->
-<section class="services-tabs">
-  <div class="tabs">
-    <button class="tab active" data-tab="logistics">Contract Logistics</button>
-    <button class="tab" data-tab="freight">Global Freight Forwarding</button>
-    <button class="tab" data-tab="transport">Transportation</button>
-    <button class="tab" data-tab="warehousing">Warehousing</button>
-    <button class="tab" data-tab="cold">Cold Storage</button>
-  </div>
+  <!-- Services Tabs -->
+  <section class="services-tabs">
+    <div class="tabs">
+      <button class="tab active" data-tab="logistics">Contract Logistics</button>
+      <button class="tab" data-tab="freight">Global Freight Forwarding</button>
+      <button class="tab" data-tab="transport">Transportation</button>
+      <button class="tab" data-tab="warehousing">Warehousing</button>
+      <button class="tab" data-tab="cold">Cold Storage</button>
+    </div>
 
-  <div class="tab-content active" id="logistics">
-    <h3>Contract Logistics</h3>
-    <p>We provide end-to-end supply chain management, ensuring reliable and optimized solutions for complex requirements.</p>
-  </div>
+    <div class="tab-content active" id="logistics">
+      <div class="tab-card">
+        <h3>Contract Logistics</h3>
+        <p>We provide end-to-end supply chain management, ensuring reliable and optimized solutions for complex requirements.</p>
+      </div>
+    </div>
 
-  <div class="tab-content" id="freight">
-    <h3>Global Freight Forwarding</h3>
-    <p>International freight solutions with speed, compliance, and transparency across borders.</p>
-  </div>
+    <div class="tab-content" id="freight">
+      <div class="tab-card">
+        <h3>Global Freight Forwarding</h3>
+        <p>International freight solutions with speed, compliance, and transparency across borders.</p>
+      </div>
+    </div>
 
-  <div class="tab-content" id="transport">
-    <h3>Transportation</h3>
-    <p>Reliable movement across regional and national routes with safety and efficiency.</p>
-  </div>
+    <div class="tab-content" id="transport">
+      <div class="tab-card">
+        <h3>Transportation</h3>
+        <p>Reliable movement across regional and national routes with safety and efficiency.</p>
+      </div>
+    </div>
 
-  <div class="tab-content" id="warehousing">
-    <h3>Warehousing</h3>
-    <p>Secure storage and distribution facilities with SOPs and real-time tracking.</p>
-  </div>
+    <div class="tab-content" id="warehousing">
+      <div class="tab-card">
+        <h3>Warehousing</h3>
+        <p>Secure storage and distribution facilities with SOPs and real-time tracking.</p>
+      </div>
+    </div>
 
-  <div class="tab-content" id="cold">
-    <h3>Cold Storage</h3>
-    <p>Temperature-controlled warehousing for sensitive goods, ensuring quality and compliance.</p>
-  </div>
-</section>
+    <div class="tab-content" id="cold">
+      <div class="tab-card">
+        <h3>Cold Storage</h3>
+        <p>Temperature-controlled warehousing for sensitive goods, ensuring quality and compliance.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <div id="footer"></div>
   <script src="footer.js"></script>
-<!-- for style Java -->
+
+  <!-- Tabs Script -->
   <script>
-  const tabs = document.querySelectorAll(".tab");
-  const contents = document.querySelectorAll(".tab-content");
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
 
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      contents.forEach(c => c.classList.remove("active"));
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
 
-      tab.classList.add("active");
-      document.getElementById(tab.dataset.tab).classList.add("active");
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
-
-
