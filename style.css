@@ -218,9 +218,52 @@ body {
     max-height: 200px;
   }
 }
+/* ===== SERVICES ===== */
+.services {
+  background-color: var(--gray);
+  padding: 3rem 1rem;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex: 1 1 260px;
+  max-width: 300px;
+  text-align: center;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f57c00;
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin: 0;
+}
+
 /* ===== WHY CHOOSE STRANZ ===== */
 .why-choose {
-  background-color: var(--gray);
+  background-color: var(--white);
   padding: 3rem 1rem;
 }
 
@@ -234,9 +277,9 @@ body {
 }
 
 .choose-card {
-  background-color: var(--white);
+  background-color: var(--gray);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   flex: 1 1 220px;
   max-width: 240px;
   text-align: center;
@@ -293,6 +336,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
