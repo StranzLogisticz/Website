@@ -622,31 +622,47 @@ body {
   margin: 0;
   font-size: 0.95rem;
 }
+.faq-hero {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.faq-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: .5rem;
+}
+.faq-hero p {
+  font-size: 1.2rem;
+  color: var(--orange);
+}
+
 .faq-section {
-  max-width:1000px;
-  margin:3rem auto;
-  padding:2rem;
-  background:var(--white);
-  border-radius:8px;
-  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 .faq-section h2 {
-  text-align:center;
-  color:var(--orange);
-  margin-bottom:1.5rem;
+  text-align: center;
+  color: var(--orange);
+  margin-bottom: 1.5rem;
 }
 .faq-item {
-  margin-bottom:1.5rem;
+  margin-bottom: 1.5rem;
 }
 .faq-item h3 {
-  margin:0;
-  font-size:1.2rem;
-  color:var(--navy);
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--navy);
 }
 .faq-item p {
-  margin:.25rem 0 0;
-  line-height:1.6;
+  margin: .25rem 0 0;
+  line-height: 1.6;
 }
+
 /* ===== FOOTER ===== */
 footer {
   background-color: var(--navy);
@@ -675,6 +691,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
