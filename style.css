@@ -622,6 +622,35 @@ body {
   margin: 0;
   font-size: 0.95rem;
 }
+/* ===== FOOTER ===== */
+footer {
+  background-color: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.social-links {
+  margin-top: 0.25rem;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.social-links img {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
 /* FAQ Page Styles */
 .faq-hero {
   background: var(--navy);
@@ -663,35 +692,6 @@ body {
   margin: .25rem 0 0;
   line-height: 1.6;
 }
-/* ===== FOOTER ===== */
-footer {
-  background-color: var(--navy);
-  color: var(--white);
-  text-align: center;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-}
-
-.social-links {
-  margin-top: 0.25rem;
-}
-
-.social-links a {
-  display: inline-block;
-  margin: 0 0.5rem;
-}
-
-.social-links img {
-  height: 24px;
-  width: 24px;
-  object-fit: contain;
-  transition: transform 0.2s ease;
-}
-
-.social-links img:hover {
-  transform: scale(1.2);
-}
-
 
 
 
