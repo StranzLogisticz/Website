@@ -1,142 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — Stranz Logistics</title>
+  <meta charset="UTF-8">
+  <title>About Us - Stranz Logistics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --navy: #0a1f44;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --orange: #f57c00;
+    }
+    body { margin:0; font-family:Arial,sans-serif; background:var(--gray); color:var(--navy); }
 
-  <!-- Load main stylesheet (add a version query to bust cache if needed) -->
-  <link rel="stylesheet" href="style.css?v=1.0.0" />
+    .about-hero { background:var(--navy); color:var(--white); text-align:center; padding:4rem 2rem; }
+    .about-hero h1 { font-size:2.5rem; margin-bottom:.5rem; }
+    .about-hero p { font-size:1.2rem; color:var(--orange); }
+
+    .about-section { max-width:1000px; margin:3rem auto; padding:2rem; background:var(--white); border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.1); }
+    .about-section h2 { text-align:center; color:var(--orange); margin-bottom:1rem; }
+    .about-item { display:flex; gap:1rem; margin-bottom:1.5rem; }
+    .about-item .icon { font-size:2rem; color:var(--orange); }
+    .about-item h3 { margin:0; font-size:1.3rem; color:var(--navy); }
+    .about-item p { margin:.25rem 0 0; line-height:1.6; }
+
+    /* TIMELINE STRUCTURE */
+    .timeline-wrapper { max-width: 900px; margin: 2rem auto; padding: 2rem 0; position: relative; }
+    .center-line { position: absolute; width: 3px; background: var(--orange); top: 0; bottom: 0; left: 50%; margin-left: -1.5px; }
+    .timeline-row { display: table; width: 100%; margin-bottom: 40px; position: relative; }
+    .timeline-box { display: table-cell; width: 45%; background: var(--white); padding: 20px 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); vertical-align: top; border-left: 4px solid var(--orange); }
+    .timeline-spacer { display: table-cell; width: 10%; }
+    .timeline-row.right .timeline-box { border-left: none; border-right: 4px solid var(--orange); }
+    .timeline-marker { position: absolute; width: 20px; height: 20px; background: var(--orange); border: 4px solid var(--white); border-radius: 50%; top: 25px; left: 50%; margin-left: -10px; z-index: 10; box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.3); }
+    .year-tag { display: inline-block; background: var(--navy); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; }
+    .timeline-box h3 { color: var(--orange); margin: 10px 0; font-size: 1.3rem; font-weight: 700; }
+    .timeline-box p { color: var(--navy); line-height: 1.6; margin: 0; font-size: 0.95rem; }
+    .timeline-box:hover { box-shadow: 0 6px 20px rgba(245, 124, 0, 0.2); transform: translateY(-3px); transition: all 0.3s ease; }
+
+    /* Mobile */
+    @media screen and (max-width: 768px) {
+      .center-line { left: 30px; }
+      .timeline-row { display: block; }
+      .timeline-box { display: block; width: calc(100% - 70px); margin-left: 60px; border-left: 4px solid var(--orange) !important; border-right: none !important; }
+      .timeline-spacer { display: none; }
+      .timeline-marker { left: 30px; margin-left: 0; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header (keeps your existing header.js behavior) -->
+  <!-- Header -->
   <div id="header"></div>
   <script src="header.js"></script>
 
-  <!-- ABOUT HERO -->
-  <section class="contact-hero" aria-labelledby="about-hero-title">
-    <div class="hero-content">
-      <h1 id="about-hero-title">About Stranz Logistics</h1>
-      <p>Reliable cargo transport, fleet management, warehousing and specialized logistics across India.</p>
+  <!-- Hero -->
+  <section class="about-hero">
+    <h1>About Us</h1>
+    <p>Driving logistics excellence since 2018</p>
+  </section>
+
+  <!-- Vision -->
+  <section class="about-section">
+    <h2>Vision</h2>
+    <div class="about-item">
+      <div class="icon">👁️</div>
+      <div>
+        <h3>Our Vision</h3>
+        <p>To redefine logistics in India by delivering seamless, technology‑driven solutions that combine speed, safety, and sustainability.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <main>
-    <section class="about-section" aria-labelledby="our-journey-title">
-      <h2 id="our-journey-title" class="section-title">Our Journey</h2>
-
-      <!-- Timeline wrapper (keeps your existing markup and works with the CSS you provided) -->
-      <div class="timeline-wrapper" role="list">
-
-        <!-- 2018 -->
-        <div class="timeline-row" role="listitem">
-          <div class="timeline-box">
-            <span class="year-tag">🚚 2018</span>
-            <h3>Foundation Year</h3>
-            <p>Stranz Logistics was founded with a single truck and contract service, driven by a vision to simplify logistics across India.</p>
-          </div>
-          <div class="timeline-marker" aria-hidden="true"></div>
-        </div>
-
-        <!-- 2019–2020 -->
-        <div class="timeline-row" role="listitem">
-          <div class="timeline-box">
-            <span class="year-tag">📈 2019–2020</span>
-            <h3>Growth & Expansion</h3>
-            <p>Expanded fleet size and onboarded new vendors, steadily building customer trust and establishing regional presence.</p>
-          </div>
-          <div class="timeline-marker" aria-hidden="true"></div>
-        </div>
-
-        <!-- 2021–2022 -->
-        <div class="timeline-row" role="listitem">
-          <div class="timeline-box">
-            <span class="year-tag">🏭 2021–2022</span>
-            <h3>Infrastructure Advancement</h3>
-            <p>Introduced fully closed trucks and advanced warehousing solutions, ensuring safety, compliance, and quality service for diverse cargo needs.</p>
-          </div>
-          <div class="timeline-marker" aria-hidden="true"></div>
-        </div>
-
-        <!-- 2023–2024 -->
-        <div class="timeline-row" role="listitem">
-          <div class="timeline-box">
-            <span class="year-tag">💻 2023–2024</span>
-            <h3>Digital Transformation</h3>
-            <p>Strengthened GPS tracking and digital platforms, enhancing transparency, real‑time updates, and operational efficiency across the supply chain.</p>
-          </div>
-          <div class="timeline-marker" aria-hidden="true"></div>
-        </div>
-
-        <!-- 2025 -->
-        <div class="timeline-row" role="listitem">
-          <div class="timeline-box">
-            <span class="year-tag">🚀 2025</span>
-            <h3>Future Vision</h3>
-            <p>Ramping up digitalization, preparing for nationwide expansion, and scaling vendor and customer networks strategically to meet growing demand.</p>
-          </div>
-          <div class="timeline-marker" aria-hidden="true"></div>
-        </div>
-
+  <!-- Mission -->
+  <section class="about-section">
+    <h2>Mission</h2>
+    <div class="about-item">
+      <div class="icon">🎯</div>
+      <div>
+        <h3>Our Mission</h3>
+        <ul>
+          <li>Deliveries You Can Trust – Fast, affordable, and reliable logistics ensuring every shipment arrives safely and on time.</li>
+          <li>Specialized Transport Leadership – India’s preferred partner for heavy and specialized cargo with integrated solutions.</li>
+          <li>Customer‑First Approach – Building long‑term partnerships by delivering seamless, hassle‑free experiences tailored to client needs.</li>
+          <li>Safety Above All – Upholding strict safety standards to protect employees, customers, and goods.</li>
+          <li>Sustainable Growth – Embracing eco‑friendly practices and innovative technologies to reduce environmental impact.</li>
+        </ul>
       </div>
-    </section>
-    <!-- SERVICE SECTION -->
-    <section class="service-section" aria-labelledby="services-title">
-      <h2 id="services-title" class="section-title">Our Services</h2>
-      <div class="service-grid">
-        <div class="service-card">
-          <h3>Fleet Management</h3>
-          <p>Efficient handling of trucks and drivers to ensure timely deliveries.</p>
-        </div>
-        <div class="service-card">
-          <h3>Warehousing</h3>
-          <p>Secure storage solutions with modern facilities across India.</p>
-        </div>
-        <div class="service-card">
-          <h3>Specialized Cargo</h3>
-          <p>Tailored logistics for sensitive, oversized, or high‑value goods.</p>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- MISSION SECTION -->
-    <section class="mission-section" aria-labelledby="mission-title">
-      <h2 id="mission-title" class="section-title">Our Mission</h2>
-      <p class="mission-text">
-        To simplify logistics through innovation, reliability, and customer‑centric solutions, ensuring every shipment reaches safely and on time.
-      </p>
-    </section>
+  <!-- Values -->
+  <section class="about-section">
+    <h2>Core Values</h2>
+    <div class="about-item"><div class="icon">🤝</div><div><h3>Trust & Reliability</h3><p>We build lasting partnerships through dependable service.</p></div></div>
+    <div class="about-item"><div class="icon">💡</div><div><h3>Innovation</h3><p>We embrace digitalization and smart solutions to stay ahead.</p></div></div>
+    <div class="about-item"><div class="icon">🛡️</div><div><h3>Safety</h3><p>We prioritize the safety of goods, people, and processes.</p></div></div>
+    <div class="about-item"><div class="icon">🌱</div><div><h3>Sustainability</h3><p>We commit to eco‑friendly practices and responsible growth.</p></div></div>
+  </section>
 
-    <!-- GOALS SECTION -->
-    <section class="goals-section" aria-labelledby="goals-title">
-      <h2 id="goals-title" class="section-title">Our Goals</h2>
-      <ul class="goals-list">
-        <li>Expand nationwide coverage with scalable vendor networks.</li>
-        <li>Enhance transparency with digital tracking and reporting.</li>
-        <li>Maintain sustainability through optimized fleet operations.</li>
-      </ul>
-    </section>
-    <!-- CONTACT / CTA (keeps your existing layout) -->
-    <section class="contact-info" aria-labelledby="contact-title">
-      <div class="info-card" role="article">
-        <h3 id="contact-title">Contact Us</h3>
-        <p>Email: <a href="mailto:info@stranz.in">info@stranz.in</a></p>
-        <p>Phone: +91‑XXXXXXXXXX</p>
+  <!-- Roadmap Timeline (till 2020) -->
+  <section class="about-section">
+    <h2>Our Journey</h2>
+    <div class="timeline-wrapper">
+      <div class="center-line"></div>
+
+      <!-- 2018 -->
+      <div class="timeline-row left">
+        <div class="timeline-marker"></div>
+        <div class="timeline-box">
+          <span class="year-tag">🚚 2018</span>
+          <h3>Foundation Year</h3>
+          <p>Stranz Logistics was founded with a single truck and contract service, driven by a vision to simplify logistics across India.</p>
+        </div>
+        <div class="timeline-spacer"></div>
       </div>
 
-      <div class="info-card" role="article">
-        <h3>Support</h3>
-        <p>24/7 customer support for urgent logistics needs.</p>
+      <!-- 2019–2020 -->
+      <div class="timeline-row right">
+        <div class="timeline-marker"></div>
+        <div class="timeline-spacer"></div>
+        <div class="timeline-box">
+          <span class="year-tag">📈 2019–2020</span>
+          <h3>Growth & Expansion</h3>
+          <p>Expanded fleet size and onboarded new vendors, steadily building customer trust and establishing regional presence.</p>
+        </div>
       </div>
-    </section>
-  </main>
+<!-- 2021–2022 -->
+<div class="timeline-row left">
+  <div class="timeline-marker"></div>
+  <div class="timeline-box">
+    <span class="year-tag">🏭 2021–2022</span>
+    <h3>Infrastructure Advancement</h3>
+    <p>Introduced fully closed trucks and advanced warehousing solutions, ensuring safety, compliance, and quality service for diverse cargo needs.</p>
+  </div>
+  <div class="timeline-spacer"></div>
+</div>
 
-  <!-- Footer (keeps your existing footer.js behavior) -->
+<!-- 2023–2024 -->
+<div class="timeline-row right">
+  <div class="timeline-marker"></div>
+  <div class="timeline-spacer"></div>
+  <div class="timeline-box">
+    <span class="year-tag">💻 2023–2024</span>
+    <h3>Digital Transformation</h3>
+    <p>Strengthened GPS tracking and digital platforms, enhancing transparency, real‑time updates, and operational efficiency across the supply chain.</p>
+  </div>
+</div>
+
+<!-- 2025 -->
+<div class="timeline-row left">
+  <div class="timeline-marker"></div>
+  <div class="timeline-box">
+    <span class="year-tag">🚀 2025</span>
+    <h3>Future Vision</h3>
+    <p>Ramping up digitalization, preparing for nationwide expansion, and scaling vendor and customer networks strategically to meet growing demand.</p>
+  </div>
+  <div class="timeline-spacer"></div>
+</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <div id="footer"></div>
   <script src="footer.js"></script>
-
 </body>
 </html>
 
