@@ -622,6 +622,7 @@ body {
   margin: 0;
   font-size: 0.95rem;
 }
+/* FAQ specific */
 .faq-hero {
   background: var(--navy);
   color: var(--white);
@@ -691,6 +692,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
