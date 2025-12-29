@@ -1,51 +1,106 @@
-<section class="about-section">
-  <h2>Our Journey</h2>
-  <div class="timeline-wrapper">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Stranz Logistics</title>
 
-    <!-- 2018 -->
-    <div class="timeline-row">
-      <div class="timeline-box">
-        <span class="year-tag">🚚 2018</span>
-        <h3>Foundation Year</h3>
-        <p>Stranz Logistics was founded with a single truck and contract service, driven by a vision to simplify logistics across India.</p>
-      </div>
+  <!-- Load main stylesheet (add a version query to bust cache if needed) -->
+  <link rel="stylesheet" href="style.css?v=1.0.0" />
+</head>
+<body>
+
+  <!-- Header (keeps your existing header.js behavior) -->
+  <div id="header"></div>
+  <script src="header.js"></script>
+
+  <!-- ABOUT HERO -->
+  <section class="contact-hero" aria-labelledby="about-hero-title">
+    <div class="hero-content">
+      <h1 id="about-hero-title">About Stranz Logistics</h1>
+      <p>Reliable cargo transport, fleet management, warehousing and specialized logistics across India.</p>
     </div>
+  </section>
 
-    <!-- 2019–2020 -->
-    <div class="timeline-row">
-      <div class="timeline-box">
-        <span class="year-tag">📈 2019–2020</span>
-        <h3>Growth & Expansion</h3>
-        <p>Expanded fleet size and onboarded new vendors, steadily building customer trust and establishing regional presence.</p>
+  <!-- ABOUT SECTION -->
+  <main>
+    <section class="about-section" aria-labelledby="our-journey-title">
+      <h2 id="our-journey-title" class="section-title">Our Journey</h2>
+
+      <!-- Timeline wrapper (keeps your existing markup and works with the CSS you provided) -->
+      <div class="timeline-wrapper" role="list">
+
+        <!-- 2018 -->
+        <div class="timeline-row" role="listitem">
+          <div class="timeline-box">
+            <span class="year-tag">🚚 2018</span>
+            <h3>Foundation Year</h3>
+            <p>Stranz Logistics was founded with a single truck and contract service, driven by a vision to simplify logistics across India.</p>
+          </div>
+          <div class="timeline-marker" aria-hidden="true"></div>
+        </div>
+
+        <!-- 2019–2020 -->
+        <div class="timeline-row" role="listitem">
+          <div class="timeline-box">
+            <span class="year-tag">📈 2019–2020</span>
+            <h3>Growth & Expansion</h3>
+            <p>Expanded fleet size and onboarded new vendors, steadily building customer trust and establishing regional presence.</p>
+          </div>
+          <div class="timeline-marker" aria-hidden="true"></div>
+        </div>
+
+        <!-- 2021–2022 -->
+        <div class="timeline-row" role="listitem">
+          <div class="timeline-box">
+            <span class="year-tag">🏭 2021–2022</span>
+            <h3>Infrastructure Advancement</h3>
+            <p>Introduced fully closed trucks and advanced warehousing solutions, ensuring safety, compliance, and quality service for diverse cargo needs.</p>
+          </div>
+          <div class="timeline-marker" aria-hidden="true"></div>
+        </div>
+
+        <!-- 2023–2024 -->
+        <div class="timeline-row" role="listitem">
+          <div class="timeline-box">
+            <span class="year-tag">💻 2023–2024</span>
+            <h3>Digital Transformation</h3>
+            <p>Strengthened GPS tracking and digital platforms, enhancing transparency, real‑time updates, and operational efficiency across the supply chain.</p>
+          </div>
+          <div class="timeline-marker" aria-hidden="true"></div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="timeline-row" role="listitem">
+          <div class="timeline-box">
+            <span class="year-tag">🚀 2025</span>
+            <h3>Future Vision</h3>
+            <p>Ramping up digitalization, preparing for nationwide expansion, and scaling vendor and customer networks strategically to meet growing demand.</p>
+          </div>
+          <div class="timeline-marker" aria-hidden="true"></div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <!-- 2021–2022 -->
-    <div class="timeline-row">
-      <div class="timeline-box">
-        <span class="year-tag">🏭 2021–2022</span>
-        <h3>Infrastructure Advancement</h3>
-        <p>Introduced fully closed trucks and advanced warehousing solutions, ensuring safety, compliance, and quality service for diverse cargo needs.</p>
+    <!-- CONTACT / CTA (keeps your existing layout) -->
+    <section class="contact-info" aria-labelledby="contact-title">
+      <div class="info-card" role="article">
+        <h3 id="contact-title">Contact Us</h3>
+        <p>Email: <a href="mailto:info@stranz.in">info@stranz.in</a></p>
+        <p>Phone: +91‑XXXXXXXXXX</p>
       </div>
-    </div>
 
-    <!-- 2023–2024 -->
-    <div class="timeline-row">
-      <div class="timeline-box">
-        <span class="year-tag">💻 2023–2024</span>
-        <h3>Digital Transformation</h3>
-        <p>Strengthened GPS tracking and digital platforms, enhancing transparency, real‑time updates, and operational efficiency across the supply chain.</p>
+      <div class="info-card" role="article">
+        <h3>Support</h3>
+        <p>24/7 customer support for urgent logistics needs.</p>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <!-- 2025 -->
-    <div class="timeline-row">
-      <div class="timeline-box">
-        <span class="year-tag">🚀 2025</span>
-        <h3>Future Vision</h3>
-        <p>Ramping up digitalization, preparing for nationwide expansion, and scaling vendor and customer networks strategically to meet growing demand.</p>
-      </div>
-    </div>
+  <!-- Footer (keeps your existing footer.js behavior) -->
+  <div id="footer"></div>
+  <script src="footer.js"></script>
 
-  </div>
-</section>
+</body>
+</html>
