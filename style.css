@@ -109,6 +109,13 @@ body {
 .nav-links a.active::after {
   width: 100%;
 }
+/* ===== SLASH DIVIDER ===== */
+.slash-divider {
+  width: 2px;
+  background: linear-gradient(135deg, var(--white) 50%, var(--navy) 50%);
+  transform: skewX(-20deg);
+  margin: 0 0.5rem;
+}
 /* ===== SECTION TITLES ===== */
 .section-title {
   font-size: 2rem;
@@ -718,6 +725,7 @@ footer {
   max-width: 160px; /* ✅ prevents stretching */
   object-fit: contain;
 }
+
 
 
 
