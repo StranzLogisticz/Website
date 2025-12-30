@@ -728,5 +728,35 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+/* ===== HEADER RIBBON WRAPPER ===== */
+.header-ribbon {
+  background-color: var(--white);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* soft shadow */
+  border-radius: 0 0 12px 12px;            /* rounded bottom corners */
+  margin: 0 auto;
+  max-width: 1400px;                      /* optional: center the header */
+  padding: 0.5rem 2rem;
+  position: relative;
+  z-index: 100;
+}
+
+/* Optional: white border effect */
+.header-ribbon::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--white);
+  z-index: -1;
+}
+
+/* Adjust navbar inside ribbon */
+.navbar {
+  background-color: transparent; /* remove white background */
+  border-bottom: none;           /* remove orange line */
+  padding: 1rem 0;
+}
 
 
