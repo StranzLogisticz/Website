@@ -713,6 +713,11 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+.logo-box img {
+  height: 50px;   /* ✅ smaller, consistent size */
+  max-width: 160px; /* ✅ prevents stretching */
+  object-fit: contain;
+}
 
 
 
