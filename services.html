@@ -113,7 +113,7 @@
   <div id="footer"></div>
   <script src="footer.js"></script>
 
-  <!-- Tabs Script -->
+ <!-- Tabs Script -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab");
@@ -123,8 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set initial hero background from the active tab
   const activeTab = document.querySelector(".tab.active");
   if (activeTab && activeTab.dataset.bg) {
-    hero.style.background = `url('${activeTab.dataset.bg}') no-repeat center center fixed`;
-    hero.style.backgroundSize = "cover";
+    hero.style.backgroundImage = `url('${activeTab.dataset.bg}')`;
   }
 
   tabs.forEach(tab => {
@@ -138,8 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Swap hero background to the selected service image
       const bg = tab.getAttribute("data-bg");
       if (bg) {
-        hero.style.background = `url('${bg}') no-repeat center center fixed`;
-        hero.style.backgroundSize = "cover";
+        hero.style.backgroundImage = `url('${bg}')`;
       }
     });
   });
@@ -147,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
