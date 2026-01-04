@@ -2,50 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>S Trans Booking Login</title>
+  <title>S Trans Booking Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css"> <!-- reuse your existing styles -->
+  <link rel="stylesheet" href="style.css"> <!-- your existing stylesheet -->
   <style>
-    /* Extra styling just for the booking page button */
-    .login-container {
-      text-align: center;
-      padding: 4rem 2rem;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('assets/img/truck-bg.png') no-repeat center center fixed;
+      background-size: cover;
     }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 4rem 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 6rem auto;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
     .login-container h1 {
       font-size: 2rem;
       color: var(--navy);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
+
+    .login-container p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
     .login-btn {
       display: inline-block;
-      background-color: #f57c00;
+      background: linear-gradient(45deg, #f57c00, #ff9800);
       color: #fff;
-      padding: 1rem 2rem;
-      border-radius: 30px;
+      padding: 1rem 2.5rem;
+      border-radius: 40px;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.2rem;
-      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .login-btn:hover {
-      background-color: #e65100;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
-  <!-- Header placeholder -->
+
+  <!-- Header -->
   <div id="header"></div>
   <script src="header.js"></script>
 
+  <!-- Booking Content -->
   <div class="login-container">
-    <h1>This is for official login of S Trans Booking.</h1>
+    <h1>Welcome to S Trans Official Booking Portal</h1>
+    <p>Seamless logistics management at your fingertips. Secure, fast, and enterprise-ready.</p>
     <a href="https://transport-management.streamlit.app/" target="_blank" class="login-btn">
-      Go to Application
+      Login to Booking App
     </a>
   </div>
 
-  <!-- Footer placeholder -->
+  <!-- Footer -->
   <div id="footer"></div>
   <script src="footer.js"></script>
+
 </body>
 </html>
