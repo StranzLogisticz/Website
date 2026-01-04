@@ -114,17 +114,25 @@
 document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab");
   const contents = document.querySelectorAll(".tab-content");
-  const hero = document.querySelector(".services-hero"); // truck hero section
+  const hero = document.querySelector(".services-hero");
+
+  // set initial hero background from the active tab
+  const activeTab = document.querySelector(".tab.active");
+  if (activeTab && activeTab.dataset.bg) {
+    hero.style.backgroundImage = `url('${activeTab.dataset.bg}')`;
+    hero.style.backgroundSize = "cover";
+    hero.style.backgroundPosition = "center";
+  }
 
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      // Switch active tab content
+      // switch active tab and content
       tabs.forEach(t => t.classList.remove("active"));
       contents.forEach(c => c.classList.remove("active"));
       tab.classList.add("active");
       document.getElementById(tab.dataset.tab).classList.add("active");
 
-      // Swap truck hero background
+      // swap hero background to the selected service image
       const bg = tab.getAttribute("data-bg");
       if (bg) {
         hero.style.backgroundImage = `url('${bg}')`;
@@ -137,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
