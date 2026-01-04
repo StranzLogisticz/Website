@@ -123,9 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set initial hero background from the active tab
   const activeTab = document.querySelector(".tab.active");
   if (activeTab && activeTab.dataset.bg) {
-    hero.style.backgroundImage = `url('${activeTab.dataset.bg}')`;
+    hero.style.background = `url('${activeTab.dataset.bg}') no-repeat center center fixed`;
     hero.style.backgroundSize = "cover";
-    hero.style.backgroundPosition = "center";
   }
 
   tabs.forEach(tab => {
@@ -139,9 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Swap hero background to the selected service image
       const bg = tab.getAttribute("data-bg");
       if (bg) {
-        hero.style.backgroundImage = `url('${bg}')`;
+        hero.style.background = `url('${bg}') no-repeat center center fixed`;
         hero.style.backgroundSize = "cover";
-        hero.style.backgroundPosition = "center";
       }
     });
   });
@@ -149,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
