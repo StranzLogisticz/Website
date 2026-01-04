@@ -110,21 +110,21 @@
   <script src="footer.js"></script>
 
   <!-- Tabs Script -->
- <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab");
   const contents = document.querySelectorAll(".tab-content");
-  const hero = document.querySelector(".services-hero");
+  const hero = document.querySelector(".services-hero"); // truck hero section
 
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      // Switch active tab
+      // Switch active tab content
       tabs.forEach(t => t.classList.remove("active"));
       contents.forEach(c => c.classList.remove("active"));
       tab.classList.add("active");
       document.getElementById(tab.dataset.tab).classList.add("active");
 
-      // Swap hero image (truck → service image)
+      // Swap truck hero background
       const bg = tab.getAttribute("data-bg");
       if (bg) {
         hero.style.backgroundImage = `url('${bg}')`;
@@ -137,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
