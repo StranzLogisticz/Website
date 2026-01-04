@@ -84,16 +84,16 @@
 
   <!-- Services Tabs ONLY -->
   <section class="services-tabs">
-    <div class="tabs">
-      <button class="tab active" data-tab="contract">Contract Logistics</button>
-      <button class="tab" data-tab="closed">Fully Closed Trucks</button>
-      <button class="tab" data-tab="ftl">Full Load Services</button>
-      <button class="tab" data-tab="warehousing">Warehousing</button>
-      <button class="tab" data-tab="gps">GPS Tracking</button>
-      <button class="tab" data-tab="container">Container Cargo</button>
-      <button class="tab" data-tab="seaway">Seaway Cargo</button>
-      <button class="tab" data-tab="air">Air Cargo</button>
-    </div>
+   <div class="tabs">
+  <button class="tab active" data-tab="contract" data-bg="assets/img/contract-bg.jpg">Contract Logistics</button>
+  <button class="tab" data-tab="closed" data-bg="assets/img/closed-bg.jpg">Fully Closed Trucks</button>
+  <button class="tab" data-tab="ftl" data-bg="assets/img/ftl-bg.jpg">Full Load Services</button>
+  <button class="tab" data-tab="warehousing" data-bg="assets/img/warehouse-bg.jpg">Warehousing</button>
+  <button class="tab" data-tab="gps" data-bg="assets/img/gps-bg.jpg">GPS Tracking</button>
+  <button class="tab" data-tab="container" data-bg="assets/img/container-bg.jpg">Container Cargo</button>
+  <button class="tab" data-tab="seaway" data-bg="assets/img/seaway-bg.jpg">Seaway Cargo</button>
+  <button class="tab" data-tab="air" data-bg="assets/img/air-bg.jpg">Air Cargo</button>
+</div>
 
     <div class="tab-content active" id="contract"><div class="icon">📑</div><h3>Contract Logistics</h3><p>End‑to‑end supply chain management with optimized solutions, tailored contracts, and reliable execution.</p></div>
     <div class="tab-content" id="closed"><div class="icon">🚚</div><h3>Fully Closed Trucks</h3><p>Maximum protection for your valuable cargo, shielding it from weather, dust, and damage.</p></div>
@@ -120,12 +120,33 @@
         contents.forEach(c => c.classList.remove("active"));
         tab.classList.add("active");
         document.getElementById(tab.dataset.tab).classList.add("active");
-      });
+        document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".tab-content");
+  const hero = document.querySelector(".services-hero");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      // Switch active tab
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.tab).classList.add("active");
+
+      // Change background image
+      const bg = tab.getAttribute("data-bg");
+      if (bg) {
+        hero.style.backgroundImage = `url('${bg}')`;
+        hero.style.backgroundSize = "cover";
+        hero.style.backgroundPosition = "center";
+      }
     });
   });
+});
   </script>
 </body>
 </html>
+
 
 
 
