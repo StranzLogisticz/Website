@@ -110,17 +110,8 @@
   <script src="footer.js"></script>
 
   <!-- Tabs Script -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const tabs = document.querySelectorAll(".tab");
-    const contents = document.querySelectorAll(".tab-content");
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.tab).classList.add("active");
-        document.addEventListener("DOMContentLoaded", () => {
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab");
   const contents = document.querySelectorAll(".tab-content");
   const hero = document.querySelector(".services-hero");
@@ -143,9 +134,10 @@
     });
   });
 });
-  </script>
+</script>
 </body>
 </html>
+
 
 
 
