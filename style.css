@@ -701,11 +701,19 @@ body {
   font-size: 0.95rem;
 }
 /* ===== BOOKING PAGE STYLES ===== */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+.booking-page {
   background: url('assets/img/truck-bg.png') no-repeat center center fixed;
   background-size: cover;
+}
+
+/* ===== SERVICES PAGE BACKGROUND ===== */
+.services-page {
+  background-image: url('assets/img/contract-bg.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out;
 }
 
 .login-container {
@@ -776,5 +784,6 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
