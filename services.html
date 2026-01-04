@@ -30,7 +30,11 @@
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(10, 31, 68, 0.6); /* navy overlay */
+  background: linear-gradient(
+    rgba(10, 31, 68, 0.7),   /* semi-transparent navy at top */
+    rgba(10, 31, 68, 0.3),   /* lighter navy in middle */
+    rgba(10, 31, 68, 0)      /* fully transparent at bottom */
+  );
   z-index: 0;
 }
 
@@ -122,5 +126,6 @@
   </script>
 </body>
 </html>
+
 
 
