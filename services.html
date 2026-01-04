@@ -17,14 +17,31 @@
       background-color: var(--gray);
       color: var(--navy);
     }
-    .services-hero {
-      background-color: var(--navy);
-      color: var(--white);
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-    .services-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .services-hero p { font-size: 1.2rem; color: #f57c00; }
+.services-hero {
+  position: relative;
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 2rem;
+  background: url('assets/img/services-bg.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.services-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    rgba(10, 31, 68, 0.7),   /* semi-transparent navy */
+    rgba(245, 124, 0, 0.6)  /* semi-transparent orange */
+  );
+  z-index: 0;
+}
+
+.services-hero h1,
+.services-hero p {
+  position: relative;
+  z-index: 1; /* ensures text sits above gradient */
+}
 
     .services-tabs { max-width: 1000px; margin: 3rem auto; padding: 1rem; text-align: center; }
     .tabs {
@@ -108,3 +125,4 @@
   </script>
 </body>
 </html>
+
