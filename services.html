@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tab.classList.add("active");
       document.getElementById(tab.dataset.tab).classList.add("active");
 
-      // Change background image
+      // Swap hero image (truck → service image)
       const bg = tab.getAttribute("data-bg");
       if (bg) {
         hero.style.backgroundImage = `url('${bg}')`;
@@ -137,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
