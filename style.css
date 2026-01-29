@@ -835,6 +835,55 @@ footer {
   transform: scale(1.2);
 }
 
+/* ===== hover for about page only ===== */
+/* Shared tile base */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.about-grid div {
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* --- What We Offer (Orange base) --- */
+.offer-grid div {
+  background: var(--orange);
+  color: var(--white);
+  border: 2px solid var(--orange);
+}
+.offer-grid div strong { color: var(--white); }
+.offer-grid div:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  transform: translateY(-5px);
+}
+.offer-grid div:hover strong { color: var(--white); }
+
+/* --- Fleet & Vehicle Types (Navy base) --- */
+.fleet-grid div,
+.industry-grid div {
+  background: var(--white);
+  border: 2px solid var(--navy);
+  color: var(--navy);
+}
+.fleet-grid div strong,
+.industry-grid div strong { color: var(--navy); }
+.fleet-grid div:hover,
+.industry-grid div:hover {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange);
+  transform: translateY(-5px);
+}
+.fleet-grid div:hover strong,
+.industry-grid div:hover strong { color: var(--white); }
 
 
 
