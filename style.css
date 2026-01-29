@@ -737,7 +737,56 @@ body {
   color: #333;
   margin-bottom: 2rem;
 }
-
+/* ===== Steps===== */
+.flowchart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.step {
+  background: var(--white);
+  border: 2px solid var(--orange);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+.step h3 {
+  color: var(--orange);
+  margin-bottom: 0.5rem;
+}
+.step p {
+  color: var(--navy);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.step:hover {
+  background: var(--orange);
+  color: var(--white);
+  transform: translateY(-5px);
+}
+.step:hover h3,
+.step:hover p {
+  color: var(--white);
+}
+.arrow {
+  font-size: 2rem;
+  color: var(--orange);
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .flowchart {
+    flex-direction: column;
+  }
+  .arrow {
+    transform: rotate(90deg);
+  }
+}
 /* ===== GLOBAL BUTTON STYLE ===== */
 .btn {
   display: inline-block;
@@ -784,6 +833,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
