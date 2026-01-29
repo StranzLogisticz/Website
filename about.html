@@ -14,6 +14,7 @@
     }
     body { margin:0; font-family:Arial,sans-serif; background:var(--gray); color:var(--navy); }
 
+    /* Hero */
     .about-hero { background:var(--navy); color:var(--white); text-align:center; padding:4rem 2rem; }
     .about-hero h1 { font-size:2.5rem; margin-bottom:.5rem; }
     .about-hero p { font-size:1.2rem; color:var(--orange); }
@@ -24,6 +25,7 @@
     }
     .download-btn:hover { background:#e66900; }
 
+    /* Sections */
     .about-section { max-width:1000px; margin:3rem auto; padding:2rem; background:var(--white); border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.1); }
     .about-section h2 { text-align:center; color:var(--orange); margin-bottom:1rem; }
     .about-item { display:flex; gap:1rem; margin-bottom:1.5rem; }
@@ -31,19 +33,31 @@
     .about-item h3 { margin:0; font-size:1.3rem; color:var(--navy); }
     .about-item p, .about-item ul { margin:.25rem 0 0; line-height:1.6; }
 
+    /* Interactive Tiles */
     .about-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1rem; }
-    .about-grid div { background:var(--gray); padding:1rem; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+    .about-grid div {
+      background:var(--gray); padding:1.5rem; border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+      transition: all 0.3s ease;
+      text-align:center; font-size:0.95rem;
+    }
+    .about-grid div strong { display:block; margin-bottom:0.5rem; color:var(--orange); font-size:1.1rem; }
+    .about-grid div:hover {
+      background:var(--orange); color:var(--white);
+      transform: translateY(-5px);
+      box-shadow:0 6px 15px rgba(0,0,0,.15);
+    }
+    .about-grid div:hover strong { color:var(--white); }
 
     /* Footer & Header */
     #header, #footer { width:100%; }
-
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <div id="header"></div>
-  <script src="assets/js/header.js"></script>
+  <script src="header.js"></script>
 
   <!-- Hero -->
   <section class="about-hero">
@@ -110,10 +124,10 @@
   <section class="about-section">
     <h2>What We Offer</h2>
     <div class="about-grid">
-      <div><strong>🚛 Full Truck Load (FTL)</strong><br>Dedicated vehicle for faster transit and cargo safety.</div>
-      <div><strong>📦 Closed Truck Services</strong><br>Protection from weather and external exposure for sensitive goods.</div>
-      <div><strong>🏭 Cargo Transportation</strong><br>Industrial, consumer, and special consignments with safe handling.</div>
-      <div><strong>🧭 Custom Logistics</strong><br>Tailored solutions based on cargo type and delivery timelines.</div>
+      <div><strong>🚛 Full Truck Load (FTL)</strong>Dedicated vehicle for faster transit and cargo safety.</div>
+      <div><strong>📦 Closed Truck Services</strong>Protection from weather and external exposure for sensitive goods.</div>
+      <div><strong>🏭 Cargo Transportation</strong>Industrial, consumer, and special consignments with safe handling.</div>
+      <div><strong>🧭 Custom Logistics</strong>Tailored solutions based on cargo type and delivery timelines.</div>
     </div>
   </section>
 
@@ -121,10 +135,10 @@
   <section class="about-section">
     <h2>Fleet & Vehicle Types</h2>
     <div class="about-grid">
-      <div><strong>Open Trucks</strong><br>Flexible loading for industrial cargo</div>
-      <div><strong>Closed Trucks</strong><br>Secure transport for high-value goods</div>
-      <div><strong>Side Open Trucks</strong><br>Efficient for quick loading/unloading</div>
-      <div><strong>Sizes</strong><br>Tata Ace (7 ft), Bolero/Dost (8 ft), 12–32 ft</div>
+      <div><strong>Open Trucks</strong>Flexible loading for industrial cargo</div>
+      <div><strong>Closed Trucks</strong>Secure transport for high-value goods</div>
+      <div><strong>Side Open Trucks</strong>Efficient for quick loading/unloading</div>
+      <div><strong>Sizes</strong>Tata Ace (7 ft), Bolero/Dost (8 ft), 12–32 ft</div>
     </div>
   </section>
 
@@ -132,28 +146,28 @@
   <section class="about-section">
     <h2>Industries We Serve</h2>
     <div class="about-grid">
-      <div>🛍️ FMCG & Consumer Goods</div>
-      <div>🏭 Manufacturing & Industrial</div>
-      <div>📦 Retail & Distribution</div>
-      <div>🧑‍💻 E-commerce & Warehousing</div>
-      <div>🏗️ Project & Specialized Cargo</div>
+      <div><strong>🛍️ FMCG & Consumer Goods</strong></div>
+      <div><strong>🏭 Manufacturing & Industrial</strong></div>
+      <div><strong>📦 Retail & Distribution</strong></div>
+      <div><strong>🧑‍💻 E-commerce & Warehousing</strong></div>
+      <div><strong>🏗️ Project & Specialized Cargo</strong></div>
     </div>
   </section>
 
   <!-- Execution Process -->
   <section class="about-section">
     <h2>Our Process</h2>
-    <ul>
-      <li>Requirement Assessment & Vehicle Finalization</li>
-      <li>Vehicle Placement & Dispatch Planning</li>
-      <li>Loading Coordination & Dispatch Confirmation</li>
-      <li>Continuous Transit Monitoring & Driver Follow-ups</li>
-      <li>Delivery Confirmation & Proof of Delivery (POD)</li>
-    </ul>
+    <div class="about-grid">
+      <div><strong>Step 1</strong>Requirement Assessment & Vehicle Finalization</div>
+      <div><strong>Step 2</strong>Vehicle Placement & Dispatch Planning</div>
+      <div><strong>Step 3</strong>Loading Coordination & Dispatch Confirmation</div>
+      <div><strong>Step 4</strong>Continuous Transit Monitoring & Driver Follow-ups</div>
+      <div><strong>Step 5</strong>Delivery Confirmation & Proof of Delivery (POD)</div>
+    </div>
   </section>
 
   <!-- Footer -->
   <div id="footer"></div>
-  <script src="assets/js/footer.js"></script>
+  <script src="footer.js"></script>
 </body>
 </html>
