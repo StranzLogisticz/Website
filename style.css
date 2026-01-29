@@ -748,6 +748,7 @@ body {
 }
 .step {
   background: var(--white);
+  border-radius: 8px;
   padding: 1rem 1.2rem;
   width: 220px;
   text-align: center;
@@ -834,6 +835,42 @@ footer {
 }
 
 /* ===== hover for about page only ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.about-grid div {
+  background: var(--white);        /* clean white tile */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08); /* subtle shadow for depth */
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--navy);              /* text inside tile is blue */
+}
+
+.about-grid div strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--navy);              /* headings also blue */
+  font-size: 1.1rem;
+}
+
+/* Hover effect */
+.about-grid div:hover {
+  background: var(--orange);       /* orange highlight */
+  color: var(--white);             /* text flips to white */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,.15);
+}
+
+.about-grid div:hover strong {
+  color: var(--white);
+}
 
 
 
