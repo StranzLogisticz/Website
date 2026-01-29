@@ -748,17 +748,18 @@ body {
 }
 .step {
   background: var(--white);
-  border: 2px solid var(--orange);
+  border: 2px solid var(--navy);
   border-radius: 8px;
   padding: 1rem 1.2rem;
   width: 220px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
   transition: all 0.3s ease;
 }
 .step h3 {
-  color: var(--orange);
+  color: var(--navy);
   margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 .step p {
   color: var(--navy);
@@ -766,7 +767,7 @@ body {
   line-height: 1.4;
 }
 .step:hover {
-  background: var(--orange);
+  background: var(--navy);
   color: var(--white);
   transform: translateY(-5px);
 }
@@ -776,7 +777,7 @@ body {
 }
 .arrow {
   font-size: 2rem;
-  color: var(--orange);
+  color: var(--navy);
   font-weight: bold;
 }
 @media screen and (max-width: 768px) {
@@ -833,6 +834,7 @@ footer {
 .social-links img:hover {
   transform: scale(1.2);
 }
+
 
 
 
