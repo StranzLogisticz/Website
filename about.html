@@ -17,47 +17,51 @@
     .about-hero { background:var(--navy); color:var(--white); text-align:center; padding:4rem 2rem; }
     .about-hero h1 { font-size:2.5rem; margin-bottom:.5rem; }
     .about-hero p { font-size:1.2rem; color:var(--orange); }
+    .download-btn {
+      display:inline-block; margin-top:1.5rem; padding:0.75rem 1.5rem;
+      background:var(--orange); color:var(--white); font-weight:bold;
+      text-decoration:none; border-radius:5px; transition:background 0.3s ease;
+    }
+    .download-btn:hover { background:#e66900; }
 
     .about-section { max-width:1000px; margin:3rem auto; padding:2rem; background:var(--white); border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.1); }
     .about-section h2 { text-align:center; color:var(--orange); margin-bottom:1rem; }
     .about-item { display:flex; gap:1rem; margin-bottom:1.5rem; }
     .about-item .icon { font-size:2rem; color:var(--orange); }
     .about-item h3 { margin:0; font-size:1.3rem; color:var(--navy); }
-    .about-item p { margin:.25rem 0 0; line-height:1.6; }
+    .about-item p, .about-item ul { margin:.25rem 0 0; line-height:1.6; }
 
-    /* TIMELINE STRUCTURE */
-    .timeline-wrapper { max-width: 900px; margin: 2rem auto; padding: 2rem 0; position: relative; }
-    .center-line { position: absolute; width: 3px; background: var(--orange); top: 0; bottom: 0; left: 50%; margin-left: -1.5px; }
-    .timeline-row { display: table; width: 100%; margin-bottom: 40px; position: relative; }
-    .timeline-box { display: table-cell; width: 45%; background: var(--white); padding: 20px 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); vertical-align: top; border-left: 4px solid var(--orange); }
-    .timeline-spacer { display: table-cell; width: 10%; }
-    .timeline-row.right .timeline-box { border-left: none; border-right: 4px solid var(--orange); }
-    .timeline-marker { position: absolute; width: 20px; height: 20px; background: var(--orange); border: 4px solid var(--white); border-radius: 50%; top: 25px; left: 50%; margin-left: -10px; z-index: 10; box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.3); }
-    .year-tag { display: inline-block; background: var(--navy); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; }
-    .timeline-box h3 { color: var(--orange); margin: 10px 0; font-size: 1.3rem; font-weight: 700; }
-    .timeline-box p { color: var(--navy); line-height: 1.6; margin: 0; font-size: 0.95rem; }
-    .timeline-box:hover { box-shadow: 0 6px 20px rgba(245, 124, 0, 0.2); transform: translateY(-3px); transition: all 0.3s ease; }
+    .about-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1rem; }
+    .about-grid div { background:var(--gray); padding:1rem; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,.05); }
 
-    /* Mobile */
-    @media screen and (max-width: 768px) {
-      .center-line { left: 30px; }
-      .timeline-row { display: block; }
-      .timeline-box { display: block; width: calc(100% - 70px); margin-left: 60px; border-left: 4px solid var(--orange) !important; border-right: none !important; }
-      .timeline-spacer { display: none; }
-      .timeline-marker { left: 30px; margin-left: 0; }
-    }
+    /* Footer & Header */
+    #header, #footer { width:100%; }
+
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <div id="header"></div>
-  <script src="header.js"></script>
+  <script src="assets/js/header.js"></script>
 
   <!-- Hero -->
   <section class="about-hero">
     <h1>About Us</h1>
-    <p>Driving logistics excellence since 2018</p>
+    <p>Driving logistics excellence across India</p>
+    <a href="assets/Stranz_Company_Profile.pdf" download class="download-btn">📄 Download Company Profile</a>
+  </section>
+
+  <!-- Company Overview -->
+  <section class="about-section">
+    <h2>Company Overview</h2>
+    <div class="about-item">
+      <div class="icon">🏢</div>
+      <div>
+        <h3>Who We Are</h3>
+        <p>Stranz is a professionally managed logistics company delivering structured, reliable, and execution-driven freight solutions across India. We specialize in full truckload and cargo transportation with disciplined coordination and transparent service.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Vision -->
@@ -67,7 +71,7 @@
       <div class="icon">👁️</div>
       <div>
         <h3>Our Vision</h3>
-        <p>To redefine logistics in India by delivering seamless, technology‑driven solutions that combine speed, safety, and sustainability.</p>
+        <p>To become a trusted logistics partner by setting high standards in transportation reliability, operational control, and long-term customer relationships.</p>
       </div>
     </div>
   </section>
@@ -90,80 +94,66 @@
     </div>
   </section>
 
-  <!-- Values -->
+  <!-- How We Operate -->
   <section class="about-section">
-    <h2>Core Values</h2>
-    <div class="about-item"><div class="icon">🤝</div><div><h3>Trust & Reliability</h3><p>We build lasting partnerships through dependable service.</p></div></div>
-    <div class="about-item"><div class="icon">💡</div><div><h3>Innovation</h3><p>We embrace digitalization and smart solutions to stay ahead.</p></div></div>
-    <div class="about-item"><div class="icon">🛡️</div><div><h3>Safety</h3><p>We prioritize the safety of goods, people, and processes.</p></div></div>
-    <div class="about-item"><div class="icon">🌱</div><div><h3>Sustainability</h3><p>We commit to eco‑friendly practices and responsible growth.</p></div></div>
+    <h2>How We Operate</h2>
+    <div class="about-item">
+      <div class="icon">🔄</div>
+      <div>
+        <h3>End-to-End Coordination</h3>
+        <p>Each shipment is assigned a dedicated logistics coordinator who manages vehicle placement, route planning, transit monitoring, and delivery confirmation.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Roadmap Timeline (till 2020) -->
+  <!-- Services -->
   <section class="about-section">
-    <h2>Our Journey</h2>
-    <div class="timeline-wrapper">
-      <div class="center-line"></div>
-
-      <!-- 2018 -->
-      <div class="timeline-row left">
-        <div class="timeline-marker"></div>
-        <div class="timeline-box">
-          <span class="year-tag">🚚 2018</span>
-          <h3>Foundation Year</h3>
-          <p>Stranz Logistics was founded with a single truck and contract service, driven by a vision to simplify logistics across India.</p>
-        </div>
-        <div class="timeline-spacer"></div>
-      </div>
-
-      <!-- 2019–2020 -->
-      <div class="timeline-row right">
-        <div class="timeline-marker"></div>
-        <div class="timeline-spacer"></div>
-        <div class="timeline-box">
-          <span class="year-tag">📈 2019–2020</span>
-          <h3>Growth & Expansion</h3>
-          <p>Expanded fleet size and onboarded new vendors, steadily building customer trust and establishing regional presence.</p>
-        </div>
-      </div>
-<!-- 2021–2022 -->
-<div class="timeline-row left">
-  <div class="timeline-marker"></div>
-  <div class="timeline-box">
-    <span class="year-tag">🏭 2021–2022</span>
-    <h3>Infrastructure Advancement</h3>
-    <p>Introduced fully closed trucks and advanced warehousing solutions, ensuring safety, compliance, and quality service for diverse cargo needs.</p>
-  </div>
-  <div class="timeline-spacer"></div>
-</div>
-
-<!-- 2023–2024 -->
-<div class="timeline-row right">
-  <div class="timeline-marker"></div>
-  <div class="timeline-spacer"></div>
-  <div class="timeline-box">
-    <span class="year-tag">💻 2023–2024</span>
-    <h3>Digital Transformation</h3>
-    <p>Strengthened GPS tracking and digital platforms, enhancing transparency, real‑time updates, and operational efficiency across the supply chain.</p>
-  </div>
-</div>
-
-<!-- 2025 -->
-<div class="timeline-row left">
-  <div class="timeline-marker"></div>
-  <div class="timeline-box">
-    <span class="year-tag">🚀 2025</span>
-    <h3>Future Vision</h3>
-    <p>Ramping up digitalization, preparing for nationwide expansion, and scaling vendor and customer networks strategically to meet growing demand.</p>
-  </div>
-  <div class="timeline-spacer"></div>
-</div>
+    <h2>What We Offer</h2>
+    <div class="about-grid">
+      <div><strong>🚛 Full Truck Load (FTL)</strong><br>Dedicated vehicle for faster transit and cargo safety.</div>
+      <div><strong>📦 Closed Truck Services</strong><br>Protection from weather and external exposure for sensitive goods.</div>
+      <div><strong>🏭 Cargo Transportation</strong><br>Industrial, consumer, and special consignments with safe handling.</div>
+      <div><strong>🧭 Custom Logistics</strong><br>Tailored solutions based on cargo type and delivery timelines.</div>
     </div>
+  </section>
+
+  <!-- Fleet -->
+  <section class="about-section">
+    <h2>Fleet & Vehicle Types</h2>
+    <div class="about-grid">
+      <div><strong>Open Trucks</strong><br>Flexible loading for industrial cargo</div>
+      <div><strong>Closed Trucks</strong><br>Secure transport for high-value goods</div>
+      <div><strong>Side Open Trucks</strong><br>Efficient for quick loading/unloading</div>
+      <div><strong>Sizes</strong><br>Tata Ace (7 ft), Bolero/Dost (8 ft), 12–32 ft</div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="about-section">
+    <h2>Industries We Serve</h2>
+    <div class="about-grid">
+      <div>🛍️ FMCG & Consumer Goods</div>
+      <div>🏭 Manufacturing & Industrial</div>
+      <div>📦 Retail & Distribution</div>
+      <div>🧑‍💻 E-commerce & Warehousing</div>
+      <div>🏗️ Project & Specialized Cargo</div>
+    </div>
+  </section>
+
+  <!-- Execution Process -->
+  <section class="about-section">
+    <h2>Our Process</h2>
+    <ul>
+      <li>Requirement Assessment & Vehicle Finalization</li>
+      <li>Vehicle Placement & Dispatch Planning</li>
+      <li>Loading Coordination & Dispatch Confirmation</li>
+      <li>Continuous Transit Monitoring & Driver Follow-ups</li>
+      <li>Delivery Confirmation & Proof of Delivery (POD)</li>
+    </ul>
   </section>
 
   <!-- Footer -->
   <div id="footer"></div>
-  <script src="footer.js"></script>
+  <script src="assets/js/footer.js"></script>
 </body>
 </html>
-
