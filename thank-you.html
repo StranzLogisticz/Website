@@ -5,57 +5,198 @@
   <title>Thank You - Stranz Logistics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --navy: #0a1f44;
+      --orange: #f57c00;
+      --white: #ffffff;
+      --whatsapp-green: #25D366;
+      --bg-shade: #f0f4f7; /* Prevents "plain" look at the bottom */
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--navy);
+      background-color: var(--white);
+    }
+
+    /* 1. TOP HERO BANNER (ORANGE AS PER WEBSITE) */
+    .thank-hero {
+      background-color: var(--orange);
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem 8rem;
+    }
+
+    .thank-hero h1 { 
+      font-size: 2.8rem; 
+      margin-bottom: 10px; 
+      text-transform: uppercase; 
+      font-weight: 800;
+    }
+    .thank-hero p { font-size: 1.2rem; opacity: 0.95; max-width: 700px; margin: 0 auto; }
+
+    /* 2. SUCCESS NOTIFICATION CARD */
+    .success-card {
+      max-width: 850px;
+      margin: -5rem auto 4rem;
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .ops-note {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    .ops-note strong { color: var(--orange); }
+
+    .urgent-action h3 { margin-bottom: 15px; font-size: 1.4rem; }
+
+    .btn-whatsapp {
+      display: inline-block;
+      background-color: var(--whatsapp-green);
+      color: white;
+      padding: 16px 40px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: 0.3s;
+      margin-bottom: 1rem;
+    }
+    .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
+
+    .btn-submit {
+      display: block;
+      color: var(--navy);
+      text-decoration: underline;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* 3. THREE COLUMNS (ALIGNED IN ONE LINE) */
+    .thank-details {
+      padding: 5rem 1rem;
+      background-color: var(--bg-shade); /* Subtle background for depth */
+      border-top: 1px solid #d1d9e0;
+    }
+
+    .thank-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* FORCES 3 COLUMNS IN ONE LINE */
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .thank-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+    .thank-card:hover { transform: translateY(-5px); }
+
+    .thank-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    .thank-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--navy); }
+    .thank-card p { font-size: 1rem; color: #555; line-height: 1.5; }
+
+    /* SOCIAL RIBBON (Leading into Navy Footer) */
+    .social-ribbon { 
+      background: white; 
+      padding: 4rem 0; 
+      text-align: center;
+    }
+    .social-icons { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+    .social-link { text-decoration: none; color: var(--navy); font-weight: bold; }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .thank-grid { grid-template-columns: 1fr; } /* Stack on smaller tablets/mobile */
+      .thank-hero h1 { font-size: 2rem; }
+      .success-card { margin-left: 15px; margin-right: 15px; padding: 2rem; }
+    }
+  </style>
 </head>
-<body>
+<body class="thank-you-page">
 
   <!-- Header -->
   <div id="header"></div>
   <script src="header.js"></script>
 
-  <!-- Thank You Hero -->
+  <!-- 1. TOP HERO (ORANGE) -->
   <section class="thank-hero">
-    <div class="thank-hero-inner">
-      <h1>Thank you for reaching out</h1>
-      <p>We’ve received your message. Our team will get back to you shortly.</p>
-      <a href="index.html" class="btn-submit">Return to Home</a>
-    </div>
+    <h1>Inquiry Received!</h1>
+    <p>We have successfully received your message. Our logistics experts are currently reviewing your request.</p>
   </section>
 
-  <!-- Confirmation details -->
+  <!-- 2. SUCCESS CARD -->
+  <div class="success-card">
+    <div class="ops-note">
+      Stranz Logistics operates with <strong>Disciplined Execution</strong> and <strong>Proactive Coordination</strong>. 
+      You will be contacted via phone or email within one business day with a customized solution.
+    </div>
+
+    <div class="urgent-action">
+      <h3>Need an immediate quote?</h3>
+      <a href="https://api.whatsapp.com/send?phone=919566952888&text=I%20just%20submitted%20an%20enquiry%20on%20your%20website%20and%20would%20like%20to%20discuss%20it%20further." 
+         class="btn-whatsapp" target="_blank">
+         Chat with Operations on WhatsApp
+      </a>
+      <a href="index.html" class="btn-submit">Return to Home</a>
+    </div>
+  </div>
+
+  <!-- 3. THREE COLUMNS (ALIGNED HORIZONTALLY) -->
   <section class="thank-details">
     <div class="thank-grid">
       <div class="thank-card">
-        <img src="assets/img/thanks-1.jpg" alt="Stranz operations" />
+        <img src="assets/img/thanks-1.jpg" alt="Swift response" />
         <h3>Swift response</h3>
-        <p>We respond within one business day for all inquiries.</p>
+        <p>We respond within one business day for all inquiries, ensuring your planning never stops.</p>
       </div>
       <div class="thank-card">
-        <img src="assets/img/thanks-2.jpg" alt="Secure logistics" />
+        <img src="assets/img/thanks-2.jpg" alt="Reliable & secure" />
         <h3>Reliable & secure</h3>
-        <p>Safety and transparency across every shipment.</p>
+        <p>Safety and transparency across every shipment. Your cargo's security is our top priority.</p>
       </div>
       <div class="thank-card">
         <img src="assets/img/thanks-3.jpg" alt="Regional coverage" />
         <h3>Regional coverage</h3>
-        <p>Strong networks across Tamil Nadu and key South India hubs.</p>
+        <p>Strong networks across Tamil Nadu and key South India hubs for efficient delivery.</p>
       </div>
     </div>
   </section>
 
-  <!-- Social ribbon -->
+  <!-- Social Ribbon -->
   <section class="social-ribbon">
-    <div class="ribbon-content">
-      <h2>Follow us on</h2>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/stranz" target="_blank" class="social-link">🔗 LinkedIn</a>
-        <a href="https://www.facebook.com/stranz" target="_blank" class="social-link">📘 Facebook</a>
-        <a href="https://www.instagram.com/stranz" target="_blank" class="social-link">📸 Instagram</a>
-        <a href="https://twitter.com/stranz" target="_blank" class="social-link">🐦 X</a>
-      </div>
+    <h2>Follow Stranz Logistics</h2>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/company/stranz" target="_blank" class="social-link">🔗 LinkedIn</a>
+      <a href="https://www.facebook.com/stranz" target="_blank" class="social-link">📘 Facebook</a>
+      <a href="https://www.instagram.com/stranz" target="_blank" class="social-link">📸 Instagram</a>
+      <a href="https://twitter.com/stranz" target="_blank" class="social-link">🐦 X</a>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (Will load original Navy Blue via footer.js) -->
   <div id="footer"></div>
   <script src="footer.js"></script>
 
