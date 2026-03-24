@@ -234,57 +234,65 @@
 
   <!-- Dual Notification & AJAX Logic -->
   <script>
-    document.getElementById("stzContactForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
-      
-      const submitBtn = document.getElementById("submitBtn");
-      const originalBtnText = submitBtn.innerText;
-      
-      // Update UI to show sending state
-      submitBtn.innerText = "Sending...";
-      submitBtn.disabled = true;
+  document.getElementById("stzContactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById("submitBtn");
+    const originalBtnText = submitBtn.innerText;
+    
+    // 1. Show loading state
+    submitBtn.innerText = "Sending...";
+    submitBtn.disabled = true;
 
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData.entries());
+    // 2. Collect Data
+    const formData = new FormData(this);
+    const dataObj = Object.fromEntries(formData.entries());
 
-      // 1. Prepare WhatsApp Formatting
-      const waNumber = "919566952888"; 
-      const waMessage = `*New Quote Request*\n` +
-                        `--------------------------\n` +
-                        `*Name:* ${data.name}\n` +
-                        `*Phone:* ${data.phone}\n` +
-                        `*Route:* ${data.origin_city} to ${data.destination_city}\n` +
-                        `*Industry:* ${data.industry}\n` +
-                        `*Message:* ${data.message}`;
-      
-      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+    // 3. Prepare WhatsApp Message
+    const waNumber = "919566952888"; 
+    const waMessage = `*New Quote Request*\n` +
+                      `--------------------------\n` +
+                      `*Name:* ${dataObj.name}\n` +
+                      `*Phone:* ${dataObj.phone}\n` +
+                      `*Route:* ${dataObj.origin_city} to ${dataObj.destination_city}\n` +
+                      `*Industry:* ${dataObj.industry}\n` +
+                      `*Message:* ${dataObj.message}`;
+    
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
 
-      try {
-        // 2. Submit to StaticForms via AJAX (fetch)
-        const response = await fetch("https://api.staticforms.xyz/submit", {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: { 'Content-Type': 'application/json' }
-        });
+    try {
+      // 4. Submit to StaticForms using standard Form Submission (More reliable)
+      const response = await fetch("https://api.staticforms.xyz/submit", {
+        method: "POST",
+        body: formData, // Sending raw formData is more compatible with StaticForms
+      });
 
-        if (response.ok) {
-          // Trigger WhatsApp in a new tab (Dual Notification)
-          window.open(waUrl, '_blank');
-          
-          // Redirect to local Thank You page
-          window.location.href = 'thankyou.html';
-        } else {
-          throw new Error("Form submission failed");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        alert("Oops! There was an issue submitting your request. Please try again or contact us via WhatsApp.");
-        
-        // Reset button state on error
-        submitBtn.innerText = originalBtnText;
-        submitBtn.disabled = false;
+      const result = await response.json();
+
+      if (result.success) {
+        // 5. SUCCESS: Open WhatsApp and Redirect
+        window.open(waUrl, '_blank');
+        window.location.href = 'thankyou.html';
+      } else {
+        // API returned a false success
+        throw new Error(result.message || "Submission rejected");
       }
-    });
-  </script>
+      
+    } catch (error) {
+      console.error("Error Details:", error);
+      
+      // 6. FAIL-SAFE: If the email API fails, still let the user go to WhatsApp!
+      const retry = confirm("Email server is busy. Would you like to send this inquiry directly via WhatsApp instead?");
+      if (retry) {
+        window.open(waUrl, '_blank');
+        window.location.href = 'thankyou.html';
+      }
+
+      // Reset button
+      submitBtn.innerText = originalBtnText;
+      submitBtn.disabled = false;
+    }
+  });
+</script>
 </body>
 </html>
