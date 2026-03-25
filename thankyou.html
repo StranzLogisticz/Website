@@ -209,6 +209,8 @@
                         `*Route:* ${data.origin} to ${data.destination}\n` +
                         `*Industry:* ${data.industry}\n` +
                         `*Details:* ${data.message}`;
+                        `--------------------------\n` +
+                       `Please provide a quote for this load.`;
 
         waButton.href = `https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`;
       } else {
