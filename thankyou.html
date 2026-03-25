@@ -136,7 +136,7 @@
   <!-- Top Hero (Orange) -->
   <section class="thank-hero">
     <h1>Inquiry Received!</h1>
-    <p>We have successfully received your message. Our experts are reviewing it now.</p>
+    <p>We have successfully received your message. Our experts are reviewing it now. Will reach back to you soon </p>
   </section>
 
   <!-- Success Card -->
@@ -162,7 +162,7 @@
       <div class="thank-card">
         <img src="assets/img/thanks-1.jpg" alt="Swift response" />
         <h3>Swift response</h3>
-        <p>We respond within one business day for all inquiries.</p>
+        <p>We respond on same business day for all inquiries.</p>
       </div>
       <div class="thank-card">
         <img src="assets/img/thanks-2.jpg" alt="Reliable & secure" />
@@ -196,28 +196,43 @@
 
   <!-- DYNAMIC WHATSAPP DATA SCRIPT -->
   <script>
-    window.onload = function() {
-      const rawData = localStorage.getItem('stranzInquiry');
-      const waButton = document.getElementById('waButton');
-      const waNumber = "919566952888";
+  function updateWhatsAppLink() {
+    const waNumber = "919566952888";
+    const waButton = document.getElementById('waButton');
+    
+    // 1. Try to get the data
+    const storedData = localStorage.getItem('stranzInquiry');
+    
+    if (storedData) {
+      const data = JSON.parse(storedData);
+      
+      // 2. Format the detailed message
+      const formattedMessage = 
+        `*New Inquiry Details (From Website)*\n` +
+        `--------------------------\n` +
+        `*Name:* ${data.name}\n` +
+        `*Phone:* ${data.phone}\n` +
+        `*Route:* ${data.origin} to ${data.destination}\n` +
+        `*Industry:* ${data.industry}\n` +
+        `*Details:* ${data.message}\n` +
+        `--------------------------\n` +
+        `Please provide a quote for this load.`;
 
-      if (rawData) {
-        const data = JSON.parse(rawData);
-        const message = `*New Inquiry Details (From Website)*\n\n` +
-                        `*Name:* ${data.name}\n` +
-                        `*Phone:* ${data.phone}\n` +
-                        `*Route:* ${data.origin} to ${data.destination}\n` +
-                        `*Industry:* ${data.industry}\n` +
-                        `*Details:* ${data.message}`;
-                        `--------------------------\n` +
-                       `Please provide a quote for this load.`;
+      // 3. Apply the link to the button
+      waButton.href = `https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(formattedMessage)}`;
+    } else {
+      // Fallback if storage failed
+      waButton.href = `https://api.whatsapp.com/send?phone=${waNumber}&text=I just submitted an enquiry on your website and would like to discuss it further.`;
+    }
+  }
 
-        waButton.href = `https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`;
-      } else {
-        waButton.href = `https://api.whatsapp.com/send?phone=${waNumber}&text=I%20have%20an%20inquiry%20regarding%20logistics%20services.`;
-      }
-    };
-  </script>
+  // Run the function as soon as the page is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateWhatsAppLink);
+  } else {
+    updateWhatsAppLink();
+  }
+</script>
 
 </body>
 </html>
