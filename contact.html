@@ -231,26 +231,36 @@
       btn.style.pointerEvents = "none";
     });
   </script>
-  <script>
-    document.getElementById("stzContactForm").addEventListener("submit", function() {
-      // 1. Capture the data from the form fields
-      const formData = {
-        name: this.name.value,
-        phone: this.phone.value,
-        origin: this.pickup.value,
-        destination: this.drop-to.value,
-        industry: this.industry.value,
-        message: this.message.value
+<script>
+  // We use 'onsubmit' directly on the form element for the fastest execution
+  document.getElementById("stzContactForm").onsubmit = function() {
+    try {
+      // 1. Capture the data using the 'name' attribute of your inputs
+      const details = {
+        name: document.getElementsByName("name")[0].value,
+        phone: document.getElementsByName("phone")[0].value,
+        origin: document.getElementsByName("pick_up")[0].value,
+        destination: document.getElementsByName("drop_to")[0].value,
+        industry: document.getElementsByName("industry")[0].value,
+        message: document.getElementsByName("message")[0].value
       };
 
-      // 2. Save it to the browser's memory so the Thank You page can read it
-      localStorage.setItem('stranzInquiry', JSON.stringify(formData));
-
-      // 3. Visual Feedback
+      // 2. Save it immediately to LocalStorage
+      localStorage.setItem('stranzInquiry', JSON.stringify(details));
+      
+      // 3. Optional: Visual feedback
       const btn = document.getElementById("submitBtn");
-      btn.innerText = "Sending Request...";
-      btn.style.opacity = "0.7";
-    });
-  </script>
+      if(btn) {
+        btn.innerText = "Sending Request...";
+        btn.style.opacity = "0.7";
+      }
+    } catch (err) {
+      console.error("Storage Error:", err);
+    }
+    
+    // Return true to allow the form to actually send the email via StaticForms
+    return true; 
+  };
+</script>
 </body>
 </html>
