@@ -231,5 +231,26 @@
       btn.style.pointerEvents = "none";
     });
   </script>
+  <script>
+    document.getElementById("stzContactForm").addEventListener("submit", function() {
+      // 1. Capture the data from the form fields
+      const formData = {
+        name: this.name.value,
+        phone: this.phone.value,
+        origin: this.origin_city.value,
+        destination: this.destination_city.value,
+        industry: this.industry.value,
+        message: this.message.value
+      };
+
+      // 2. Save it to the browser's memory so the Thank You page can read it
+      localStorage.setItem('stranzInquiry', JSON.stringify(formData));
+
+      // 3. Visual Feedback
+      const btn = document.getElementById("submitBtn");
+      btn.innerText = "Sending Request...";
+      btn.style.opacity = "0.7";
+    });
+  </script>
 </body>
 </html>
