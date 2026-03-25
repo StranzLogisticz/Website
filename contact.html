@@ -144,7 +144,6 @@
   </section>
 
   <main class="contact-container">
-    <!-- Trust Sidebar -->
     <aside class="contact-sidebar">
       <div class="sidebar-item">
         <h3>📍 Corporate HQ</h3>
@@ -164,14 +163,18 @@
       </div>
     </aside>
 
-    <!-- Professional Form -->
     <div class="form-card">
       <h2>Request a Quote</h2>
-      <!-- STANDARD POST METHOD: This fixes the "server busy" issue and handles redirect -->
-      <form id="stzContactForm" action="https://api.staticforms.xyz/submit" method="POST">
+      <!-- 
+        WE ARE REMOVING THE JAVASCRIPT FETCH AND USING THE NATURAL FORM POST.
+        THIS IS THE ONLY WAY TO PREVENT THE 404 ERROR.
+      -->
+      <form action="https://api.staticforms.xyz/submit" method="POST">
         
-        <!-- StaticForms Required Hidden Fields -->
+        <!-- REQUIRED: Your Access Key -->
         <input type="hidden" name="accessKey" value="sf_21df8be116a569a507f55266">
+        
+        <!-- REQUIRED: THE EXACT LINK TO YOUR PAGE -->
         <input type="hidden" name="redirectTo" value="https://stranz.in/thankyou.html">
         
         <div class="form-grid">
@@ -215,26 +218,17 @@
     </div>
   </main>
 
-  <section class="social-ribbon">
-    <h2>Connect with us</h2>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/company/stranz" target="_blank" class="social-link">LINKEDIN</a>
-      <a href="https://www.facebook.com/stranz" target="_blank" class="social-link">FACEBOOK</a>
-      <a href="https://www.instagram.com/stranz" target="_blank" class="social-link">INSTAGRAM</a>
-      <a href="https://twitter.com/stranz" target="_blank" class="social-link">TWITTER / X</a>
-    </div>
-  </section>
-
   <div id="footer"></div>
   <script src="footer.js"></script>
 
   <script>
-    // Simple script to show "Sending..." feedback on the button
-    document.getElementById("stzContactForm").addEventListener("submit", function() {
-      const submitBtn = document.getElementById("submitBtn");
-      submitBtn.innerText = "Sending...";
-      submitBtn.style.opacity = "0.7";
-      // Form proceeds to submit normally to the API and redirect to thankyou.html
+    // Simple script just to show "Sending..." feedback.
+    // It does NOT interfere with the redirect.
+    document.querySelector("form").addEventListener("submit", function() {
+      const btn = document.getElementById("submitBtn");
+      btn.innerText = "Sending Request...";
+      btn.style.opacity = "0.7";
+      btn.style.pointerEvents = "none";
     });
   </script>
 </body>
