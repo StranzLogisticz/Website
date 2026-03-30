@@ -863,10 +863,316 @@ footer {
 .about-grid div:hover strong {
   color: var(--white);
 }
+/* ===== PREMIUM PROCESS BENTO STYLES ===== */
+:root {
+  --sz-navy: #0a1f44;
+  --sz-orange: #f57c00;
+  --sz-slate: #64748b;
+  --sz-glass: rgba(255, 255, 255, 0.9);
+}
 
+.stranz-premium-process {
+  padding: 80px 0;
+  background-color: var(--gray); /* Matching your site gray */
+  overflow: hidden;
+}
 
+/* Header Alignment with your existing style */
+.stranz-process-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
 
+.stranz-eyebrow {
+  color: var(--sz-orange);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 10px;
+}
 
+.stranz-process-main-title {
+  color: var(--sz-navy);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stranz-title-line {
+  width: 60px;
+  height: 3px;
+  background: var(--sz-orange);
+  margin: 15px auto;
+}
+
+/* Bento Grid Architecture */
+.stranz-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card Visual Polish */
+.stranz-bento-card {
+  background: var(--sz-glass);
+  border: 1px solid rgba(10, 31, 68, 0.08);
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+/* THE PREMIUM HOVER: Turns orange on hover/active */
+.stranz-bento-card:hover {
+  background: var(--sz-orange);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(245, 124, 0, 0.2);
+  border-color: var(--sz-orange);
+}
+
+/* Text color flip on hover */
+.stranz-bento-card:hover .stranz-step-title,
+.stranz-bento-card:hover .stranz-step-detail,
+.stranz-bento-card:hover .stranz-node {
+  color: #fff !important;
+}
+
+.stranz-bento-card:hover .stranz-node {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+}
+
+/* Grid Positioning (Bento Spans) */
+.stranz-card-lg { grid-column: span 6; } /* Step 1 takes half width */
+.stranz-card-sm { grid-column: span 3; } /* Steps 2 & 3 take quarter each */
+.stranz-card-md { grid-column: span 8; } /* Step 4 is wide on row 2 */
+.stranz-step-5 { grid-column: span 4; }  /* Step 5 fills row 2 */
+
+/* Node / Number Styling */
+.stranz-node {
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--sz-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--sz-navy);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.stranz-step-title {
+  color: var(--sz-navy);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.stranz-step-detail {
+  color: var(--sz-slate);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+/* Kinetic Flow Indicator (The 'Flow' instead of boxes) */
+.stranz-flow-indicator {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  width: 20px;
+  height: 2px;
+  background: var(--sz-orange);
+  z-index: 10;
+  opacity: 0.3;
+}
+
+/* Responsive Logic */
+@media (max-width: 1024px) {
+  .stranz-card-lg, .stranz-card-md, .stranz-card-sm, .stranz-step-5 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .stranz-bento-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+  .stranz-process-main-title {
+    font-size: 2rem;
+  }
+  .stranz-flow-indicator {
+    display: none;
+  }
+}
+
+/* --- SZ CORRIDOR - MINIMAL TOP-RIGHT PINNED --- */
+
+:root {
+  --sz-orange: #FF8C00;
+  --sz-navy: #013364;
+  --sz-white: #ffffff;
+}
+
+/* Position the wrapper in the top right of the Hero Section */
+.sz-corridor-floating-wrapper {
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 999 !important; /* Ensure it stays above video */
+  width: 260px !important; /* Narrow width to stay out of the way */
+}
+
+.sz-corridor-card {
+  background-color: var(--sz-white) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  text-align: center !important;
+  transition: transform 0.2s ease !important;
+}
+
+.sz-corridor-card:hover {
+  transform: translateY(-3px) !important;
+}
+
+/* Slimmed Header */
+.sz-corridor-header {
+  background-color: var(--sz-orange) !important;
+  color: var(--sz-white) !important;
+  padding: 6px 10px !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Compact Body */
+.sz-corridor-body {
+  padding: 15px !important;
+  background: var(--sz-white) !important;
+}
+
+.sz-corridor-title {
+  color: var(--sz-navy) !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  margin: 0 0 5px 0 !important;
+  line-height: 1.2 !important;
+}
+
+.sz-corridor-text {
+  color: #64748b !important;
+  font-size: 11px !important;
+  margin-bottom: 12px !important;
+  font-weight: 500 !important;
+}
+
+/* Compact Button */
+.sz-corridor-btn {
+  display: block !important;
+  background-color: var(--sz-navy) !important;
+  color: var(--sz-white) !important;
+  text-decoration: none !important;
+  padding: 10px 5px !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  transition: background 0.2s ease !important;
+}
+
+.sz-corridor-btn:hover {
+  background-color: #024a8e !important;
+  color: #ffffff !important;
+}
+
+/* Responsiveness: On mobile, hide it or move it to prevent overlap with title */
+@media (max-width: 768px) {
+  .sz-corridor-floating-wrapper {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin: 20px auto !important;
+    width: 90% !important;
+    max-width: 300px !important;
+  }
+}
+/* --- SZ FLEET MODULE: LEAD GEN UPGRADE --- */
+
+:root {
+  --sz-fleet-navy: #013364;
+  --sz-fleet-orange: #FF8C00;
+  --sz-fleet-border: #e0e0e0;
+}
+
+/* Container to ensure full width within the existing form-grid */
+.sz-fleet-container {
+  display: block !important;
+  margin-bottom: 10px;
+}
+
+/* Two-column layout for Desktop */
+.sz-fleet-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+/* Modular Input Styling */
+.sz-fleet-input {
+  width: 100% !important;
+  padding: 12px !important;
+  border: 1px solid var(--sz-fleet-border) !important;
+  border-radius: 8px !important; /* Premium 8px radius */
+  font-size: 1rem !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s ease-in-out !important;
+  background-color: #ffffff !important;
+}
+
+/* Focus State using Stranz Orange */
+.sz-fleet-input:focus {
+  outline: none !important;
+  border-color: var(--sz-fleet-orange) !important;
+  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1) !important;
+}
+
+/* Label Styling using Stranz Navy */
+.sz-fleet-label {
+  display: block !important;
+  margin-bottom: 8px !important;
+  font-weight: 600 !important;
+  font-size: 0.75rem !important; /* Slightly smaller for technical feel */
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: var(--sz-fleet-navy) !important;
+}
+
+/* Responsive Handling */
+@media (max-width: 768px) {
+  .sz-fleet-grid-row {
+    grid-template-columns: 1fr; /* Stacks on Mobile */
+    gap: 0;
+  }
+}
 
 
 

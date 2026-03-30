@@ -206,6 +206,39 @@
               <option value="Industrial Materials">Industrial Materials</option>
             </select>
           </div>
+          <!-- SZ FLEET TECHNICAL REQUIREMENTS SECTION -->
+<div class="sz-fleet-container full-width">
+  <!-- Grid Row: Size and Body Type -->
+  <div class="sz-fleet-grid-row">
+    <div class="form-group sz-fleet-group">
+      <label class="sz-fleet-label">Vehicle Payload Capacity / Size *</label>
+      <select name="fleet_size" class="sz-fleet-input" required>
+        <option value="" disabled selected>Select Size</option>
+        <option value="7ft (Bada Dost)">7ft (Bada Dost / Small Commercial)</option>
+        <option value="14ft Container/Open">14ft Container / Open</option>
+        <option value="17ft High-Volume">17ft High-Volume Fleet</option>
+        <option value="19ft Specialized">19ft Specialized Container</option>
+        <option value="20ft-32ft MX/SXL">20ft to 32ft MX/SXL (Heavy Duty)</option>
+      </select>
+    </div>
+
+    <div class="form-group sz-fleet-group">
+      <label class="sz-fleet-label">Body Type Requirement *</label>
+      <select name="fleet_body" class="sz-fleet-input" required>
+        <option value="" disabled selected>Select Body Type</option>
+        <option value="Closed Body">Closed Body (Weather-Proof)</option>
+        <option value="Open Body">Open Body (Standard)</option>
+        <option value="Side-Open">Side-Open (Industrial/Palletized)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Full Width Weight Input -->
+  <div class="form-group sz-fleet-group">
+    <label class="sz-fleet-label">Payload Weight (Tons/KG)</label>
+    <input type="text" name="fleet_weight" class="sz-fleet-input" placeholder="e.g., 2.5 Tons">
+  </div>
+</div>
           <div class="form-group full-width">
             <label>Message / Load Details</label>
             <textarea name="message" rows="4" placeholder="Briefly describe your requirements..."></textarea>
