@@ -1022,98 +1022,6 @@ footer {
   }
 }
 
-/* --- SZ CORRIDOR - MINIMAL TOP-RIGHT PINNED --- */
-
-:root {
-  --sz-orange: #FF8C00;
-  --sz-navy: #013364;
-  --sz-white: #ffffff;
-}
-
-/* Position the wrapper in the top right of the Hero Section */
-.sz-corridor-floating-wrapper {
-  position: absolute !important;
-  top: 20px !important;
-  right: 20px !important;
-  z-index: 999 !important; /* Ensure it stays above video */
-  width: 260px !important; /* Narrow width to stay out of the way */
-}
-
-.sz-corridor-card {
-  background-color: var(--sz-white) !important;
-  border-radius: 8px !important;
-  overflow: hidden !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
-  border: 1px solid rgba(255,255,255,0.1) !important;
-  text-align: center !important;
-  transition: transform 0.2s ease !important;
-}
-
-.sz-corridor-card:hover {
-  transform: translateY(-3px) !important;
-}
-
-/* Slimmed Header */
-.sz-corridor-header {
-  background-color: var(--sz-orange) !important;
-  color: var(--sz-white) !important;
-  padding: 6px 10px !important;
-  font-weight: 700 !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-}
-
-/* Compact Body */
-.sz-corridor-body {
-  padding: 15px !important;
-  background: var(--sz-white) !important;
-}
-
-.sz-corridor-title {
-  color: var(--sz-navy) !important;
-  font-size: 14px !important;
-  font-weight: 800 !important;
-  margin: 0 0 5px 0 !important;
-  line-height: 1.2 !important;
-}
-
-.sz-corridor-text {
-  color: #64748b !important;
-  font-size: 11px !important;
-  margin-bottom: 12px !important;
-  font-weight: 500 !important;
-}
-
-/* Compact Button */
-.sz-corridor-btn {
-  display: block !important;
-  background-color: var(--sz-navy) !important;
-  color: var(--sz-white) !important;
-  text-decoration: none !important;
-  padding: 10px 5px !important;
-  border-radius: 4px !important;
-  font-weight: 700 !important;
-  font-size: 12px !important;
-  transition: background 0.2s ease !important;
-}
-
-.sz-corridor-btn:hover {
-  background-color: #024a8e !important;
-  color: #ffffff !important;
-}
-
-/* Responsiveness: On mobile, hide it or move it to prevent overlap with title */
-@media (max-width: 768px) {
-  .sz-corridor-floating-wrapper {
-    position: relative !important;
-    top: 0 !important;
-    right: 0 !important;
-    margin: 20px auto !important;
-    width: 90% !important;
-    max-width: 300px !important;
-  }
-}
 /* --- SZ FLEET MODULE: LEAD GEN UPGRADE --- */
 
 :root {
@@ -1174,5 +1082,102 @@ footer {
   }
 }
 
+/* --- SZ PREMIUM BOTTOM-RIGHT HOOK --- */
 
+:root {
+  --sz-navy: #013364;
+  --sz-orange: #FF8C00;
+  --sz-slate: #94a3b8;
+}
+
+.sz-premium-hook {
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  z-index: 9999 !important;
+  
+  display: flex !important;
+  align-items: center !important;
+  background: rgba(1, 51, 100, 0.98) !important; /* Deep Navy */
+  backdrop-filter: blur(10px) !important;
+  
+  padding: 12px 20px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  text-decoration: none !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden !important;
+}
+
+/* Technical Accent Line */
+.sz-hook-indicator {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 4px !important;
+  background: var(--sz-orange) !important;
+}
+
+.sz-hook-icon {
+  color: var(--sz-orange) !important;
+  margin-right: 15px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.sz-hook-content {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* "South India Corridor" Label */
+.sz-hook-eyebrow {
+  color: var(--sz-slate) !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  font-weight: 700 !important;
+  margin-bottom: 2px !important;
+}
+
+/* "Transit Fare Audit" Text */
+.sz-hook-title {
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.sz-arrow {
+  margin-left: 8px !important;
+  transition: transform 0.3s ease !important;
+  color: var(--sz-orange) !important;
+}
+
+/* Premium Hover Interactions */
+.sz-premium-hook:hover {
+  transform: translateY(-5px) !important;
+  background: var(--sz-navy) !important; /* Solidify background */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(255, 140, 0, 0.4) !important;
+}
+
+.sz-premium-hook:hover .sz-arrow {
+  transform: translateX(5px) !important;
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+  .sz-premium-hook {
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    padding: 15px !important;
+    justify-content: center !important;
+  }
+}
 
