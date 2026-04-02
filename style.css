@@ -1181,3 +1181,395 @@ footer {
   }
 }
 
+/* --- STRANZ INDUSTRIES MODULE --- */
+
+:root {
+  --sz-navy: #013364;   /* Stranz Primary */
+  --sz-orange: #FF8C00; /* Stranz Accent */
+  --sz-white: #ffffff;
+  --sz-slate: #64748b;
+  --sz-border: #e2e8f0;
+}
+
+/* Hero - Premium Navy background */
+.sz-industry-hero {
+  background-color: var(--sz-navy);
+  background-image: linear-gradient(rgba(1, 51, 100, 0.9), rgba(1, 51, 100, 0.9));
+  padding: 80px 0;
+  text-align: center;
+  color: var(--sz-white);
+}
+
+.sz-industry-hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.sz-industry-hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Tab Navigation */
+.sz-industry-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: -30px; /* Overlap into Hero for premium look */
+  margin-bottom: 50px;
+}
+
+.sz-industry-label {
+  background: var(--sz-white);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--sz-navy);
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border: 1px solid var(--sz-border);
+  transition: all 0.3s ease;
+}
+
+/* Hidden Logic Controls */
+.sz-industry-radio { display: none; }
+
+/* Active Tab Styles (Orange Accents) */
+#sz-tab-1:checked ~ .sz-industry-nav label[for="sz-tab-1"],
+#sz-tab-2:checked ~ .sz-industry-nav label[for="sz-tab-2"],
+#sz-tab-3:checked ~ .sz-industry-nav label[for="sz-tab-3"] {
+  background-color: var(--sz-orange);
+  color: white;
+  border-color: var(--sz-orange);
+  transform: translateY(-5px);
+}
+
+/* Panel Switching Logic */
+.sz-industry-panel { display: none; animation: szFadeIn 0.4s ease; }
+
+#sz-tab-1:checked ~ .sz-industry-panels #sz-panel-1,
+#sz-tab-2:checked ~ .sz-industry-panels #sz-panel-2,
+#sz-tab-3:checked ~ .sz-industry-panels #sz-panel-3 {
+  display: block;
+}
+
+@keyframes szFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Content Layout */
+.sz-industry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.sz-industry-panel-title {
+  color: var(--sz-navy);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.sz-industry-badge {
+  background: rgba(255, 140, 0, 0.1);
+  color: var(--sz-orange);
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.sz-industry-spec-box {
+  background: #f8fafc;
+  border-left: 4px solid var(--sz-orange);
+  padding: 20px;
+  margin-top: 25px;
+  border-radius: 0 8px 8px 0;
+}
+
+.sz-industry-img-placeholder {
+  width: 100%;
+  height: 350px;
+  background-color: #eee;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  border: 1px solid var(--sz-border);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .sz-industry-nav { flex-direction: column; margin-top: 20px; }
+  .sz-industry-grid { grid-template-columns: 1fr; }
+  .sz-industry-hero-title { font-size: 1.8rem; }
+}
+/* --- STRANZ INDUSTRIES MODULE - ALIGNMENT FIXED --- */
+
+:root {
+  --sz-navy: #013364;
+  --sz-orange: #FF8C00;
+  --sz-bg-light: #f8fafc;
+}
+
+/* Centering the entire page container */
+.sz-industry-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.sz-industry-hero {
+  background: var(--sz-navy);
+  padding: 100px 0 140px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.sz-industry-eyebrow {
+  color: var(--sz-orange);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sz-industry-hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 15px 0;
+}
+
+.sz-industry-hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Tab Navigation - Centered */
+.sz-industry-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: -40px auto 60px auto;
+  flex-wrap: wrap;
+}
+
+.sz-industry-label {
+  background: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--sz-navy);
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  font-size: 14px;
+}
+
+.sz-industry-radio { display: none; }
+
+#sz-tab-1:checked ~ .sz-industry-nav label[for="sz-tab-1"],
+#sz-tab-2:checked ~ .sz-industry-nav label[for="sz-tab-2"],
+#sz-tab-3:checked ~ .sz-industry-nav label[for="sz-tab-3"],
+#sz-tab-4:checked ~ .sz-industry-nav label[for="sz-tab-4"] {
+  background: var(--sz-orange);
+  color: #fff;
+  border-color: var(--sz-orange);
+  transform: translateY(-5px);
+}
+
+/* Panel Switching Logic */
+.sz-industry-panel { display: none; animation: szFadeIn 0.5s ease; }
+
+#sz-tab-1:checked ~ .sz-industry-panels #sz-panel-1,
+#sz-tab-2:checked ~ .sz-industry-panels #sz-panel-2,
+#sz-tab-3:checked ~ .sz-industry-panels #sz-panel-3,
+#sz-tab-4:checked ~ .sz-industry-panels #sz-panel-4 {
+  display: block;
+}
+
+/* Grid Layout - Fixing "Empty Space" */
+.sz-industry-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Content 60%, Side Card 40% */
+  gap: 40px;
+  align-items: start;
+  text-align: left;
+}
+
+.sz-industry-panel-title {
+  color: var(--sz-navy);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+}
+
+.sz-industry-panel-desc {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+}
+
+/* List Styling */
+.sz-industry-list {
+  padding: 0;
+  list-style: none;
+}
+
+.sz-industry-list li {
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
+  color: var(--sz-navy);
+  font-weight: 600;
+}
+
+.sz-industry-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--sz-orange);
+}
+
+/* Side Technical Card (Fills Right Space) */
+.sz-industry-spec-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.sz-industry-spec-card h4 {
+  color: var(--sz-orange);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.sz-industry-spec-card p {
+  color: var(--sz-navy);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.sz-industry-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 20px 0;
+}
+
+.sz-industry-badge {
+  background: #eff6ff;
+  color: var(--sz-navy);
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 10px;
+  border: 1px solid #dbeafe;
+}
+
+@keyframes szFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile Viewport Fix */
+@media (max-width: 850px) {
+  .sz-industry-grid { grid-template-columns: 1fr; }
+  .sz-industry-nav { flex-direction: column; }
+  .sz-industry-hero-title { font-size: 2rem; }
+}
+/* --- SZ INDUSTRY UPGRADE: GALLERY & CTA --- */
+
+/* 1. Gallery Grid (Below Content) */
+.sz-industry-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.sz-gallery-item {
+  height: 250px;
+  background-color: #f1f5f9;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.sz-gallery-item::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(transparent, rgba(1, 51, 100, 0.7));
+}
+
+.sz-gallery-item span {
+  position: relative;
+  z-index: 2;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sz-gallery-item:hover {
+  transform: scale(1.02);
+}
+
+/* 2. Professional CTA Button */
+.sz-industry-cta-btn {
+  display: inline-block !important;
+  background-color: var(--sz-navy) !important;
+  color: #ffffff !important;
+  padding: 14px 28px !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  margin-top: 15px !important;
+  border: 1px solid var(--sz-navy) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(1, 51, 100, 0.15) !important;
+}
+
+.sz-industry-cta-btn:hover {
+  background-color: var(--sz-orange) !important;
+  border-color: var(--sz-orange) !important;
+  transform: translateX(10px) !important;
+  color: #fff !important;
+}
+
+/* Mobile Gallery Fix */
+@media (max-width: 768px) {
+  .sz-industry-gallery {
+    grid-template-columns: 1fr;
+  }
+  .sz-gallery-item {
+    height: 200px;
+  }
+}
