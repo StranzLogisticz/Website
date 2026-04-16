@@ -700,12 +700,6 @@ body {
   margin: 0;
   font-size: 0.95rem;
 }
-/* ===== BOOKING PAGE STYLES ===== */
-.booking-page {
-  background: url('assets/img/truck-bg.png') no-repeat center center fixed;
-  background-size: cover;
-}
-
 /* ===== SERVICES PAGE BACKGROUND ===== */
 .services-page {
   background-image: url('assets/img/contract-bg.png');
@@ -1572,4 +1566,564 @@ footer {
   .sz-gallery-item {
     height: 200px;
   }
+}
+
+/* Add this to style.css if not already present */
+.nav-links a.active {
+  color: #FF8C00 !important; /* Stranz Industrial Orange */
+  font-weight: 700;
+  border-bottom: 2px solid #FF8C00;
+}
+
+
+/* --- PREMIUM GALLERY STYLES --- */
+:root {
+    --sz-navy: #013364;
+    --sz-orange: #FF8C00;
+    --sz-bg: #f8fafc;
+}
+
+.sz-gal-body { background-color: var(--sz-bg); }
+
+.sz-gal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Content Styling */
+.sz-gal-hero {
+    background-color: var(--sz-navy);
+    padding: 80px 0 120px 0;
+    text-align: center;
+    color: white;
+}
+
+.sz-gal-eyebrow {
+    color: var(--sz-orange);
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sz-gal-title { font-size: 2.8rem; font-weight: 800; margin: 0; }
+.sz-gal-subtitle { opacity: 0.8; margin-top: 10px; }
+
+/* IMPROVED FILTER BUTTONS */
+.sz-gal-filter-wrapper {
+    margin: -35px 0 60px 0;
+    text-align: center;
+}
+
+.sz-gal-filter-bar {
+    display: inline-flex;
+    background: white;
+    padding: 8px;
+    border-radius: 50px; /* Pill Shape */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    gap: 5px;
+}
+
+.sz-filter-btn {
+    border: none;
+    background: transparent;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    color: var(--sz-navy);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.sz-filter-btn:hover {
+    color: var(--sz-orange);
+}
+
+.sz-filter-btn.active {
+    background: var(--sz-orange);
+    color: white !important;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* GRID & IMAGE FIX (No Zoom) */
+.sz-gal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 80px;
+}
+
+.sz-gal-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+}
+
+/* THE VIEWER: This fixes the "Zoom" issue */
+.sz-gal-viewer {
+    background: #000; /* Dark background to fill gaps */
+    height: 300px; /* Fixed height for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sz-gal-viewer img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important; 
+    height: auto !important;
+    object-fit: contain !important; /* CRITICAL: Shows full image without cropping */
+    transition: transform 0.5s ease;
+}
+
+.sz-gal-card:hover { transform: translateY(-8px); }
+.sz-gal-card:hover img { transform: scale(1.05); }
+
+/* Card Details */
+/* Update this block in your style.css */
+.sz-gal-meta {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center; /* Centers the tag now that Unit # is gone */
+    background: #fff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sz-gal-tag {
+    color: var(--sz-orange);
+    font-weight: 800;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Card Hover effect update for cleaner look */
+.sz-gal-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--sz-orange);
+    box-shadow: 0 15px 30px rgba(1, 51, 100, 0.15);
+}
+.sz-gal-unit { color: var(--sz-navy); font-weight: 700; font-size: 13px; }
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .sz-gal-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .sz-gal-grid { grid-template-columns: 1fr; }
+    .sz-gal-filter-bar { border-radius: 20px; flex-direction: column; width: 90%; }
+}
+
+/* ========================================== */
+/* 1. CORE BRAND VARIABLES & RESET            */
+/* ========================================== */
+:root {
+  --sz-navy: #013364;
+  --sz-orange: #FF8C00;
+  --sz-white: #ffffff;
+  --sz-gray: #f8fafc;
+  --sz-nav-height: 80px;      /* Slim section depth */
+  --sz-bucket-depth: 135px;   /* Logo section depth */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--sz-gray);
+  color: var(--sz-navy);
+  /* PREVENTS COLLISION: Adds space so content is visible below fixed header */
+  padding-top: calc(var(--sz-bucket-depth) + 30px); 
+}
+
+/* ========================================== */
+/* STRANZ PREMIUM STRAIGHT HEADER ARCH        */
+/* ========================================== */
+
+:root {
+  --sz-navy: #013364;
+  --sz-orange: #FF8C00;
+  --sz-header-height: 100px; /* Increased to fit larger logo */
+  --sz-marquee-height: 32px;
+}
+
+body {
+  margin: 0;
+  /* PREVENTS CONTENT HIDING: Combined height of Ticker + Navbar */
+  padding-top: calc(var(--sz-header-height) + var(--sz-marquee-height)) !important;
+}
+
+/* 1. TOP MARQUEE */
+.sz-marquee-container {
+  background: var(--sz-navy);
+  height: var(--sz-marquee-height);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.sz-marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: szMarqueeLoop 40s linear infinite;
+}
+
+.sz-marquee-text {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding-left: 100vw;
+}
+
+@keyframes szMarqueeLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* 2. STRAIGHT NAVBAR */
+.sz-navbar-fixed {
+  position: fixed;
+  top: var(--sz-marquee-height);
+  left: 0;
+  width: 100%;
+  height: var(--sz-header-height);
+  background: #ffffff;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  /* Premium industrial bottom border */
+  border-bottom: 3px solid var(--sz-orange);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.sz-nav-container {
+  max-width: 1350px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+/* 3. LOGO ENLARGEMENT */
+.sz-logo-area {
+  display: flex;
+  align-items: center;
+}
+
+.sz-main-logo {
+  width: 300px !important; /* Force large size */
+  height: auto !important;
+  max-width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.sz-main-logo:hover {
+  transform: scale(1.02);
+}
+
+/* 4. NAVIGATION LINKS */
+.sz-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.sz-nav-list a {
+  text-decoration: none;
+  color: var(--sz-navy);
+  font-weight: 700;
+  font-size: 15px;
+  position: relative;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+/* Fluid Orange Underline for All */
+.sz-nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--sz-orange);
+  transition: width 0.3s ease;
+}
+
+.sz-nav-list a:hover::after,
+.sz-nav-list a.active::after {
+  width: 100%;
+}
+
+.sz-nav-list a:hover,
+.sz-nav-list a.active {
+  color: var(--sz-orange) !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 992px) {
+  :root { --sz-header-height: 80px; }
+  .sz-main-logo { width: 180px !important; }
+  .sz-nav-list { gap: 15px; }
+  .sz-nav-list a { font-size: 13px; }
+  .sz-marquee-container { display: none; }
+  .sz-navbar-fixed { top: 0; }
+}
+
+/* ========================================== */
+/* SZ-PORTAL: SECURE GATEWAY ARCHITECTURE     */
+/* ========================================== */
+
+/* --- Root & Reset --- */
+:root {
+    --primary-blue: #004a99;
+    --accent-gold: #f5a623;
+    --text-dark: #1a1c1e;
+    --text-muted: #5f6368;
+    --bg-light: #f8f9fa;
+    --border-color: #e0e4e8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* FIX: Body is now a flex container to stack header and main content correctly */
+.sz-portal-body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Strict constraint: No scrolling */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the injected header doesn't shrink */
+#header {
+    flex-shrink: 0;
+}
+
+/* --- Layout Structure --- */
+.sz-portal-wrapper {
+    flex: 1; /* Automatically takes remaining height below the header */
+    width: 100%;
+    display: flex;
+    min-height: 0; /* Prevents flex items from overflowing the viewport */
+}
+
+.sz-portal-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Left Side: Industrial Visual (Updated Image) --- */
+.sz-portal-visual {
+    flex: 1;
+    position: relative;
+    /* Updated to represent truck fleet and vehicle management */
+    background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.sz-portal-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 20, 40, 0.85) 0%, rgba(0, 20, 40, 0.1) 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(1.5rem, 4vh, 3rem);
+}
+
+.sz-portal-mission-box {
+    max-width: 85%;
+    color: #ffffff;
+}
+
+.sz-portal-eyebrow {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+.sz-portal-mission-text {
+    font-size: clamp(1.4rem, 3.2vh, 2.2rem);
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.sz-portal-line {
+    width: 50px;
+    height: 4px;
+    background: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.sz-portal-mission-sub {
+    font-size: clamp(0.85rem, 1.6vh, 1rem);
+    opacity: 0.9;
+    line-height: 1.5;
+    max-width: 500px;
+}
+
+/* --- Right Side: Gateway Login --- */
+.sz-portal-login-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 2rem;
+    border-left: 1px solid var(--border-color);
+}
+
+.sz-portal-form-box {
+    width: 100%;
+    max-width: 420px;
+    /* Uses vh-based padding to ensure content stays inside the screen */
+    padding: clamp(1rem, 3vh, 2rem);
+}
+
+.sz-portal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    margin-bottom: 2vh;
+}
+
+.sz-portal-heading {
+    font-size: clamp(1.4rem, 3.5vh, 2rem);
+    margin: 0 0 0.5rem 0;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.sz-portal-instruction {
+    color: var(--text-muted);
+    font-size: clamp(0.85rem, 1.6vh, 0.95rem);
+    margin-bottom: 2.5vh;
+    line-height: 1.5;
+}
+
+/* --- Features List --- */
+.sz-portal-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 3vh 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.sz-portal-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #334155;
+}
+
+.sz-portal-features span {
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* --- Action Button --- */
+.sz-portal-primary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    padding: clamp(0.7rem, 1.8vh, 1.1rem);
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.sz-portal-primary-btn:hover {
+    background: #003a7a;
+    transform: translateY(-1px);
+}
+
+/* --- Status & Security Footer --- */
+.sz-portal-status-bar {
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding-bottom: 2vh;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sz-portal-pulse {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.sz-portal-security-note {
+    margin-top: 2vh;
+    font-size: 0.65rem;
+    line-height: 1.4;
+    color: #94a3b8;
+    text-align: center;
+}
+
+/* Logic for small laptop screens with low vertical height */
+@media (max-height: 700px) {
+    .sz-portal-form-box { padding: 0.5rem 1rem; }
+    .sz-portal-instruction { margin-bottom: 1.5vh; }
+    .sz-portal-status-bar { margin-top: 1.5vh; }
 }

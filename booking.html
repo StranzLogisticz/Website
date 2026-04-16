@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>S Trans Booking Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="assets/img/favicon-booking.png">
-  <link rel="stylesheet" href="style.css"> <!-- your existing stylesheet -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Portal Gateway | Stranz Logistics</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="booking-page">
+<body class="sz-portal-body">
 
-  <!-- Header -->
-  <div id="header"></div>
-  <script src="header.js"></script>
+    <!-- Header Injection Point -->
+    <div id="header"></div>
+    <script src="header.js"></script>
 
-  <!-- Booking Content -->
-  <div class="login-container">
-    <h1>Welcome to Stranz Internal Booking Portal</h1>
-    <p>Seamless logistics management at your fingertips. Secure, fast, and enterprise-ready.</p>
-    <p>Internal portal. Access is limited to employees</p>
-    <a href="http://80.225.253.147/dashboard" target="_blank" class="btn">
-      Login to Book
-    </a>
-  </div>
-  <!-- Footer -->
-  <div id="footer"></div>
-  <script src="footer.js"></script>
+    <main class="sz-portal-wrapper">
+        <div class="sz-portal-container">
+            
+            <!-- LEFT SIDE: INDUSTRIAL VISUAL -->
+            <div class="sz-portal-visual">
+                <div class="sz-portal-overlay">
+                    <div class="sz-portal-mission-box">
+                        <span class="sz-portal-eyebrow">Enterprise Management</span>
+                        <h2 class="sz-portal-mission-text">Precision-Engineered Logistics Management.</h2>
+                        <div class="sz-portal-line"></div>
+                        <p class="sz-portal-mission-sub">Secure infrastructure for regional transit optimization and fleet synchronization.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: GATEWAY LOGIN AREA -->
+            <div class="sz-portal-login-area">
+                <div class="sz-portal-form-box">
+                    
+                    <!-- Security Badge -->
+                    <div class="sz-portal-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Authorized Access Only
+                    </div>
+
+                    <h1 class="sz-portal-heading">System Login</h1>
+                    <p class="sz-portal-instruction">Access the Stranz internal ecosystem to manage active routes and assets.</p>
+
+                    <!-- Features List -->
+                    <ul class="sz-portal-features">
+                        <li><span>✔</span> Real-time Booking</li>
+                        <li><span>✔</span> Automated Invoicing</li>
+                        <li><span>✔</span> Fleet Tracking</li>
+                    </ul>
+
+                    <!-- Redirect Button -->
+                    <a href="https://transports.stranz.in/login" class="sz-portal-primary-btn">
+                        Login to Dashboard <span>→</span>
+                    </a>
+
+                    <!-- Status Indicator -->
+                    <div class="sz-portal-status-bar">
+                        <span class="sz-portal-pulse"></span>
+                        System Status: <strong>Online</strong>
+                    </div>
+
+                    <!-- Security Footer -->
+                    <footer class="sz-portal-security-note">
+                        Unauthorized access attempts are logged. This system is for Stranz Logistics Authorized Personnel only.
+                    </footer>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer"></div>
+    <script src="footer.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
