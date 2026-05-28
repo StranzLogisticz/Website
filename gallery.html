@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operational Gallery - Stranz Logistics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="sz-gal-body">
+
+    <div id="header"></div>
+    <script src="header.js"></script>
+
+    <!-- HERO SECTION (Content Unchanged) -->
+    <header class="sz-gal-hero">
+        <div class="sz-gal-container">
+            <span class="sz-gal-eyebrow">OPERATIONAL EXCELLENCE</span>
+            <h1 class="sz-gal-title">Fleet & Infrastructure</h1>
+            <p class="sz-gal-subtitle">A technical overview of the Stranz logistics network.</p>
+        </div>
+    </header>
+
+    <!-- PREMIUM FILTER BAR -->
+    <nav class="sz-gal-filter-wrapper">
+        <div class="sz-gal-container">
+            <div class="sz-gal-filter-bar">
+                <button class="sz-filter-btn active" data-filter="all">Total Infrastructure</button>
+                <button class="sz-filter-btn" data-filter="fleet">Fleet Assets</button>
+                <button class="sz-filter-btn" data-filter="ops">Regional Hubs</button>
+                <button class="sz-filter-btn" data-filter="safety">Safety Protocols</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- STABLE GRID SECTION -->
+    <section class="sz-gal-main">
+        <div class="sz-gal-container">
+            <div class="sz-gal-grid" id="sz-gal-root">
+                <!-- Logic-generated assets will mount here -->
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <script src="footer.js"></script>
+
+    <script>
+        // Set your image counts here
+        const galleryConfig = { fleet: 3, ops: 2, safety: 1 };
+        const root = document.getElementById('sz-gal-root');
+
+        Object.keys(galleryConfig).forEach(category => {
+            const total = galleryConfig[category];
+            for (let i = 1; i <= total; i++) {
+                const item = document.createElement('div');
+                item.className = `sz-gal-item`;
+                item.setAttribute('data-category', category);
+                
+                item.innerHTML = `
+                    <div class="sz-gal-card">
+                        <div class="sz-gal-viewer">
+                            <img src="assets/img/gallery/${category}/${i}.jpeg" alt="Stranz Logistics" loading="lazy">
+                        </div>
+                        <div class="sz-gal-meta">
+                            <span class="sz-gal-tag">${category}</span>
+                            
+                        </div>
+                    </div>
+                `;
+                root.appendChild(item);
+            }
+        });
+
+        // Filter Logic
+        const btns = document.querySelectorAll('.sz-filter-btn');
+        const cards = document.querySelectorAll('.sz-gal-item');
+
+        btns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                btns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

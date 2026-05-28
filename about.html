@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us - Stranz Logistics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --navy: #0a1f44;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --orange: #f57c00;
+    }
+    body { margin:0; font-family:Arial,sans-serif; background:var(--gray); color:var(--navy); }
+
+    /* Hero */
+    .about-hero { background:var(--navy); color:var(--white); text-align:center; padding:4rem 2rem; }
+    .about-hero h1 { font-size:2.5rem; margin-bottom:.5rem; }
+    .about-hero p { font-size:1.2rem; color:var(--orange); }
+    .download-btn {
+      display:inline-block; margin-top:1.5rem; padding:0.75rem 1.5rem;
+      background:var(--orange); color:var(--white); font-weight:bold;
+      text-decoration:none; border-radius:5px; transition:background 0.3s ease;
+    }
+    .download-btn:hover { background:#e66900; }
+
+    /* Sections */
+    .about-section { max-width:1000px; margin:3rem auto; padding:2rem; background:var(--white); border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.1); }
+    .about-section h2 { text-align:center; color:var(--orange); margin-bottom:1rem; }
+    .about-item { display:flex; gap:1rem; margin-bottom:1.5rem; }
+    .about-item .icon { font-size:2rem; color:var(--orange); }
+    .about-item h3 { margin:0; font-size:1.3rem; color:var(--navy); }
+    .about-item p, .about-item ul { margin:.25rem 0 0; line-height:1.6; }
+
+    /* Interactive Tiles */
+    .about-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1rem; }
+    .about-grid div {
+      background:var(--gray); padding:1.5rem; border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+      transition: all 0.3s ease;
+      text-align:center; font-size:0.95rem;
+    }
+    .about-grid div strong { display:block; margin-bottom:0.5rem; color:var(--orange); font-size:1.1rem; }
+    .about-grid div:hover {
+      background:var(--orange); color:var(--white);
+      transform: translateY(-5px);
+      box-shadow:0 6px 15px rgba(0,0,0,.15);
+    }
+    .about-grid div:hover strong { color:var(--white); }
+
+    /* Footer & Header */
+    #header, #footer { width:100%; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header"></div>
+  <script src="header.js"></script>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <h1>About Us</h1>
+    <p>Driving logistics excellence across India</p>
+    <a href="assets/Stranz_Company_Profile.pdf" download class="download-btn">📄 Download Company Profile</a>
+  </section>
+
+  <!-- Company Overview -->
+  <section class="about-section">
+    <h2>Company Overview</h2>
+    <div class="about-item">
+      <div class="icon">🏢</div>
+      <div>
+        <h3>Who We Are</h3>
+        <p>Stranz is a professionally managed logistics company delivering structured, reliable, and execution-driven freight solutions across India. We specialize in full truckload and cargo transportation with disciplined coordination and transparent service.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="about-section">
+    <h2>Vision</h2>
+    <div class="about-item">
+      <div class="icon">👁️</div>
+      <div>
+        <h3>Our Vision</h3>
+        <p>To become a trusted logistics partner by setting high standards in transportation reliability, operational control, and long-term customer relationships.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="about-section">
+    <h2>Mission</h2>
+    <div class="about-item">
+      <div class="icon">🎯</div>
+      <div>
+        <h3>Our Mission</h3>
+        <ul>
+          <li>Deliveries You Can Trust – Fast, affordable, and reliable logistics ensuring every shipment arrives safely and on time.</li>
+          <li>Specialized Transport Leadership – India’s preferred partner for heavy and specialized cargo with integrated solutions.</li>
+          <li>Customer‑First Approach – Building long‑term partnerships by delivering seamless, hassle‑free experiences tailored to client needs.</li>
+          <li>Safety Above All – Upholding strict safety standards to protect employees, customers, and goods.</li>
+          <li>Sustainable Growth – Embracing eco‑friendly practices and innovative technologies to reduce environmental impact.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Operate -->
+  <section class="about-section">
+    <h2>How We Operate</h2>
+    <div class="about-item">
+      <div class="icon">🔄</div>
+      <div>
+        <h3>End-to-End Coordination</h3>
+        <p>Each shipment is assigned a dedicated logistics coordinator who manages vehicle placement, route planning, transit monitoring, and delivery confirmation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="about-section">
+  <h2>What We Offer</h2>
+  <div class="about-grid offer-grid">
+    <div><strong>🚛 Full Truck Load (FTL)</strong>Dedicated vehicle for faster transit and cargo safety.</div>
+    <div><strong>🚚 Closed Truck Services</strong>Protection from weather and external exposure for sensitive goods.</div>
+    <div><strong>📦 Cargo Transportation</strong>Industrial, consumer, and special consignments with safe handling.</div>
+    <div><strong>📋 Custom Logistics</strong>Tailored solutions based on cargo type and delivery timelines.</div>
+  </div>
+</section>
+
+  <!-- Fleet -->
+  <section class="about-section">
+  <h2>Fleet & Vehicle Types</h2>
+  <div class="about-grid fleet-grid">
+    <div><strong>Open Trucks</strong>Flexible loading for industrial cargo</div>
+    <div><strong>Closed Trucks</strong>Secure transport for high-value goods</div>
+    <div><strong>Side Open Trucks</strong>Efficient for quick loading/unloading</div>
+    <div><strong>Sizes</strong>Tata Ace (7 ft), Bolero/Dost (8 ft), 12–32 ft</div>
+  </div>
+</section>
+
+  <!-- Industries -->
+  <section class="about-section">
+  <h2>Industries We Serve</h2>
+  <div class="about-grid industry-grid">
+    <div><strong>🛍️ FMCG & Consumer Goods</strong></div>
+    <div><strong>🏭 Manufacturing & Industrial</strong></div>
+    <div><strong>📦 Retail & Distribution</strong></div>
+    <div><strong>🏬 E-commerce & Warehousing</strong></div>
+    <div><strong>🏗️ Project & Specialized Cargo</strong></div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+  <script src="footer.js"></script>
+</body>
+</html>
+
+
