@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeUp, staggerContainer, viewportConfig } from "@/animations/variants";
+import { fadeUp, staggerContainer } from "@/animations/variants";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
           <motion.section variants={fadeUp} className="space-y-4">
             <h2 className="text-2xl font-bold text-white">1. Introduction</h2>
             <p>
-              Stranz Logistics ("we," "us," "our," or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+              Stranz Logistics (&quot;we,&quot; &quot;us,&quot; &quot;our,&quot; or &quot;Company&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
             </p>
           </motion.section>
 

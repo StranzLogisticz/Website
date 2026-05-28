@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeUp, staggerContainer, viewportConfig } from "@/animations/variants";
+import { fadeUp, staggerContainer } from "@/animations/variants";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -44,7 +44,7 @@ export default function TermsOfService() {
           <motion.section variants={fadeUp} className="space-y-4">
             <h2 className="text-2xl font-bold text-white">1. Agreement to Terms</h2>
             <p>
-              These Terms of Service ("Terms") constitute a legal agreement between you and Stranz Logistics. By accessing or using our website and services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use our services.
+              These Terms of Service (&quot;Terms&quot;) constitute a legal agreement between you and Stranz Logistics. By accessing or using our website and services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use our services.
             </p>
           </motion.section>
 
