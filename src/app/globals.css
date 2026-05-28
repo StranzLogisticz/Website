@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap');
+
+:root {
+  /* ── Stranz Brand Colors ── */
+  --navy:          #013364;
+  --navy-dark:     #012050;
+  --navy-light:    #1e4d8c;
+  --orange:        #FF8C00;
+  --orange-dark:   #E07800;
+  --orange-light:  #FFA333;
+  --orange-pale:   #FFF3E0;
+
+  /* ── Light Theme Surfaces ── */
+  --bg-white:      #ffffff;
+  --bg-soft:       #f8fafc;
+  --bg-muted:      #f1f5f9;
+  --border:        #e2e8f0;
+  --border-dark:   #cbd5e1;
+
+  /* ── Text ── */
+  --text-primary:  #013364;
+  --text-secondary:#475569;
+  --text-muted:    #94a3b8;
+
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--bg-white);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+@layer base {
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg-soft); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--orange-dark); }
+}
+
+@layer utilities {
+  /* ── Gradients & text effects ── */
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #FF8C00, #FFA333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-navy {
+    background: linear-gradient(135deg, #013364, #1e4d8c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Subtle dot grid for hero / sections ── */
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(1,51,100,0.06) 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+
+  /* ── Glass cards (light) ── */
+  .glass-light {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.9);
+  }
+
+  /* ── Premium card ── */
+  .card-light {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(1,51,100,0.04), 0 8px 24px rgba(1,51,100,0.06);
+    transition: all 0.3s ease;
+  }
+  .card-light:hover {
+    border-color: rgba(255,140,0,0.35);
+    box-shadow: 0 4px 16px rgba(255,140,0,0.12), 0 1px 3px rgba(1,51,100,0.06);
+    transform: translateY(-3px);
+  }
+
+  /* ── Orange glow ── */
+  .orange-glow {
+    box-shadow: 0 0 40px rgba(255,140,0,0.2);
+  }
+
+  /* ── Section padding ── */
+  .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+  @media (min-width: 768px) {
+    .section-padding { padding-top: 7rem; padding-bottom: 7rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-padding { padding-top: 9rem; padding-bottom: 9rem; }
+  }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-[#FF8C00] text-white font-semibold
+           rounded-xl transition-all duration-300 hover:bg-[#E07800] hover:-translate-y-0.5
+           hover:shadow-[0_8px_28px_rgba(255,140,0,0.35)] active:translate-y-0
+           focus:outline-none focus:ring-2 focus:ring-[#FF8C00] focus:ring-offset-2;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-[#013364] text-white font-semibold
+           rounded-xl transition-all duration-300 hover:bg-[#012050] hover:-translate-y-0.5
+           hover:shadow-[0_8px_28px_rgba(1,51,100,0.25)] active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-transparent text-[#013364] font-semibold
+           rounded-xl border border-[#e2e8f0] transition-all duration-300
+           hover:border-[#FF8C00] hover:text-[#FF8C00] hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  /* ── Section label chip ── */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold
+           tracking-widest uppercase text-[#FF8C00] bg-[#FFF3E0] border border-[#FF8C00]/20;
+  }
+
+  /* ── Section headings ── */
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-[#013364] leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg text-[#475569] leading-relaxed max-w-2xl;
+  }
+
+  /* ── Form inputs ── */
+  .form-input {
+    @apply w-full px-4 py-3 bg-white border border-[#e2e8f0] rounded-xl text-sm
+           text-[#013364] placeholder-[#94a3b8] transition-all duration-200
+           focus:outline-none focus:border-[#FF8C00] focus:ring-2 focus:ring-[#FF8C00]/20;
+  }
+}
