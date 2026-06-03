@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import FloatingCTA from "@/components/FloatingCTA";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -109,10 +108,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             `,
           }}
         />
-        <Header />
+        <SiteHeader />
         <main>{children}</main>
-        <Footer />
-        <FloatingCTA />
+        <SiteFooter />
       </body>
     </html>
   );
