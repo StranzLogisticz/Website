@@ -11,7 +11,8 @@ export async function logAudit(
       _action: action,
       _entity_type: entity_type,
       _entity_id: entity_id ?? undefined,
-      _metadata: metadata ?? null,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      _metadata: (metadata ?? null) as any,
     });
   } catch {
     // best-effort, never block UX
