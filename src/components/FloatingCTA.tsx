@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Ticket, Lock } from "lucide-react";
+import { Phone, Ticket } from "lucide-react";
 
 function WhatsAppIcon() {
   return (
@@ -45,15 +45,6 @@ const actions = [
     shadow: "0 6px 24px rgba(255,140,0,0.38)",
     external: false,
   },
-  {
-    id: "booking",
-    icon: <Lock className="w-5 h-5" />,
-    label: "Booking",
-    href: "/booking",
-    bg: "#013364",
-    shadow: "0 6px 24px rgba(1,51,100,0.38)",
-    external: false,
-  },
 ] as const;
 
 export default function FloatingCTA() {
@@ -71,7 +62,7 @@ export default function FloatingCTA() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed bottom-6 right-5 z-40 flex flex-col items-end gap-3"
+          className="fixed bottom-20 right-5 z-40 flex flex-col items-end gap-3"
         >
           {actions.map((action, i) => (
             <motion.div

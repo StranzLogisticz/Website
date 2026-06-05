@@ -171,6 +171,36 @@ export type Database = {
         }
         Relationships: []
       }
+      employee_bank_details: {
+        Row: {
+          id: string
+          employee_id: string
+          account_holder: string | null
+          account_number: string | null
+          ifsc: string | null
+          bank_name: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          employee_id: string
+          account_holder?: string | null
+          account_number?: string | null
+          ifsc?: string | null
+          bank_name?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          employee_id?: string
+          account_holder?: string | null
+          account_number?: string | null
+          ifsc?: string | null
+          bank_name?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
       employee_documents: {
         Row: {
           created_at: string
@@ -219,6 +249,33 @@ export type Database = {
         }
         Relationships: []
       }
+      company_holidays: {
+        Row: {
+          id: string
+          date: string
+          name: string
+          is_recurring: boolean
+          created_by: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          date: string
+          name: string
+          is_recurring?: boolean
+          created_by?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          date?: string
+          name?: string
+          is_recurring?: boolean
+          created_by?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
       employees: {
         Row: {
           created_at: string
@@ -235,6 +292,11 @@ export type Database = {
           updated_at: string
           user_id: string
           vehicle_number: string | null
+          bank_account_holder: string | null
+          bank_account_number: string | null
+          bank_ifsc: string | null
+          bank_name: string | null
+          photo_url: string | null
         }
         Insert: {
           created_at?: string
@@ -247,6 +309,10 @@ export type Database = {
           language_pref?: Database["public"]["Enums"]["language_pref"]
           monthly_salary?: number
           notes?: string | null
+          bank_account_holder?: string | null
+          bank_account_number?: string | null
+          bank_ifsc?: string | null
+          bank_name?: string | null
           phone?: string | null
           updated_at?: string
           user_id: string
@@ -267,6 +333,10 @@ export type Database = {
           updated_at?: string
           user_id?: string
           vehicle_number?: string | null
+          bank_account_holder?: string | null
+          bank_account_number?: string | null
+          bank_ifsc?: string | null
+          bank_name?: string | null
         }
         Relationships: []
       }
@@ -468,6 +538,7 @@ export type Database = {
           role: Database["public"]["Enums"]["app_role"]
           status: Database["public"]["Enums"]["invite_status"]
           token: string
+          submitted_data: Json | null
         }
         Insert: {
           completed_employee_id?: string | null
@@ -480,6 +551,7 @@ export type Database = {
           role?: Database["public"]["Enums"]["app_role"]
           status?: Database["public"]["Enums"]["invite_status"]
           token: string
+          submitted_data?: Json | null
         }
         Update: {
           completed_employee_id?: string | null
@@ -492,6 +564,7 @@ export type Database = {
           role?: Database["public"]["Enums"]["app_role"]
           status?: Database["public"]["Enums"]["invite_status"]
           token?: string
+          submitted_data?: Json | null
         }
         Relationships: []
       }
@@ -693,7 +766,7 @@ export type Database = {
       advance_kind: "advance" | "loan"
       advance_status: "pending" | "approved" | "rejected" | "closed"
       app_role: "owner" | "accounts" | "ceo" | "office" | "driver"
-      attendance_type: "office_in" | "office_out" | "driver_in" | "driver_out"
+      attendance_type: "office_in" | "office_out" | "driver_in" | "driver_out" | "trip_start" | "trip_end"
       attendance_verification: "verified" | "outside_geofence" | "no_site" | "regularised" | "pending_review" | "approved_location"
       document_status: "pending" | "verified" | "rejected"
       document_type: "aadhaar" | "pan" | "driving_licence" | "vehicle_rc" | "insurance" | "address_proof" | "bank_passbook" | "other"

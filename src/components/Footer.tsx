@@ -140,7 +140,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <Link
-                  href="/portal"
+                  href="https://hr.stranz.in"
                   className="inline-flex items-center gap-1.5 text-sm text-white/55 hover:text-[#FF8C00] transition-colors duration-200"
                 >
                   <LogIn className="w-3.5 h-3.5 flex-shrink-0" />
@@ -159,7 +159,7 @@ export default function Footer() {
           <p className="text-xs text-white/30">
             © {new Date().getFullYear()} Stranz Logistics. All rights reserved.
           </p>
-          <p className="text-xs text-white/20">
+          <p className="text-xs text-white/20 pr-44">
             Chennai, Tamil Nadu · Mon–Sat 9AM–7PM IST
           </p>
         </div>

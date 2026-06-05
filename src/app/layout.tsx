@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -112,6 +113,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <Script id="zoho-booking" strategy="afterInteractive">{`
+          (function() {
+            var s = document.createElement('script');
+            s.src = 'https://bookings.nimbuspop.com/assets/embed.js';
+            s.onload = function() {
+              Bookings.buttonModal({
+                url: 'https://stranz1.zohobookings.in/portal-embed#/stranz',
+                text: 'Schedule Freight',
+                color: '#ff6200',
+                textColor: '#ffffff',
+                position: 'bottom-right'
+              });
+            };
+            document.body.appendChild(s);
+          })();
+        `}</Script>
       </body>
     </html>
   );

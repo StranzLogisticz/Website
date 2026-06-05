@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\('Palmtree' in l, 'CalendarX' in l, 'Award' in l, 'FileText' in l\\)\")",
+      "Bash(npx create-next-app@latest HRPortal --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npx create-next-app@latest hr-portal --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(mkdir -p \"C:\\\\Apps\\\\hr-portal\\\\src\\\\app\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\contexts\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\lib\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\integrations\\\\supabase\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\components\\\\ui\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\components\\\\driver\")",
+      "Bash(xcopy \"C:\\\\Apps\\\\Website\\\\src\\\\app\\\\portal\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\app\" /E /I /Y /Q)",
+      "Bash(xcopy \"C:\\\\Apps\\\\Website\\\\src\\\\contexts\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\contexts\" /E /I /Y /Q)",
+      "Bash(xcopy \"C:\\\\Apps\\\\Website\\\\src\\\\lib\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\lib\" /E /I /Y /Q)",
+      "Bash(xcopy \"C:\\\\Apps\\\\Website\\\\src\\\\integrations\" \"C:\\\\Apps\\\\hr-portal\\\\src\\\\integrations\" /E /I /Y /Q)",
+      "Bash(cd /c/Apps/hr-portal && npm install @supabase/supabase-js react-hook-form zod lucide-react recharts framer-motion date-fns jspdf jspdf-autotable react-day-picker sonner vaul @radix-ui/react-accordion @radix-ui/react-alert-dialog @radix-ui/react-avatar @radix-ui/react-checkbox @radix-ui/react-collapsible @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-hover-card @radix-ui/react-label @radix-ui/react-menubar @radix-ui/react-navigation-menu @radix-ui/react-popover @radix-ui/react-progress @radix-ui/react-radio-group @radix-ui/react-scroll-area @radix-ui/react-select @radix-ui/react-separator @radix-ui/react-slider @radix-ui/react-slot @radix-ui/react-switch @radix-ui/react-tabs @radix-ui/react-toast @radix-ui/react-toggle @radix-ui/react-toggle-group @radix-ui/react-tooltip react-resizable-panels embla-carousel-react class-variance-authority clsx tailwind-merge cmdk input-otp 2>&1 | tail -5)",
+      "Read(//c/Apps/hr-portal/**)",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Apps\\\\hr-portal\\\\src\\\\hooks\")",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\hr-portal\\\\app\" -Recurse -Force -Confirm:$false)",
+      "Bash(npm uninstall *)",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\Website\\\\.next\" -Recurse -Force -Confirm:$false)",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\Website\\\\src\\\\app\\\\portal\" -Recurse -Force -Confirm:$false)",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\Website\\\\src\\\\components\\\\driver\" -Recurse -Force -Confirm:$false)",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\Website\\\\src\\\\components\\\\PunchPanel.tsx\" -Force -Confirm:$false)",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\Website\\\\src\\\\components\\\\TripPanel.tsx\" -Force -Confirm:$false)",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\Website\\\\src\\\\components\\\\LeaveForm.tsx\" -Force -Confirm:$false)",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\Website\\\\src\\\\components\\\\SelfieCapture.tsx\" -Force -Confirm:$false)",
+      "PowerShell(Remove-Item \"C:\\\\Apps\\\\Website\\\\src\\\\components\\\\LanguageToggle.tsx\" -Force -Confirm:$false)"
+    ],
+    "additionalDirectories": [
+      "C:\\Apps\\hr-portal\\public",
+      "C:\\Apps\\hr-portal",
+      "c:\\Apps\\Website\\\nNEXT_PUBLIC_APP_URL=https:"
+    ]
+  }
+}
