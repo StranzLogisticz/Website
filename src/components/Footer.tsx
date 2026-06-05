@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, LogIn } from "lucide-react";
 import { fadeUp, staggerContainer, viewportConfig } from "@/animations/variants";
 
 const footerLinks = {
@@ -26,6 +26,7 @@ const footerLinks = {
     { label: "Terms of Service", href: "/terms" },
   ],
 };
+
 
 export default function Footer() {
   return (
@@ -76,7 +77,7 @@ export default function Footer() {
         </div>
 
         {/* Main footer grid */}
-        <div className="py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10">
           {/* Brand column */}
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="flex-shrink-0 block">
@@ -130,6 +131,27 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Staff Portal column */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-white/40">
+              Staff Portal
+            </h4>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/portal"
+                  className="inline-flex items-center gap-1.5 text-sm text-white/55 hover:text-[#FF8C00] transition-colors duration-200"
+                >
+                  <LogIn className="w-3.5 h-3.5 flex-shrink-0" />
+                  HR Portal
+                </Link>
+              </li>
+            </ul>
+            <p className="text-xs text-white/25 leading-relaxed">
+              For Stranz employees only.
+            </p>
+          </div>
         </div>
 
         {/* Bottom bar */}

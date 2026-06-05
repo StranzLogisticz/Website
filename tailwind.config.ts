@@ -11,6 +11,50 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        /* Portal (HR) shadcn tokens — oklch with opacity modifier support */
+        background: "oklch(var(--background-vals) / <alpha-value>)",
+        foreground: "oklch(var(--foreground-vals) / <alpha-value>)",
+        card: {
+          DEFAULT: "oklch(var(--card-vals) / <alpha-value>)",
+          foreground: "oklch(var(--card-foreground-vals) / <alpha-value>)",
+        },
+        popover: {
+          DEFAULT: "oklch(var(--popover-vals) / <alpha-value>)",
+          foreground: "oklch(var(--popover-foreground-vals) / <alpha-value>)",
+        },
+        primary: {
+          DEFAULT: "oklch(var(--primary-vals) / <alpha-value>)",
+          foreground: "oklch(var(--primary-foreground-vals) / <alpha-value>)",
+        },
+        secondary: {
+          DEFAULT: "oklch(var(--secondary-vals) / <alpha-value>)",
+          foreground: "oklch(var(--secondary-foreground-vals) / <alpha-value>)",
+        },
+        muted: {
+          DEFAULT: "oklch(var(--muted-vals) / <alpha-value>)",
+          foreground: "oklch(var(--muted-foreground-vals) / <alpha-value>)",
+        },
+        accent: {
+          DEFAULT: "oklch(var(--accent-vals) / <alpha-value>)",
+          foreground: "oklch(var(--accent-foreground-vals) / <alpha-value>)",
+        },
+        destructive: {
+          DEFAULT: "oklch(var(--destructive-vals) / <alpha-value>)",
+          foreground: "oklch(var(--destructive-foreground-vals) / <alpha-value>)",
+        },
+        border: "oklch(var(--border-vals) / <alpha-value>)",
+        input: "oklch(var(--input-vals) / <alpha-value>)",
+        ring: "oklch(var(--ring-vals) / <alpha-value>)",
+        sidebar: {
+          DEFAULT: "oklch(var(--sidebar-vals) / <alpha-value>)",
+          foreground: "oklch(var(--sidebar-foreground-vals) / <alpha-value>)",
+          primary: "oklch(var(--sidebar-primary-vals) / <alpha-value>)",
+          "primary-foreground": "oklch(var(--sidebar-primary-foreground-vals) / <alpha-value>)",
+          accent: "oklch(var(--sidebar-accent-vals) / <alpha-value>)",
+          "accent-foreground": "oklch(var(--sidebar-accent-foreground-vals) / <alpha-value>)",
+          border: "oklch(var(--sidebar-border-vals) / <alpha-value>)",
+          ring: "oklch(var(--sidebar-ring-vals) / <alpha-value>)",
+        },
         navy: {
           DEFAULT: "#013364",
           50:  "#f0f5fb",
@@ -65,6 +109,11 @@ const config: Config = {
       borderRadius: {
         "4xl": "2rem",
         "5xl": "2.5rem",
+        lg: "calc(var(--portal-radius))",
+        md: "calc(var(--portal-radius) - 2px)",
+        sm: "calc(var(--portal-radius) - 4px)",
+        xl: "calc(var(--portal-radius) + 4px)",
+        "2xl": "calc(var(--portal-radius) + 8px)",
       },
       boxShadow: {
         "card":         "0 1px 3px rgba(1,51,100,0.04), 0 8px 24px rgba(1,51,100,0.06)",

@@ -48,6 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* Initial page-load splash — removed by inline script once window loads */}
         <div
           id="page-loader"
+          suppressHydrationWarning
           style={{
             position: "fixed",
             inset: 0,

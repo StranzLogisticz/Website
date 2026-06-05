@@ -2,6 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Portal (HR) shadcn design tokens ── */
+/* Individual oklch channel values for Tailwind v3 opacity modifier support */
+:root {
+  --background-vals: 0.985 0.005 85;
+  --foreground-vals: 0.205 0.035 260;
+  --card-vals: 1 0 0;
+  --card-foreground-vals: 0.205 0.035 260;
+  --popover-vals: 1 0 0;
+  --popover-foreground-vals: 0.205 0.035 260;
+  --primary-vals: 0.32 0.09 265;
+  --primary-foreground-vals: 0.99 0.005 85;
+  --secondary-vals: 0.96 0.01 85;
+  --secondary-foreground-vals: 0.25 0.04 260;
+  --muted-vals: 0.955 0.008 85;
+  --muted-foreground-vals: 0.5 0.025 260;
+  --accent-vals: 0.78 0.11 80;
+  --accent-foreground-vals: 0.22 0.04 260;
+  --destructive-vals: 0.55 0.22 27;
+  --destructive-foreground-vals: 0.99 0.003 85;
+  --border-vals: 0.91 0.01 85;
+  --input-vals: 0.92 0.01 85;
+  --ring-vals: 0.5 0.12 265;
+  --sidebar-vals: 0.98 0.005 85;
+  --sidebar-foreground-vals: 0.22 0.035 260;
+  --sidebar-primary-vals: 0.32 0.09 265;
+  --sidebar-primary-foreground-vals: 0.99 0.005 85;
+  --sidebar-accent-vals: 0.95 0.01 85;
+  --sidebar-accent-foreground-vals: 0.25 0.04 260;
+  --sidebar-border-vals: 0.91 0.01 85;
+  --sidebar-ring-vals: 0.5 0.12 265;
+  /* Full oklch values (for components using CSS vars directly) */
+  --portal-background: oklch(0.985 0.005 85);
+  --portal-foreground: oklch(0.205 0.035 260);
+  --portal-border: oklch(0.91 0.01 85);
+  --portal-muted: oklch(0.955 0.008 85);
+  --portal-muted-foreground: oklch(0.5 0.025 260);
+  --portal-primary: oklch(0.32 0.09 265);
+  --portal-radius: 0.875rem;
+  /* shadow tokens */
+  --shadow-elegant: 0 4px 20px -4px oklch(0.32 0.09 265 / 0.08), 0 1px 3px oklch(0.2 0.04 260 / 0.04);
+  --shadow-glow: 0 8px 32px -8px oklch(0.48 0.14 265 / 0.18);
+  --shadow-sm: 0 1px 2px 0 oklch(0.2 0.04 260 / 0.04);
+  --gradient-primary: linear-gradient(135deg, oklch(0.32 0.09 265), oklch(0.45 0.13 270));
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap');
 
 :root {
@@ -152,5 +197,55 @@ body {
     @apply w-full px-4 py-3 bg-white border border-[#e2e8f0] rounded-xl text-sm
            text-[#013364] placeholder-[#94a3b8] transition-all duration-200
            focus:outline-none focus:border-[#FF8C00] focus:ring-2 focus:ring-[#FF8C00]/20;
+  }
+
+  /* ── Portal (HR) component classes ── */
+  .hero-gradient {
+    background-image: var(--gradient-primary);
+    color: oklch(0.99 0.005 85);
+    border-radius: calc(var(--portal-radius) + 4px);
+    box-shadow: var(--shadow-glow);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 85% 15%, oklch(1 0 0 / 0.18), transparent 45%),
+      radial-gradient(circle at 10% 90%, oklch(1 0 0 / 0.10), transparent 40%);
+    pointer-events: none;
+  }
+  .hero-gradient > * { position: relative; z-index: 1; }
+
+  .kpi-glass {
+    background-color: oklch(1 0 0 / 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid oklch(0.91 0.01 85 / 0.7);
+    border-radius: var(--portal-radius);
+    box-shadow: var(--shadow-elegant);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+  .kpi-glass:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .tile-premium {
+    background-color: oklch(1 0 0);
+    border: 1px solid oklch(0.91 0.01 85);
+    border-radius: var(--portal-radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+  .tile-premium:active { transform: scale(0.97); }
+  .tile-premium:hover { box-shadow: var(--shadow-elegant); }
+
+  .card-elegant {
+    background-color: oklch(1 0 0);
+    border: 1px solid oklch(0.91 0.01 85);
+    border-radius: var(--portal-radius);
+    box-shadow: var(--shadow-elegant);
   }
 }

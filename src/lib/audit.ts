@@ -1,0 +1,19 @@
+import { supabase } from "@/integrations/supabase/client";
+
+export async function logAudit(
+  action: string,
+  entity_type: string,
+  entity_id?: string | null,
+  metadata?: Record<string, unknown>,
+) {
+  try {
+    await supabase.rpc("log_audit_event", {
+      _action: action,
+      _entity_type: entity_type,
+      _entity_id: entity_id ?? undefined,
+      _metadata: (metadata as any) ?? null,
+    });
+  } catch {
+    // best-effort, never block UX
+  }
+}
