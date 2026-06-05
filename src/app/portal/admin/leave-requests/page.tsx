@@ -74,7 +74,7 @@ function LeaveCard({ req, lang, canDecide, onApprove, onReject }: { req: LeaveRe
         <div className="text-right"><p className="text-lg font-bold">{Number(req.total_days)} {t("days", lang)}</p><Badge variant={req.status === "approved" ? "default" : req.status === "rejected" ? "destructive" : req.status === "cancelled" ? "outline" : "secondary"}>{t(req.status, lang)}</Badge></div>
       </div>
       {req.reason && <p className="text-sm">{req.reason}</p>}
-      {req.decision_notes && <p className="text-xs italic text-muted-foreground">"{req.decision_notes}"</p>}
+      {req.decision_notes && <p className="text-xs italic text-muted-foreground">{'"'}{req.decision_notes}{'"'}</p>}
       {canDecide && (<><Textarea placeholder={t("notes", lang)} value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} /><div className="flex gap-2"><Button size="sm" className="flex-1" onClick={() => onApprove(notes)}><Check className="mr-1 h-4 w-4" />{t("approve", lang)}</Button><Button size="sm" variant="destructive" className="flex-1" onClick={() => onReject(notes)}><X className="mr-1 h-4 w-4" />{t("reject", lang)}</Button></div></>)}
     </Card>
   );

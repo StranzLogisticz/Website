@@ -11,7 +11,7 @@ export async function logAudit(
       _action: action,
       _entity_type: entity_type,
       _entity_id: entity_id ?? undefined,
-      _metadata: (metadata as any) ?? null,
+      _metadata: metadata ?? null,
     });
   } catch {
     // best-effort, never block UX

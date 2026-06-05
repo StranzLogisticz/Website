@@ -51,7 +51,7 @@ export default function OfficeLeaveList() {
                   <Badge variant={r.status === "approved" ? "default" : r.status === "rejected" ? "destructive" : r.status === "cancelled" ? "outline" : "secondary"}>{t(r.status, lang)}</Badge>
                 </div>
                 {r.reason && <p className="text-xs">{r.reason}</p>}
-                {r.decision_notes && <p className="text-xs italic text-muted-foreground">"{r.decision_notes}"</p>}
+                {r.decision_notes && <p className="text-xs italic text-muted-foreground">{'"'}{r.decision_notes}{'"'}</p>}
                 {r.status === "pending" && <Button size="sm" variant="outline" onClick={() => cancel(r.id)}>{t("cancelLeave", lang)}</Button>}
               </Card>
             ))}</div>
