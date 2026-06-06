@@ -119,7 +119,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             s.src = 'https://bookings.nimbuspop.com/assets/embed.js';
             s.onload = function() {
               Bookings.buttonModal({
-                url: 'https://stranz1.zohobookings.in/portal-embed#/stranz',
+                url: 'https://schedule.stranz.in/portal-embed#/stranz',
                 text: 'Schedule Freight',
                 color: '#ff6200',
                 textColor: '#ffffff',
