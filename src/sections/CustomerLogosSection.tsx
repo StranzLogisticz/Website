@@ -7,13 +7,12 @@ import { motion, AnimatePresence } from "framer-motion";
 const logos = [
   { src: "/img/Customer%20logos/DP-World-logo-1.webp",           alt: "DP World" },
   { src: "/img/Customer%20logos/Dolphin%20logistics.jpg",        alt: "Dolphin Logistics" },
-  { src: "/img/Customer%20logos/FL-logo-W-1.png",                alt: "FL Logistics" },
+  { src: "/img/Customer%20logos/JAS%20Logo.png",                 alt: "JAS Logistics" },
   { src: "/img/Customer%20logos/GLOTTIS.png",                    alt: "Glottis" },
   { src: "/img/Customer%20logos/Lords%20by%20Mahindra.jpeg",     alt: "Lords by Mahindra" },
   { src: "/img/Customer%20logos/Sea%20Sky.png",                  alt: "Sea Sky" },
   { src: "/img/Customer%20logos/WWL-logo.png",                   alt: "WWL" },
   { src: "/img/Customer%20logos/aberco%20freight.png",           alt: "Aberco Freight" },
-  { src: "/img/Customer%20logos/sarvam-logistics-logo.webp",     alt: "Sarvam Logistics" },
 ];
 
 const GROUPS = Math.ceil(logos.length / 3); // 3
