@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRANZ Logisticz — ID Card</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0f1d33;
+  --orange: #e05c1a;
+  --txt2: #3d5166;
+  --txt3: #7a8fa8;
+  --border: #e2e7ef;
+}
+
+/* ── SCREEN LAYOUT ── */
+body {
+  font-family: 'Barlow', sans-serif;
+  background: #edf0f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: var(--navy);
+}
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 780px;
+  align-items: start;
+}
+
+/* ── EDITOR PANEL ── */
+.editor {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #dde3ed;
+  padding: 1.1rem;
+  position: sticky;
+  top: 2rem;
+}
+.editor h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 800;
+  color: var(--navy); letter-spacing: .5px;
+  margin-bottom: 1rem; padding-bottom: 8px;
+  border-bottom: 2px solid var(--orange);
+}
+.sec-hd {
+  font-size: 10px; font-weight: 700; color: var(--txt3);
+  letter-spacing: .1em; text-transform: uppercase;
+  margin: 12px 0 6px;
+}
+.frow { margin-bottom: 8px; }
+.frow label { display: block; font-size: 11px; font-weight: 600; color: var(--txt2); margin-bottom: 3px; }
+.frow input, .frow select {
+  width: 100%; height: 32px; padding: 0 9px;
+  font-family: 'Barlow', sans-serif; font-size: 12px;
+  background: #f7f9fb; border: 1px solid #cdd5e0;
+  border-radius: 7px; color: var(--navy); transition: border-color .15s;
+}
+.frow input:focus, .frow select:focus {
+  outline: none; border-color: var(--orange);
+  box-shadow: 0 0 0 2px rgba(224,92,26,.12);
+}
+.r2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.photo-up {
+  width: 100%; height: 56px;
+  border: 1.5px dashed #cdd5e0; border-radius: 8px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer; gap: 3px; background: #f7f9fb;
+  transition: border-color .15s;
+}
+.photo-up:hover { border-color: var(--orange); }
+.photo-up svg { width: 18px; height: 18px; stroke: var(--txt3); fill: none; stroke-width: 1.8; }
+.photo-up span { font-size: 11px; color: var(--txt3); }
+#pf-input { display: none; }
+.div-line { height: 1px; background: #edf0f5; margin: 10px 0; }
+.btn-print {
+  width: 100%; height: 34px;
+  background: var(--orange); color: #fff;
+  border: none; border-radius: 7px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px; font-weight: 700;
+  cursor: pointer; margin-top: 6px; transition: background .15s;
+}
+.btn-print:hover { background: #c94f15; }
+.btn-new {
+  width: 100%; height: 28px;
+  background: #f7f9fb; border: 1px solid #cdd5e0; border-radius: 7px;
+  font-family: 'Barlow', sans-serif; font-size: 11px;
+  cursor: pointer; color: var(--txt2); margin-top: 6px;
+}
+
+/* ── STAGE ── */
+.stage {
+  background: #c8cdd8; border-radius: 14px; padding: 1.8rem 1.5rem;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.side-label {
+  font-size: 10px; font-weight: 700; color: #6a7080;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.stage-note { font-size: 10px; color: #7a8090; text-align: center; }
+
+/* ── CARD BASE ── */
+.card {
+  font-family: 'Barlow', sans-serif;
+  background: #fff;
+  filter: drop-shadow(0 6px 22px rgba(10,20,40,.25));
+  overflow: hidden;
+  width: 189px;
+  height: 300px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* ── LANYARD TAB — top center connecting strip ── */
+.card-tab {
+  height: 18px;
+  background: #0f1d33;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 4;
+}
+/* Punch hole */
+.card-tab::after {
+  content: '';
+  width: 18px;
+  height: 9px;
+  border-radius: 20px;
+  background: #07111e;
+  border: 1.5px solid #1c3158;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.65);
+}
+/* Connector lines from hole to edges */
+.card-tab::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #1c3158 28%,
+    #1c3158 72%,
+    transparent 100%
+  );
+  transform: translateY(-50%);
+}
+
+/* ── WAVE TOP HEADER ── */
+.c-wave-top {
+  position: relative;
+  height: 96px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.wave-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: block;
+}
+.wave-hdr {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  z-index: 3;
+}
+
+/* ── LOGO PILL — white bg so original logo colors show ── */
+.logo-pill {
+  background: rgba(255,255,255,0.93);
+  border-radius: 5px;
+  padding: 3px 8px 3px 6px;
+  display: flex;
+  align-items: center;
+  max-width: 105px;
+}
+.hdr-logo {
+  height: 15px; width: auto; object-fit: contain; display: block;
+}
+.hdr-fallback {
+  display: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 14px;
+  color: #0f1d33; letter-spacing: 1px;
+  align-items: baseline; gap: 3px;
+}
+.hdr-fallback small { font-size: 7px; color: #7a8fa8; font-weight: 600; letter-spacing: 3px; }
+.hdr-badge {
+  background: #e05c1a; color: #fff;
+  font-size: 7px; font-weight: 800;
+  letter-spacing: 1.5px; padding: 3px 7px;
+  border-radius: 4px; white-space: nowrap;
+}
+
+/* Back-card wave header extras */
+.wave-hdr-col { display: flex; flex-direction: column; justify-content: center; gap: 2px; }
+.wave-subtitle {
+  font-size: 5.5px; font-weight: 700; color: rgba(255,255,255,0.6);
+  letter-spacing: .12em; text-transform: uppercase;
+  padding-left: 2px;
+}
+.wave-hdr-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.wave-dept {
+  font-size: 6px; font-weight: 700; color: rgba(255,255,255,.75);
+  letter-spacing: .06em; text-transform: uppercase;
+  text-align: right; max-width: 68px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ── CARD BODY ── */
+/* overflow:visible so negative-margin photo overlaps the wave section.
+   The parent .card (overflow:hidden) clips everything to the card edge. */
+.card-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: visible;
+  position: relative;
+}
+
+/* ── BACKGROUND TRANSPORT ICONS ──
+   Use explicit hex (#0f1d33) — CSS vars don't resolve inside SVG in html2canvas.
+   Opacity raised to 0.08+ so they render in the exported PNG. ── */
+.bg-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.bg-icon {
+  position: absolute;
+  fill: none;
+  stroke: #0f1d33;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.bi-plane {
+  width: 68px; height: 68px;
+  top: 2px; right: 26px;
+  opacity: 0.09;
+  transform: rotate(28deg);
+}
+.bi-truck {
+  width: 80px; height: 52px;
+  bottom: 48px; left: -8px;
+  opacity: 0.08;
+  transform: rotate(-6deg);
+}
+.bi-ship {
+  width: 72px; height: 50px;
+  top: 43%; right: 18px;
+  opacity: 0.075;
+  transform: rotate(4deg);
+}
+
+/* ── RIGHT SIDEBAR — unchanged ── */
+.card-sidebar {
+  width: 22px;
+  background: linear-gradient(
+    to bottom,
+    rgba(15,29,51,0.07)  0%,
+    rgba(15,29,51,0.28) 18%,
+    rgba(15,29,51,0.62) 42%,
+    rgba(15,29,51,0.90) 68%,
+    #0f1d33            100%
+  );
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.sid-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  white-space: nowrap;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #e05c1a;
+  text-transform: uppercase;
+}
+
+/* ── PORTRAIT FRONT — MAIN CONTENT ── */
+.pf-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* padding-top leaves room for the absolutely-positioned photo (76px - 46px overlap = 30px visible + 6px gap) */
+  padding: 36px 9px 8px 12px;
+  min-width: 0;
+  overflow: visible;   /* must be visible so absolutely-positioned photo isn't clipped */
+  position: relative;
+  z-index: 1;
+}
+/* Photo placed absolutely so it escapes overflow clipping from parent divs */
+.pf-photo-c {
+  position: absolute;
+  top: -46px;       /* pulls circle 46px above pf-main top edge, into the wave zone */
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Circular photo frame */
+.pf-photo {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  border: 3px solid #e05c1a;
+  /* white gap ring so circle reads cleanly against both dark wave and white card body */
+  box-shadow: 0 0 0 2.5px rgba(255,255,255,0.7), 0 3px 12px rgba(15,29,51,0.3);
+  background: #edf0f4;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; flex-shrink: 0;
+}
+.pf-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.pf-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 17px;
+  color: #0f1d33; text-align: center; line-height: 1.1;
+  margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pf-role {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  color: #e05c1a; text-align: center;
+  letter-spacing: .08em;
+  margin-bottom: 3px;
+}
+.pf-contact {
+  font-size: 7.5px; color: #7a8fa8; font-weight: 600;
+  text-align: center; margin-bottom: 4px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  letter-spacing: .03em;
+}
+.blood-wrap { display: flex; justify-content: center; }
+.blood-chip {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px; font-weight: 800;
+  color: #e05c1a;
+  background: rgba(224,92,26,0.10);
+  border: 1px solid rgba(224,92,26,0.25);
+  padding: 2px 10px;
+  border-radius: 20px;
+  letter-spacing: .5px;
+}
+.pf-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 5px;
+  border-top: 1px solid #e2e7ef;
+  flex-shrink: 0;
+}
+.qr-block { display: flex; flex-direction: column; gap: 2px; }
+.qr-lbl { font-size: 6px; color: #7a8fa8; font-weight: 700; letter-spacing: .07em; }
+.eid-lbl { font-size: 6px; color: #7a8fa8; font-weight: 700; letter-spacing: .08em; }
+.eid-val { font-size: 8px; color: #0f1d33; font-weight: 800; margin-top: 1px; }
+.valid-lbl { font-size: 6px; color: #7a8fa8; font-weight: 700; letter-spacing: .08em; }
+.valid-val { font-size: 8px; color: #0f1d33; font-weight: 700; margin-top: 1px; }
+
+/* ── PORTRAIT BACK ── */
+.pb-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 7px 8px 0 11px;
+  justify-content: space-between;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.pb-fields { flex: 1; min-height: 0; }
+.pb-sec {
+  font-size: 6.5px; font-weight: 800; color: #e05c1a;
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: 3px;
+}
+.pb-sec + .pb-sec { margin-top: 6px; }
+.pb-row {
+  display: flex; justify-content: space-between;
+  padding: 2.5px 0; border-bottom: 1px solid #f0f3f7;
+}
+.pb-rl { font-size: 6.5px; color: #7a8fa8; font-weight: 700; }
+.pb-rv { font-size: 6.5px; color: #0f1d33; font-weight: 600; text-align: right; max-width: 58%; }
+.pb-note { font-size: 5.5px; color: #7a8fa8; line-height: 1.45; margin-top: 5px; }
+
+/* Bottom wave on back card */
+.pb-wave-bot {
+  flex-shrink: 0;
+  height: 22px;
+  overflow: hidden;
+  margin-left: -11px;
+  margin-right: -8px;
+}
+.pb-wave-bot svg { display: block; width: 100%; height: 100%; }
+
+/* ── PLACEHOLDER ICON ── */
+.ph-icon { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.ph-icon svg { width: 26px; height: 26px; stroke: #b0bac8; fill: none; stroke-width: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ══ EDITOR ══ -->
+  <div class="editor">
+    <h2>STRANZ ID Card Editor</h2>
+
+    <div class="sec-hd">Employee Photo</div>
+    <div class="photo-up" onclick="document.getElementById('pf-input').click()">
+      <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <span>Click to upload photo</span>
+    </div>
+    <input type="file" id="pf-input" accept="image/*" onchange="handlePhoto(this)">
+
+    <div class="div-line"></div>
+    <div class="sec-hd">Employee Details</div>
+    <div class="frow"><label>Full Name</label><input id="f-name" placeholder="e.g. Arjun Mehta" oninput="nameOnly(this);update()"></div>
+    <div class="frow"><label>Employee ID</label><input id="f-eid" placeholder="e.g. STZ001" oninput="update()"></div>
+    <div class="frow"><label>Job Title</label><input id="f-role" placeholder="e.g. Operations Manager" oninput="nameOnly(this);update()"></div>
+    <div class="frow"><label>Department</label>
+      <select id="f-dept" onchange="update()">
+        <option value="">— Select —</option>
+        <option>Operations</option><option>Fleet Management</option><option>Warehouse</option>
+        <option>Last-Mile Delivery</option><option>Supply Chain</option><option>HR &amp; Admin</option>
+        <option>IT &amp; Systems</option><option>Finance</option><option>Customer Service</option>
+      </select>
+    </div>
+    <div class="r2">
+      <div class="frow"><label>Blood Group</label>
+        <select id="f-blood" onchange="update()">
+          <option value="">—</option>
+          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
+        </select>
+      </div>
+      <div class="frow"><label>Valid From</label><input id="f-vfrom" type="date" oninput="update()"></div>
+    </div>
+    <div class="frow"><label>Work Email</label><input id="f-email" placeholder="name@stranz.in" oninput="update()"></div>
+    <div class="frow"><label>Mobile</label><input id="f-mob" placeholder="+91 XXXXX XXXXX" oninput="phoneOnly(this);update()"></div>
+
+    <div class="div-line"></div>
+    <div class="sec-hd">Emergency Contact (back side)</div>
+    <div class="frow"><label>Contact Person</label><input id="f-emgname" placeholder="Name" oninput="nameOnly(this);update()"></div>
+    <div class="frow"><label>Contact Number</label><input id="f-emgno" placeholder="+91 XXXXX XXXXX" oninput="phoneOnly(this);update()"></div>
+
+    <div class="div-line"></div>
+    <button class="btn-print" onclick="printCard()">🖨 Save Both Sides as PNG</button>
+    <button class="btn-new" onclick="clearAll()">Clear All Fields</button>
+  </div>
+
+  <!-- ══ STAGE ══ -->
+  <div class="stage">
+
+    <div class="side-label">— Front Side —</div>
+
+    <!-- ── PORTRAIT FRONT ── -->
+    <div class="card" id="c-pf">
+
+      <!-- Lanyard connecting strip at top -->
+      <div class="card-tab"></div>
+
+      <!-- Wavy top header -->
+      <div class="c-wave-top">
+        <svg class="wave-bg" viewBox="0 0 189 96" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Navy shape: fills top, wavy bottom edge — NO white fill so photo underneath is fully visible -->
+          <path d="M0 0 L189 0 L189 70 Q155 90 120 76 Q94 64 68 78 Q36 94 0 76 Z" fill="#0f1d33"/>
+          <!-- Orange diagonal accent — prominent wedge top-right -->
+          <path d="M114 0 L189 0 L189 70 Q170 80 150 64 Q132 50 114 0 Z" fill="#e05c1a"/>
+          <!-- Soft highlight on orange inner edge -->
+          <path d="M114 0 Q132 50 150 64 Q170 80 189 70" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        </svg>
+        <!-- Logo pill + EMP ID badge -->
+        <div class="wave-hdr">
+          <div class="logo-pill">
+            <img src="https://www.stranz.in/_next/image?url=%2Fimg%2Flogo.png&w=384&q=75"
+                 class="hdr-logo" alt="STRANZ Logisticz"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="hdr-fallback">STRANZ <small>LOGISTICZ</small></div>
+          </div>
+          <div class="hdr-badge">EMP ID</div>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <!-- Transport watermarks — explicit #0f1d33 stroke (not CSS var) so html2canvas renders them -->
+        <div class="bg-icons" aria-hidden="true">
+          <svg class="bg-icon bi-plane" viewBox="0 0 24 24">
+            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+          </svg>
+          <svg class="bg-icon bi-truck" viewBox="0 0 24 24">
+            <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/>
+            <rect x="9" y="11" width="14" height="10" rx="2"/>
+            <circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          </svg>
+          <svg class="bg-icon bi-ship" viewBox="0 0 24 24">
+            <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+            <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/>
+            <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/>
+            <path d="M12 10v4M12 2v3"/>
+          </svg>
+        </div>
+
+        <!-- Main content -->
+        <div class="pf-main">
+          <!-- Circular photo -->
+          <div class="pf-photo-c">
+            <div class="pf-photo" id="pf-pw">
+              <div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            </div>
+          </div>
+          <div class="pf-name" id="pd-name">—</div>
+          <div class="pf-role" id="pd-role">—</div>
+          <div class="pf-contact" id="pd-mob-f">—</div>
+          <div class="blood-wrap">
+            <span class="blood-chip" id="pd-blood">—</span>
+          </div>
+          <div class="pf-bottom">
+            <div class="qr-block">
+              <div class="qr-lbl">SCAN TO VERIFY</div>
+              <canvas id="qr-pf" width="46" height="46"></canvas>
+            </div>
+            <div style="text-align:right">
+              <div class="eid-lbl">EMPLOYEE ID</div>
+              <div class="eid-val" id="pd-eid2">—</div>
+              <div class="valid-lbl" style="margin-top:5px">VALID FROM</div>
+              <div class="valid-val" id="pd-vfrom">—</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vertical sidebar — unchanged -->
+        <div class="card-sidebar">
+          <span class="sid-text" id="pd-eid-sid">STRANZ</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="side-label">— Back Side —</div>
+
+    <!-- ── PORTRAIT BACK ── -->
+    <div class="card" id="c-pb">
+
+      <!-- Lanyard connecting strip at top -->
+      <div class="card-tab"></div>
+
+      <!-- Wavy top header — back -->
+      <div class="c-wave-top">
+        <svg class="wave-bg" viewBox="0 0 189 96" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0 L189 0 L189 70 Q155 90 120 76 Q94 64 68 78 Q36 94 0 76 Z" fill="#0f1d33"/>
+          <path d="M114 0 L189 0 L189 70 Q170 80 150 64 Q132 50 114 0 Z" fill="#e05c1a"/>
+          <path d="M114 0 Q132 50 150 64 Q170 80 189 70" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        </svg>
+        <div class="wave-hdr">
+          <div class="wave-hdr-col">
+            <div class="logo-pill">
+              <img src="https://www.stranz.in/_next/image?url=%2Fimg%2Flogo.png&w=384&q=75"
+                   class="hdr-logo" alt="STRANZ Logisticz"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="hdr-fallback">STRANZ <small>LOGISTICZ</small></div>
+            </div>
+            <div class="wave-subtitle">Employee Identification</div>
+          </div>
+          <div class="wave-hdr-right">
+            <div class="hdr-badge" id="pb-eid-b">—</div>
+            <div class="wave-dept" id="pb-dept-b">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="pb-main">
+          <div class="pb-fields">
+            <div class="pb-sec">Employee Details</div>
+            <div class="pb-row"><span class="pb-rl">NAME</span><span class="pb-rv" id="pb-name">—</span></div>
+            <div class="pb-row"><span class="pb-rl">DEPARTMENT</span><span class="pb-rv" id="pb-dept">—</span></div>
+            <div class="pb-row"><span class="pb-rl">WORK EMAIL</span><span class="pb-rv" id="pb-email">—</span></div>
+            <div class="pb-row"><span class="pb-rl">MOBILE</span><span class="pb-rv" id="pb-mob">—</span></div>
+            <div class="pb-row"><span class="pb-rl">BLOOD GROUP</span><span class="pb-rv" id="pb-blood" style="color:#e05c1a;font-weight:800">—</span></div>
+            <div class="pb-sec">Emergency Contact</div>
+            <div class="pb-row"><span class="pb-rl">CONTACT PERSON</span><span class="pb-rv" id="pb-emgname">—</span></div>
+            <div class="pb-row"><span class="pb-rl">CONTACT NUMBER</span><span class="pb-rv" id="pb-emgno">—</span></div>
+            <p class="pb-note">Property of STRANZ Logisticz. If found, return to nearest STRANZ office. Unauthorised use is subject to legal action. Non-transferable.</p>
+          </div>
+          <!-- Bottom navy wave -->
+          <div class="pb-wave-bot">
+            <svg viewBox="0 0 167 22" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 10 Q42 0 83 10 Q125 20 167 6 L167 22 L0 22 Z" fill="#0f1d33"/>
+              <path d="M110 6 Q130 3 167 6 L167 22 L130 22 Z" fill="#e05c1a" opacity="0.55"/>
+              <text x="83" y="17" text-anchor="middle" font-family="Barlow Condensed, sans-serif"
+                    font-size="5" font-weight="700" fill="rgba(255,255,255,0.7)" letter-spacing="0.5">
+                STRANZ LOGISTICZ · www.stranz.in
+              </text>
+            </svg>
+          </div>
+        </div>
+        <!-- Vertical sidebar — unchanged -->
+        <div class="card-sidebar">
+          <span class="sid-text" id="pb-eid-sid">STRANZ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-note">CR80 &nbsp;·&nbsp; 54 × 85.6 mm portrait &nbsp;·&nbsp; QR encodes full profile</div>
+  </div>
+
+</div><!-- end .app -->
+
+<script>
+var photoSrc = null;
+
+/* ── Input constraints ── */
+function nameOnly(inp) {
+  var cur = inp.selectionStart;
+  var cleaned = inp.value.replace(/[0-9]/g, '');
+  if (cleaned !== inp.value) {
+    inp.value = cleaned;
+    inp.setSelectionRange(cur - 1, cur - 1);
+  }
+}
+function phoneOnly(inp) {
+  var cur = inp.selectionStart;
+  var cleaned = inp.value.replace(/[^0-9+\-\s]/g, '');
+  if (cleaned !== inp.value) {
+    inp.value = cleaned;
+    inp.setSelectionRange(cur - 1, cur - 1);
+  }
+}
+
+/* ── Helpers ── */
+function fd(v) {
+  if (!v) return '—';
+  var d = new Date(v + 'T00:00:00');
+  return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+}
+function tx(id, v, cap) {
+  var e = document.getElementById(id);
+  if (!e) return;
+  var out = v || '—';
+  if (cap && v) out = v.toUpperCase();
+  e.textContent = out;
+}
+function setImg(wid, src) {
+  var w = document.getElementById(wid);
+  if (!w) return;
+  if (src) {
+    w.innerHTML = '<img src="' + src + '">';
+  } else {
+    w.innerHTML = '<div class="ph-icon"><svg viewBox="0 0 24 24" style="width:26px;height:26px;stroke:#b0bac8;fill:none;stroke-width:1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>';
+  }
+}
+
+function buildQR(canvasId, emp) {
+  var c = document.getElementById(canvasId);
+  if (!c) return;
+  var ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  var data = 'STRANZ LOGISTICZ EMPLOYEE\n' +
+    'Name: ' + emp.name + '\n' +
+    'ID: ' + emp.eid + '\n' +
+    'Role: ' + emp.role + '\n' +
+    'Dept: ' + emp.dept + '\n' +
+    'Email: ' + emp.email + '\n' +
+    'Mobile: ' + emp.mob + '\n' +
+    'Blood: ' + emp.blood + '\n' +
+    'Valid From: ' + fd(emp.vfrom);
+  try {
+    var div = document.createElement('div');
+    new QRCode(div, {
+      text: data || 'STRANZ LOGISTICZ', width: 92, height: 92,
+      colorDark: '#0f1d33', colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+    setTimeout(function () {
+      var img = div.querySelector('img') || div.querySelector('canvas');
+      if (img) {
+        var tmp = new Image();
+        tmp.onload = function () { ctx.drawImage(tmp, 0, 0, 46, 46); };
+        tmp.src = img.tagName === 'CANVAS' ? img.toDataURL() : img.src;
+      }
+    }, 120);
+  } catch (ex) { console.warn('QR error', ex); }
+}
+
+function getEmp() {
+  return {
+    name:    document.getElementById('f-name').value,
+    eid:     document.getElementById('f-eid').value,
+    role:    document.getElementById('f-role').value,
+    dept:    document.getElementById('f-dept').value,
+    blood:   document.getElementById('f-blood').value,
+    vfrom:   document.getElementById('f-vfrom').value,
+    email:   document.getElementById('f-email').value,
+    mob:     document.getElementById('f-mob').value,
+    emgname: document.getElementById('f-emgname').value,
+    emgno:   document.getElementById('f-emgno').value
+  };
+}
+
+function update() {
+  var e = getEmp();
+  var sidText = (e.eid || 'STRANZ').toUpperCase();
+
+  tx('pd-name',    e.name,  true);
+  tx('pd-role',    e.role,  true);
+  tx('pd-mob-f',   e.mob);
+  tx('pd-blood',   e.blood, true);
+  tx('pd-eid2',    e.eid,   true);
+  tx('pd-vfrom',   fd(e.vfrom));
+  tx('pd-eid-sid', sidText);
+
+  tx('pb-eid-b',   e.eid,     true);
+  tx('pb-dept-b',  e.dept,    true);
+  tx('pb-name',    e.name,    true);
+  tx('pb-dept',    e.dept,    true);
+  tx('pb-email',   e.email);
+  tx('pb-mob',     e.mob);
+  tx('pb-blood',   e.blood,   true);
+  tx('pb-emgname', e.emgname, true);
+  tx('pb-emgno',   e.emgno);
+  tx('pb-eid-sid', sidText);
+
+  buildQR('qr-pf', e);
+}
+
+function handlePhoto(inp) {
+  var f = inp.files[0]; if (!f) return;
+  var r = new FileReader();
+  r.onload = function (ev) {
+    photoSrc = ev.target.result;
+    setImg('pf-pw', photoSrc);
+  };
+  r.readAsDataURL(f);
+}
+
+function clearAll() {
+  ['f-name','f-eid','f-role','f-email','f-mob','f-emgname','f-emgno'].forEach(function(id) {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('f-dept').value = '';
+  document.getElementById('f-blood').value = '';
+  document.getElementById('f-vfrom').value = '';
+  photoSrc = null;
+  setImg('pf-pw', null);
+  update();
+}
+
+function printCard() {
+  var btn = document.querySelector('.btn-print');
+  btn.textContent = 'Generating…';
+  btn.disabled = true;
+
+  var opts = {
+    scale: 3.37,
+    useCORS: true,
+    allowTaint: true,
+    backgroundColor: '#ffffff',
+    logging: false
+  };
+
+  function dlCanvas(canvas, filename) {
+    var a = document.createElement('a');
+    a.download = filename;
+    a.href = canvas.toDataURL('image/png');
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  html2canvas(document.getElementById('c-pf'), opts).then(function(fc) {
+    dlCanvas(fc, 'STRANZ_ID_Front.png');
+    return html2canvas(document.getElementById('c-pb'), opts);
+  }).then(function(bc) {
+    setTimeout(function() { dlCanvas(bc, 'STRANZ_ID_Back.png'); }, 400);
+    btn.textContent = '🖨 Save Both Sides as PNG';
+    btn.disabled = false;
+  }).catch(function(err) {
+    console.error('Export failed', err);
+    btn.textContent = '🖨 Save Both Sides as PNG';
+    btn.disabled = false;
+    alert('Export failed — see console for details.');
+  });
+}
+
+update();
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest stranz-web --typescript --tailwind --eslint --app --src-dir --no-git --no-import-alias)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(Start-Sleep -Seconds 5)",
+      "Bash(Get-Content \"C:\\\\Users\\\\saran\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Apps-Strans-WEB\\\\421ebacc-247b-4d4e-8e32-689d8cc5e334\\\\tasks\\\\bu6j89g7u.output\")",
+      "Bash(npx next *)",
+      "Bash(Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Apps\\\\Strans WEB\\\\Website\\\\\" -Recurse -File | Where-Object {$_.Extension -match '\\\\.\\(html|htm\\)$'} | Select-Object FullName)",
+      "PowerShell(Get-ChildItem \"C:\\\\Apps\\\\Strans WEB\\\\Website\" | ForEach-Object { \"$\\($_.Name\\) \\(IsContainer: $\\($_.PSIsContainer\\)\\)\" })",
+      "Bash(Remove-Item -Recurse -Force \"C:/Apps/Strans WEB/stranz-web/.next\" -ErrorAction SilentlyContinue)",
+      "Bash(Remove-Item \"C:/Apps/Strans WEB/stranz-web/src/sections/DashboardSection.tsx\" -Force)",
+      "Bash(del \"C:\\\\Apps\\\\Strans WEB\\\\stranz-web\\\\src\\\\sections\\\\DashboardSection.tsx\")"
+    ]
+  }
+}
