@@ -159,6 +159,14 @@ export default function Footer() {
           <p className="text-xs text-white/30">
             © {new Date().getFullYear()} Stranz Logistics. All rights reserved.
           </p>
+          <a
+            href="https://www.spera.co.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-white/20 hover:text-white/40 transition-colors duration-200"
+          >
+            Built by Spera
+          </a>
           <p className="text-xs text-white/20 pr-44">
             Chennai, Tamil Nadu · Mon–Sat 9AM–7PM IST
           </p>
